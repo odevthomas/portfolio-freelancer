@@ -1,0 +1,26 @@
+.whatsapp-button {
+  background: #2085386a; /* Cor do botão */
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: wave 1s infinite; /* Animação de vibração */
+}
+
+@keyframes wave {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, -2px); }
+  50% { transform: translate(2px, 2px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0, 0); }
+}

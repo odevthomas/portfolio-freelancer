@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge" />
+
+    <!-- Estilos Externos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/react-floating-whatsapp@latest/dist/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Favicon e Ícones -->
+    <link id="favicon"
+          rel="icon"
+          type="image/svg+xml"
+          href="/logo.png" />
+    <link rel="apple-touch-icon"
+          href="/logo.png" />
+
+    <!-- Estilos internos -->
+    <link rel="stylesheet"
+          href="/src/styles/index.css" />
+    <link rel="stylesheet"
+          href="/src/styles/App.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet">
+
+    <title>Thomas Eduardo - Desenvolvedor Web | Frontend | Web Design</title>
+
+    <!-- Meta Tags e SEO -->
+    <meta name="description"
+          content="Desenvolvedor Web especializado em frontend, oferecendo soluções rápidas e inovadoras em São Paulo/SP." />
+    <meta name="keywords"
+          content="Desenvolvedor Web, frontend, JavaScript, React, Next.js, São Paulo, tecnologia" />
+    <meta name="author"
+          content="Thomas Eduardo" />
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+          content="Thomas Eduardo - Desenvolvedor Web | Frontend | Web Design" />
+    <meta property="og:description"
+          content="Desenvolvedor Web com foco em soluções modernas e eficientes em frontend." />
+    <meta property="og:image"
+          content="https://www.devthm.com.br/public/favicon.jpg" />
+    <meta property="og:url"
+          content="https://www.devthm.com.br" />
+    <meta property="og:type"
+          content="website" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card"
+          content="summary_large_image" />
+    <meta name="twitter:title"
+          content="Thomas Eduardo - Desenvolvedor Web | Frontend | Web Design" />
+    <meta name="twitter:description"
+          content="Transforme suas ideias em soluções digitais com Thomas Eduardo." />
+    <meta name="twitter:image"
+          content="https://www.devthm.com.br/public/favicon.jpg" />
+    <meta name="robots"
+          content="index, follow" />
+    <meta name="theme-color"
+          content="#7e6657" />
+    <link rel="canonical"
+          href="https://www.devthm.com.br" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NGBJKQN5');
+    </script>
+
+    <!-- Favicon dinâmico -->
+    <script>
+      function updateFavicon() {
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const favicon = document.getElementById('favicon');
+        favicon.href = darkModeMediaQuery.matches ? '/favicon-branco.svg' : '/logo.png';
+      }
+      updateFavicon();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+    </script>
+
+    <!-- Schema.org (Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Thomas Eduardo - Desenvolvedor Web | Frontend | Web Design",
+      "url": "https://www.devthm.com.br",
+      "logo": "https://www.devthm.com.br/public/favicon.jpg",
+      "sameAs": [
+        "https://www.facebook.com/casadevthm",
+        "https://twitter.com/casadevthm",
+        "https://www.instagram.com/casadevthm"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Maria Conceição Franco de Andrade, 209",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "13092-190",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55 19 3365-7011",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55 19 99891-7724",
+        "contactType": "WhatsApp"
+      }
+    }
+  </script>
+
+    <!-- Estilos para Transições e Efeitos -->
+    <style>
+      * {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .fade-in.loaded {
+        opacity: 1;
+      }
+
+      .btn {
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        transform: translateY(-3px);
+      }
+
+      .lazyload {
+        filter: blur(20px);
+        transition: filter 0.3s ease-out;
+      }
+
+      .lazyload.loaded {
+        filter: blur(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGBJKQN5"
+              height="0"
+              width="0"
+              style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-092NLM84P6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-092NLM84P6');
+    </script>
+
+    <div id="root"></div>
+    <script type="module"
+            src="/src/main.jsx"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- Automação do título da página -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const keywords = ["Thomas Eduardo", "Desenvolvedor Web", "Frontend", "Tecnologia", "São Paulo"];
+        let index = 0;
+        setInterval(function () {
+          document.title = keywords[index] + " - Thomas Eduardo";
+          index = (index + 1) % keywords.length;
+        }, 3000); // Troca o título a cada 3 segundos
+      });
+    </script>
+  </body>
+
+</html>

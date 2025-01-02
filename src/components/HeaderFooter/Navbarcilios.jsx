@@ -1,0 +1,168 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import logo from "/logo.png";
+import { Menu, X } from "lucide-react"; // Ícones de menu e close
+
+const navigation = [
+  { title: "Gil Barbosa", path: "/gilbarbosabeautycenter" },
+    { title: "Inicio", path: "/" },
+
+ 
+];
+
+const Header = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [showHeader, setShowHeader] = useState(false);  // Inicialmente o cabeçalho está oculto
+  const [menuOpen, setMenuOpen] = useState(false); // Controle do menu mobile
+  const location = useLocation();
+
+  // Effect para detectar a página ativa
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const activeItemIndex = navigation.findIndex(item => item.path === currentPath);
+    setActiveIndex(activeItemIndex !== -1 ? activeItemIndex : null);
+  }, [location]);
+
+  // Effect para mostrar ou esconder o cabeçalho ao rolar a página
+  useEffect(() => {
+    // Adiciona um pequeno atraso para mostrar o cabeçalho após o carregamento da página
+    const timer = setTimeout(() => {
+      setShowHeader(true); // Mostrar o cabeçalho após o atraso
+    }, 300);  // 300ms de atraso
+
+    return () => {
+      clearTimeout(timer); // Limpar o temporizador quando o componente for desmontado
+    };
+  }, []); // Este efeito só roda uma vez, após o carregamento inicial
+
+  // Effect para esconder/mostrar o cabeçalho ao rolar a página
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        // Rolando para baixo e passou de 50px, esconder o cabeçalho
+        setShowHeader(false);
+      } else if (window.scrollY < lastScrollY) {
+        // Rolando para cima, mostrar o cabeçalho
+        setShowHeader(true);
+      }
+
+      lastScrollY = window.scrollY; // Atualiza a última posição de rolagem
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <motion.header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${showHeader ? "opacity-100" : "opacity-0"}`}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, type: "spring", stiffness: 150 }}
+    >
+      <div className="relative w-full h-20 bg-gradient-to-b from-black to-transparent opacity-90">
+        <div className="flex justify-between items-center h-full px-6 lg:px-8">
+          <a href="/">
+            <img
+              src={logo}
+              alt="Logo Gil Barbosa"
+              className="h-14"
+              style={{ filter: "invert(1) brightness(2)" }}
+            />
+          </a>
+
+          {/* Menu Desktop */}
+          <nav className="hidden lg:flex lg:items-center space-x-6">
+            <ul className="flex space-x-6">
+              {navigation.map((item, idx) => (
+                <li key={idx}>
+                  {item.path.startsWith("#") ? (
+                    <ScrollLink
+                      to={item.path.substring(1)} // Remover o # ao passar para o ScrollLink
+                      smooth={true}
+                      duration={500}
+                      className={`text-white text-lg transition-all duration-300 relative
+                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      onClick={() => setActiveIndex(idx)}
+                      aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
+                    >
+                      {item.title}
+                    </ScrollLink>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={`text-white text-lg transition-all duration-300 relative
+                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      onClick={() => setActiveIndex(idx)}
+                      aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Menu Mobile */}
+          <div className="lg:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? (
+                <X size={32} className="text-white" />
+              ) : (
+                <Menu size={32} className="text-white" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Menu Mobile (quando menuOpen for true) */}
+      {menuOpen && (
+        <div className="lg:hidden bg-black text-white absolute top-2 left-0 w-full py-6 px-4 rounded-t-lg shadow-lg z-40">
+          <nav className="flex flex-col items-center space-y-6">
+            {navigation.map((item, idx) => (
+              <div key={idx}>
+                {item.path.startsWith("#") ? (
+                  <ScrollLink
+                    to={item.path.substring(1)} // Remover o # ao passar para o ScrollLink
+                    smooth={true}
+                    duration={500}
+                    className={`text-white text-lg transition-all duration-300 w-full text-center py-2 
+                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                    onClick={() => setActiveIndex(idx)}
+                  >
+                    {item.title}
+                  </ScrollLink>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className={`text-white text-lg transition-all duration-300 w-full text-center py-2
+                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                    onClick={() => setActiveIndex(idx)}
+                  >
+                    {item.title}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      )}
+    </motion.header>
+  );
+};
+
+export default Header;

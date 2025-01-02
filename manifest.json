@@ -1,0 +1,13 @@
+{
+  "name": "Minha Extensão",
+  "manifest_version": 3,
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/assets/styles.css",
+        "src/assets/locales/en/translation.json"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
