@@ -1,7 +1,19 @@
-import React from 'react';
-import { FaRegHeart } from 'react-icons/fa'; // Ícone de coração (agora mais discreto)
+import React, { useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
 
 const About = () => {
+  const [buttonText, setButtonText] = useState('Vamos Conversar'); // Estado para o texto do botão
+
+  // Função para mudar o texto ao passar o mouse
+  const handleMouseEnter = () => {
+    setButtonText('Opa, é só clicar que já te respondo!');
+  };
+
+  // Função para voltar o texto ao normal ao sair o mouse
+  const handleMouseLeave = () => {
+    setButtonText('Vamos Conversar');
+  };
+
   return (
     <section
       id="sobrenos"
@@ -13,28 +25,34 @@ const About = () => {
       }}
     >
       {/* Gradiente de sobreposição para melhorar a legibilidade do texto */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000090] to-[#00000080]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#00000099] to-[#00000080]"></div>
 
       {/* Conteúdo centralizado */}
-      <div className="relative z-10 w-full px-6 sm:px-12 py-10 flex flex-col sm:flex-row items-center justify-between">
+      <div className="relative z-10 w-full px-6 sm:px-12 py-10 flex flex-col sm:flex-row items-center justify-between gap-8">
         {/* Texto e descrição */}
         <div className="text-white sm:w-1/2 text-left sm:pr-8 mb-8 sm:mb-0 flex flex-col justify-center">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl mb-6 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
             Perfil Profissional
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Com mais de 2 anos de experiência na área de tecnologia, sou especializado no desenvolvimento de Landing Pages, Sites E-commerce e soluções web customizadas. Com sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js, meu foco é proporcionar soluções eficazes e inovadoras.
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
+            Com mais de <span className="font-bold text-[#e14216]">2 anos de experiência</span> na área de tecnologia, sou especializado no desenvolvimento de <span className="font-bold text-[#e14216]">Landing Pages, Sites E-commerce e soluções web customizadas </span>. Com sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js, meu foco é proporcionar soluções eficazes e inovadoras.
           </p>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
             Meu compromisso é com resultados de alto impacto e com a superação das suas expectativas. Estou pronto para ajudar a transformar suas ideias em realidade com a melhor tecnologia disponível.
           </p>
+
+          {/* Botão do WhatsApp com Tooltip (mensagem de hover) */}
           <a
-            href="https://wa.me/5519994585020" // Link do WhatsApp
+            href="https://wa.me/55199999942072?text=Oi,%20venho%20do%20seu%20site.%20Gostaria%20de%20mais%20informações!"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#333] text-white py-3 px-6 rounded-lg text-lg transition duration-300 sm:w-auto hover:bg-[#444] shadow-lg transform hover:scale-105"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="inline-block bg-[#e14216] text-white py-3 px-8 text-lg transition duration-300 sm:w-auto hover:bg-[#b23012] shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e14216] focus:ring-opacity-50 text-center rounded-md"
           >
-            Vamos Conversar
+            {/* Ícone do WhatsApp */}
+            <FaWhatsapp className="inline-block mr-2 text-2xl" />
+            {buttonText} {/* Texto que muda com hover */}
           </a>
         </div>
 
@@ -49,9 +67,9 @@ const About = () => {
       </div>
 
       {/* Gradiente adicional de sobreposição para melhorar a legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000090] to-transparent opacity-60"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#00000099] to-transparent opacity-60"></div>
 
-      {/* Animações de hover e estilo adicional */}
+      {/* Estilos para animação e efeitos adicionais */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&display=swap');
 

@@ -8,10 +8,10 @@ import logo from "/logo.png";
 import { Menu, X } from "lucide-react"; // Ícones de menu e close
 
 const navigation = [
-  { title: "Cilios", path: "/cilios" },
-  { title: "História e Tradição", path: "#sobrenos" },
-  { title: "Depoimentos", path: "#depoimentos" },
+  { title: "Me conhça", path: "#sobrenos" },
+  { title: "Clientes", path: "#clientes" },
   { title: "Endereço", path: "#endereco" },
+  { title: "Login de Cliente", path: "/login" }, // Nova entrada para Login
 ];
 
 const Header = () => {
@@ -90,8 +90,8 @@ const Header = () => {
                       smooth={true}
                       duration={500}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                        hover:text-[##d63f17] hover:scale-110 hover:shadow-lg focus:text-[##d63f17] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
                       onClick={() => setActiveIndex(idx)}
                       aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
                     >
@@ -101,8 +101,8 @@ const Header = () => {
                     <Link
                       to={item.path}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                        hover:text-[##d63f17] hover:scale-110 hover:shadow-lg focus:text-[##d63f17] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
                       onClick={() => setActiveIndex(idx)}
                       aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
                     >
@@ -139,8 +139,8 @@ const Header = () => {
                     smooth={true}
                     duration={500}
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2 
-                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      hover:bg-[##d63f17] hover:text-black rounded-lg focus:bg-[##d63f17] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}
@@ -149,8 +149,8 @@ const Header = () => {
                   <Link
                     to={item.path}
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2
-                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      hover:bg-[##d63f17] hover:text-black rounded-lg focus:bg-[##d63f17] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}

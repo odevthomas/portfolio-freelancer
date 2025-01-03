@@ -1,19 +1,23 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { motion } from "framer-motion";
 
 // Componente de Habilidade
 const SkillCard = ({ imgSrc, title }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-4  duration-300 hover:scale-105 relative">
-      <div className="flex items-center justify-center w-24 h-24 mb-2   duration-300">
+    <div className="flex flex-col items-center justify-center p-6 hover:scale-105 transition-all duration-300 transform hover:shadow-xl">
+      <motion.div
+        className="w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg transform transition-all duration-300"
+        whileHover={{ scale: 1.1 }}
+      >
         <img
           alt={title}
-          className="w-50 h-50 object-cover"
+          className="w-full h-full object-cover"
           src={imgSrc}
         />
-      </div>
-      <h3 className="text-lg text-white font-semibold text-center">{title}</h3>
+      </motion.div>
+      <h3 className="text-lg text-white font-semibold text-center mt-3">{title}</h3>
     </div>
   );
 };
@@ -34,14 +38,24 @@ const SkillsCarousel = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#171717] to-[#171717] text-white">
+    <section className="py-16 bg-gradient-to-b from-[#121212] to-[#1e1e1e] text-white">
       <div className="mx-auto max-w-[1340px] px-4 sm:px-6 lg:px-8 text-center relative">
-        <h3 className="font-semibold text-3xl sm:text-4xl md:text-5xl text-gray-100 mb-6">
+        <motion.h3
+          className="font-semibold text-3xl sm:text-4xl md:text-5xl text-gray-100 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           Explore minhas habilidades!
-        </h3>
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8">
+        </motion.h3>
+        <motion.p
+          className="text-base sm:text-lg md:text-xl text-gray-300 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           Com foco em desenvolvimento web frontend, estou preparado para elevar seus projetos a um novo nível. Vamos juntos transformar suas ideias em realidade digital de forma criativa e inovadora.
-        </p>
+        </motion.p>
 
         <Swiper
           spaceBetween={30}

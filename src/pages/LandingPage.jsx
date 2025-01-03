@@ -22,29 +22,29 @@ const LandingPage = () => {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, ease: 'easeInOut' }} // Transição suave
     >
-      {/* Imagem de fundo */}
+      {/* Imagem de fundo futurista */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/cta4.jpg')" }}
+        style={{ backgroundImage: "url('/circuit-background.jpg')" }} // Altere para sua imagem de fundo futurista
         aria-label="Imagem de fundo"
       >
-        <div className="flex items-center justify-center w-full h-full bg-black bg-opacity-40">
-          <div className="text-center text-white px-6 sm:px-12 md:px-24">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-wide uppercase leading-tight">
+        <div className="flex items-center justify-center w-full h-full bg-black bg-opacity-70">
+          <div className="text-center text-white px-8 sm:px-12 md:px-24">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-wide leading-tight">
               Descubra a Excelência da Beleza
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl mt-4 mb-8 font-light leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl mt-4 mb-8 font-light leading-relaxed">
               Tratamentos exclusivos por profissionais experientes. Agende sua visita e experimente o melhor em estética e bem-estar.
             </p>
 
             <motion.button
               aria-label="Conheça nossos serviços"
-              className="inline-flex items-center justify-center gap-x-3 py-3 px-6 text-lg md:text-xl bg-[#F1A7B6] text-white hover-bg-[#A04C5C] rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out uppercase"
+              className="inline-flex items-center justify-center gap-x-3 py-3 px-8 text-lg md:text-xl bg-[#F1A7B6] text-white hover:bg-[#A04C5C] rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out uppercase"
               onClick={handleClick}
               whileHover={{ scale: 1.05 }} // Efeito de escala ao passar o mouse
               whileTap={{ scale: 0.95 }} // Efeito de escala ao clicar
             >
-  Conheça Nossos Serviços
+              Conheça Nossos Serviços
             </motion.button>
           </div>
         </div>
@@ -60,7 +60,7 @@ const LandingPage = () => {
           whileHover={{ y: -5 }} // Efeito de movimento ao passar o mouse
           transition={{ duration: 0.2 }}
         >
-          <FaInstagram size={28} className="text-white hover:text-[#f46d40] transition-all duration-150 ease-in-out" />
+          <FaInstagram size={30} className="text-white hover:text-[#f46d40] transition-all duration-150 ease-in-out" />
         </motion.a>
         <motion.a
           href="https://www.facebook.com/ThomasEduardo"
@@ -70,7 +70,7 @@ const LandingPage = () => {
           whileHover={{ y: -5 }} // Efeito de movimento ao passar o mouse
           transition={{ duration: 0.2 }}
         >
-          <FaFacebook size={28} className="text-white hover:text-[#3b5998] transition-all duration-150 ease-in-out" />
+          <FaFacebook size={30} className="text-white hover:text-[#3b5998] transition-all duration-150 ease-in-out" />
         </motion.a>
       </div>
     </motion.div>

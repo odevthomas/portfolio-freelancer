@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa"; // Ícone do WhatsApp
 
 const CallToAction = () => {
+  const [buttonText, setButtonText] = useState("Clique para iniciar essa jornada de sucesso!"); // Texto inicial do botão
+
+  // Função para mudar o texto ao passar o mouse
+  const handleMouseEnter = () => {
+    setButtonText("Opa, é só clicar que já te respondo!");
+  };
+
+  // Função para voltar o texto ao normal ao sair o mouse
+  const handleMouseLeave = () => {
+    setButtonText("Clique para iniciar essa jornada de sucesso!");
+  };
+
   return (
     <section
       className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-0 sm:px-6 py-24"
       style={{
-        backgroundImage: 'url("/imagens fundos/cta.jpg")', // Caminho para a imagem do salão
+        backgroundImage: 'url("/imagens fundos/cta.jpg")', // Caminho para a imagem do fundo
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
@@ -33,9 +46,13 @@ const CallToAction = () => {
           href="https://wa.me/5519994585020" // Link do WhatsApp
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#b80e0e] hover:bg-[#000] text-white font-semibold py-3 px-6 rounded-lg transition duration-300 mt-6 sm:mt-8 lg:mt-12 max-w-xs"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="inline-block relative bg-[#e14216] text-white py-3 px-8 text-lg font-semibold transition duration-300 sm:w-auto hover:bg-[#b23012] shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e14216] focus:ring-opacity-50 text-center rounded-md"
         >
-          Clique para iniciar essa jornada de sucesso!
+          {/* Ícone do WhatsApp */}
+          <FaWhatsapp className="inline-block mr-2 text-2xl" />
+          {buttonText} {/* Texto que muda com hover */}
         </a>
       </div>
 
@@ -49,6 +66,10 @@ const CallToAction = () => {
 
         p {
           font-family: 'Raleway', sans-serif;
+        }
+
+        .hover\:scale-105:hover {
+          transform: scale(1.05);
         }
       `}</style>
     </section>
