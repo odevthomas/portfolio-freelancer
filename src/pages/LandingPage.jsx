@@ -115,7 +115,7 @@ const MyLinks = () => {
       {/* Portfolio Link Widget */}
 <div className="widget widget4 p-4 mb-4 bg-[#000] hover:bg-[#dc000043] text-white   hover:text-[#dc0000] shadow-lg rounded-lg">
   <Link to="/ThomasEduardo" className="meu-site flex items-center space-x-4">
-    <img src="/1.png" alt="website" className="w-10 h-10" />
+    <img src="/logo.png" alt="website" className="w-10 h-10" />
     <h1 className="text-lg">Visite meu Portfolio</h1>
   </Link>
 </div>
