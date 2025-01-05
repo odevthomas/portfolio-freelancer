@@ -1,15 +1,34 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+// Componente Modal para Zoom da Imagem
+const ImageModal = ({ isOpen, image, onClose }) => {
+  return (
+    isOpen && (
+      <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <motion.img
+          src={image}
+          alt="Zoomed project"
+          className="max-w-full max-h-full object-contain cursor-pointer"
+          onClick={onClose}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
+    )
+  );
+};
+
 const ProjectSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const projectImages = [
     "/Projetos/gilbarbosa.png",
-    "/Projetos/45.png",
-    "/Projetos/gilbarbosa.png",
-    "/Projetos/gilbarbosa.png",
-    "/Projetos/gilbarbosa.png",
+    "/Projetos/lellit.png",
+    "/Projetos/slgdigital.png",
+   
   ];
 
   const projectDetails = [
@@ -17,7 +36,7 @@ const ProjectSection = () => {
       title: "Gil Barbosa Beauty Center",
       description:
         "Landing page focada em conversão, com design otimizado para a experiência do usuário. Criamos uma solução visualmente atrativa que destaca os serviços de beleza, facilitando a navegação e aumentando a taxa de conversão.",
-      projectLink: "https://gil-barbosa-2024.vercel.app/gilbarbosabeautycenter",
+      projectLink: "https://gilbarbosabeauty.com.br",
     },
     {
       title: "Casa L'Elit",
@@ -70,7 +89,7 @@ const ProjectSection = () => {
         <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:gap-12 mb-8">
           {/* Imagem do projeto */}
           <motion.div
-            className="flex-1 w-full sm:w-2/3 lg:w-2/3 transition duration-500 ease-in-out transform hover:scale-105"
+            className="flex-1 w-full transition duration-500 ease-in-out"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -78,7 +97,8 @@ const ProjectSection = () => {
             <img
               src={projectImages[currentIndex]}
               alt={`Imagem do projeto ${currentIndex}`}
-              className="w-full h-auto sm:h-[500px] lg:h-[500px] object-contain rounded-lg  transition-all duration-300 hover:brightness-75"
+              className="w-full h-auto object-cover rounded-lg shadow-lg cursor-pointer transition-all duration-300 hover:brightness-75"
+              onClick={() => setIsModalOpen(true)} // Abre o modal ao clicar
             />
           </motion.div>
 
@@ -112,7 +132,7 @@ const ProjectSection = () => {
                 href={projectDetails[currentIndex].projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#dc0000] hover:bg-[#d20c0c] text-white py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-110 "
+                className="inline-block bg-[#dc0000] hover:bg-[#d20c0c] text-white py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-110"
               >
                 Ver Projeto
               </a>
@@ -135,6 +155,13 @@ const ProjectSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal para imagem em zoom */}
+      <ImageModal
+        isOpen={isModalOpen}
+        image={projectImages[currentIndex]}
+        onClose={() => setIsModalOpen(false)}
+      />
     </motion.section>
   );
 };
