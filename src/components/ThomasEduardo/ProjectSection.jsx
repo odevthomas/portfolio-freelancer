@@ -5,12 +5,11 @@ import { motion } from "framer-motion";
 const ImageModal = ({ isOpen, image, onClose }) => {
   return (
     isOpen && (
-      <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={onClose}>
         <motion.img
           src={image}
           alt="Zoomed project"
           className="max-w-full max-h-full object-contain cursor-pointer"
-          onClick={onClose}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -28,7 +27,6 @@ const ProjectSection = () => {
     "/Projetos/gilbarbosa.png",
     "/Projetos/lellit.png",
     "/Projetos/slgdigital.png",
-   
   ];
 
   const projectDetails = [
@@ -141,12 +139,12 @@ const ProjectSection = () => {
         </div>
 
         {/* Navegação com bolinhas abaixo da imagem */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-2 mt-8"> {/* Diminuí o espaço entre as bolinhas */}
           {projectImages.map((_, index) => (
             <motion.div
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full cursor-pointer transition-all duration-300 transform ${
+              className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 transform ${
                 currentIndex === index ? "bg-[#dc0000]" : "bg-gray-400"
               } hover:bg-[#dc0000]`}
               whileHover={{ scale: 1.3 }}
