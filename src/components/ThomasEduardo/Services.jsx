@@ -2,36 +2,34 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 
+// Certifique-se de importar o CSS do Swiper
+import "swiper/swiper-bundle.css";
+
 const Services = () => {
   const servicesItems = [
     {
-      title: "Landing Pages",
-      description: "Criação de Landing Pages otimizadas para conversão e design atrativo.",
-      image: "/Criativos/landing-page.jpg",
+      image: "/Services/landing-page.png",
     },
     {
-      title: "Sites",
-      description: "Desenvolvimento de sites responsivos e funcionais, com foco na experiência do usuário.",
-      image: "/Criativos/site.jpg",
+      image: "/Services/site.png",
     },
     {
-      title: "E-commerce",
-      description: "Desenvolvimento de lojas virtuais com integração de pagamento e gestão de produtos.",
-      image: "/Criativos/lojasvirtuais.jpg",
+      image: "/Services/lojasvirtuais.png",
     },
     {
-      title: "Otimização de Sites",
-      description: "Melhoria do desempenho e SEO de sites, visando melhor ranqueamento e velocidade.",
-      image: "/Criativos/otimizacao.jpg",
+      image: "/Services/otimizacao.png",
     },
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#121212] to-[#1e1e1e] text-white">
+    <section
+      id="servicos"
+      className="py-6 bg-gradient-to-b from-[#121212] to-[#1e1e1e] text-white"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-3">
           <motion.h2
-            className="text-4xl font-bold text-white mb-4"
+            className="text-4xl font-bold text-white mb-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -44,7 +42,8 @@ const Services = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            De Landing Pages a E-commerce, temos a solução perfeita para sua empresa crescer na web.
+            De Landing Pages a E-commerce, temos a solução perfeita para sua
+            empresa crescer na web.
           </motion.p>
         </div>
 
@@ -53,8 +52,8 @@ const Services = () => {
           spaceBetween={30}
           slidesPerView={1}
           loop={true}
-          pagination={{ clickable: true }}
-          navigation={false}
+          pagination={{ clickable: true }} // Ativa a navegação por bolinhas
+          navigation // Ativa a navegação (caso queira adicionar botões de navegação)
           breakpoints={{
             640: {
               slidesPerView: 1,
@@ -67,48 +66,25 @@ const Services = () => {
           {servicesItems.map((item, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                className="flex flex-col sm:flex-row items-center justify-between gap-8 p-6 bg-[#1a1a1a] rounded-lg shadow-lg transform transition duration-500 ease-in-out hover:scale-105"
+                className="flex justify-center p-6 transition duration-500 ease-in-out hover:scale-105"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                {/* Imagem à esquerda */}
-                <motion.div
-                  className="w-full sm:w-1/2"
+                {/* Imagem do serviço */}
+                <motion.img
+                  src={item.image}
+                  alt={`Serviço ${index + 1}`}
+                  className="object-contain rounded-lg transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-94 sm:h-80 object-cover rounded-lg shadow-md transition-all duration-300"
-                  />
-                </motion.div>
-                {/* Texto à direita */}
-                <div className="w-full sm:w-1/2 text-left mt-6 sm:mt-0">
-                  <motion.h3
-                    className="text-2xl font-semibold text-[#f30d0d] mb-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    {item.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-300 text-lg"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                  >
-                    {item.description}
-                  </motion.p>
-                </div>
+                />
               </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Bolinhas de navegação */}
+        {/* Bolinhas de navegação personalizadas (se necessário) */}
         <div className="flex justify-center gap-4 mt-8">
           {servicesItems.map((_, index) => (
             <motion.div

@@ -16,4 +16,14 @@ export default defineConfig({
       '@': '/src', // Alias para facilitar importações
     },
   },
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: `
+          @import "slick-carousel/slick/slick.css";
+          @import "slick-carousel/slick/slick-theme.css";
+        `,
+      },
+    },
+  },
 });

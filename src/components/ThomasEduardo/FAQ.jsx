@@ -40,9 +40,13 @@ const FAQ = () => {
       id="faq"
       className="relative w-full bg-cover bg-center bg-fixed py-16 sm:py-24"
       style={{
-        backgroundImage: 'url("/imagens fundos/cta-about.jpg")',
+        backgroundImage: 'url("/bg-arronw.png")',
       }}
     >
+
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#00000000]"></div>
+
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-white mb-12">
           Dúvidas Frequentes sobre o Desenvolvimento do Seu Site

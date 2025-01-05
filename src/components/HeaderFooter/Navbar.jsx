@@ -5,60 +5,37 @@ import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "/logo.png";
-import { Menu, X } from "lucide-react"; // Ícones de menu e close
+import { Menu, X } from "lucide-react";
 
 const navigation = [
-  { title: "Me conhça", path: "#sobrenos" },
-  { title: "Clientes", path: "#clientes" },
-  { title: "Endereço", path: "#endereco" },
-  { title: "Login de Cliente", path: "/login" }, // Nova entrada para Login
+  { title: "Me conheça", path: "#sobrenos" },
+  { title: "Serviços", path: "#servicos" },
+  { title: "Últimos Projetos", path: "#projetos" },
+  { title: "Dúvidas", path: "#faq" },
+  { title: "Login de Cliente", path: "/login" },
 ];
 
 const Header = () => {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [showHeader, setShowHeader] = useState(false);  // Inicialmente o cabeçalho está oculto
-  const [menuOpen, setMenuOpen] = useState(false); // Controle do menu mobile
+  const [showHeader, setShowHeader] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Effect para detectar a página ativa
   useEffect(() => {
     const currentPath = location.pathname;
     const activeItemIndex = navigation.findIndex(item => item.path === currentPath);
     setActiveIndex(activeItemIndex !== -1 ? activeItemIndex : null);
   }, [location]);
 
-  // Effect para mostrar ou esconder o cabeçalho ao rolar a página
-  useEffect(() => {
-    // Adiciona um pequeno atraso para mostrar o cabeçalho após o carregamento da página
-    const timer = setTimeout(() => {
-      setShowHeader(true); // Mostrar o cabeçalho após o atraso
-    }, 300);  // 300ms de atraso
-
-    return () => {
-      clearTimeout(timer); // Limpar o temporizador quando o componente for desmontado
-    };
-  }, []); // Este efeito só roda uma vez, após o carregamento inicial
-
-  // Effect para esconder/mostrar o cabeçalho ao rolar a página
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        // Rolando para baixo e passou de 50px, esconder o cabeçalho
-        setShowHeader(false);
-      } else if (window.scrollY < lastScrollY) {
-        // Rolando para cima, mostrar o cabeçalho
-        setShowHeader(true);
-      }
-
-      lastScrollY = window.scrollY; // Atualiza a última posição de rolagem
+      setShowHeader(window.scrollY < lastScrollY || window.scrollY < 50);
+      lastScrollY = window.scrollY;
     };
-
+    
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -68,13 +45,14 @@ const Header = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, type: "spring", stiffness: 150 }}
     >
-      <div className="relative w-full h-20 bg-gradient-to-b from-black to-transparent opacity-90">
+      <div className="relative w-full h-16 bg-gradient-to-b from-black to-transparent opacity-90 z-30">
         <div className="flex justify-between items-center h-full px-6 lg:px-8">
-          <a href="/">
+          {/* Logo */}
+          <a href="/" aria-label="Ir para a página inicial">
             <img
               src={logo}
               alt="Logo Gil Barbosa"
-              className="h-14"
+              className="h-10"
               style={{ filter: "invert(1) brightness(2)" }}
             />
           </a>
@@ -86,14 +64,14 @@ const Header = () => {
                 <li key={idx}>
                   {item.path.startsWith("#") ? (
                     <ScrollLink
-                      to={item.path.substring(1)} // Remover o # ao passar para o ScrollLink
+                      to={item.path.substring(1)}
                       smooth={true}
                       duration={500}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[##d63f17] hover:scale-110 hover:shadow-lg focus:text-[##d63f17] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
+                        hover:text-[#d63f17] hover:scale-110 hover:shadow-lg focus:text-[#d63f17] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
                       onClick={() => setActiveIndex(idx)}
-                      aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
+                      aria-current={activeIndex === idx ? "page" : undefined}
                     >
                       {item.title}
                     </ScrollLink>
@@ -101,10 +79,10 @@ const Header = () => {
                     <Link
                       to={item.path}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[##d63f17] hover:scale-110 hover:shadow-lg focus:text-[##d63f17] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
+                        hover:text-[#d63f17] hover:scale-110 hover:shadow-lg focus:text-[#d63f17] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
                       onClick={() => setActiveIndex(idx)}
-                      aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
+                      aria-current={activeIndex === idx ? "page" : undefined}
                     >
                       {item.title}
                     </Link>
@@ -114,9 +92,9 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Menu Mobile */}
+          {/* Ícone de Menu para Mobile */}
           <div className="lg:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
+            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">
               {menuOpen ? (
                 <X size={32} className="text-white" />
               ) : (
@@ -127,20 +105,20 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Menu Mobile (quando menuOpen for true) */}
+      {/* Menu Mobile */}
       {menuOpen && (
-        <div className="lg:hidden bg-black text-white absolute top-2 left-0 w-full py-6 px-4 rounded-t-lg shadow-lg z-40">
+        <div className="lg:hidden bg-black text-white absolute top-16 left-0 w-full py-6 px-4 rounded-t-lg shadow-lg z-40">
           <nav className="flex flex-col items-center space-y-6">
             {navigation.map((item, idx) => (
               <div key={idx}>
                 {item.path.startsWith("#") ? (
                   <ScrollLink
-                    to={item.path.substring(1)} // Remover o # ao passar para o ScrollLink
+                    to={item.path.substring(1)}
                     smooth={true}
                     duration={500}
-                    className={`text-white text-lg transition-all duration-300 w-full text-center py-2 
-                      hover:bg-[##d63f17] hover:text-black rounded-lg focus:bg-[##d63f17] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
+                    className={`text-white text-lg transition-all duration-300 w-full text-center py-2
+                      hover:bg-[#d63f17] hover:text-black rounded-lg focus:bg-[#d63f17] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}
@@ -149,8 +127,8 @@ const Header = () => {
                   <Link
                     to={item.path}
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2
-                      hover:bg-[##d63f17] hover:text-black rounded-lg focus:bg-[##d63f17] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[##d63f17]" : ""}`}
+                      hover:bg-[#d63f17] hover:text-black rounded-lg focus:bg-[#d63f17] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}

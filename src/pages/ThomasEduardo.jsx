@@ -10,10 +10,10 @@ import Services from "../components/ThomasEduardo/Services";
 import About from "../components/ThomasEduardo/About";
 import SkillsCarousel from "../components/ThomasEduardo/SkillsCarousel";
 import ProjectSection from "../components/ThomasEduardo/ProjectSection"; 
-import CallToAction from "../components/ThomasEduardo/CallToAction";
+import SeçãoAbordagemÚnica  from "../components/ThomasEduardo/SeçãoAbordagemÚnica"; 
+import Clientes from "../components/ThomasEduardo/Clientes";
 import Depoimentos from "../components/ThomasEduardo/Depoimentos";
-import UniqueApproachSection from "../components/ThomasEduardo/UniqueApproachSection"; 
-import Assessoria from "../components/ThomasEduardo/Acessoria";
+import CTA from "../components/ThomasEduardo/CTA";
 import FAQ from "../components/ThomasEduardo/FAQ";
 
 // Componentes auxiliares
@@ -23,19 +23,46 @@ import CookieConsent from "../components/Ferramentas/CookieConsent";
 const Home = () => {
   return (
     <>
+      {/* Navbar */}
       <Navbar />
+
+      {/* Seção Hero */}
       <Hero />
+
+      {/* Seção Serviços */}
       <Services />
+
+      {/* Seção Sobre */}
       <About />
+
+      {/* Seção Habilidades */}
       <SkillsCarousel />
-      <CallToAction />
-     <Assessoria />
+
+      {/* Seção Abordagem Única */}
+      <SeçãoAbordagemÚnica  />
+
+      {/* Seção de Projetos */}
       <ProjectSection />
-      <UniqueApproachSection />
+
+      {/* Seção Clientes */}
+      <Clientes />
+
+      {/* Call to Action (CTA) */}
+      <CTA />
+
+      {/* Seção Depoimentos */}
       <Depoimentos />
+
+      {/* Seção FAQ */}
       <FAQ />
+
+      {/* Footer */}
       <Footer />
+
+      {/* Consentimento de Cookies */}
       <CookieConsent />
+
+      {/* Botão WhatsApp */}
       <WhatsAppButton />
     </>
   );

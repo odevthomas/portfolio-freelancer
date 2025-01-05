@@ -19,49 +19,39 @@ const About = () => {
       id="sobrenos"
       className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
       style={{
-        backgroundImage: 'url("/imagens fundos/cta-about.jpg")', // Caminho para a imagem de fundo
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
+        backgroundImage: "url('/bg-fundo-about.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
       }}
     >
       {/* Gradiente de sobreposição para melhorar a legibilidade do texto */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000099] to-[#00000080]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#00000000]"></div>
 
       {/* Conteúdo centralizado */}
-      <div className="relative z-10 w-full px-6 sm:px-12 py-10 flex flex-col sm:flex-row items-center justify-between gap-8">
+      <div className="relative z-10 w-full max-w-6xl px-6 sm:px-12 py-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Texto e descrição */}
-        <div className="text-white sm:w-1/2 text-left sm:pr-8 mb-8 sm:mb-0 flex flex-col justify-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
+        <div className="text-white w-full lg:w-1/2 text-left flex flex-col justify-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-1 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
             Perfil Profissional
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Com mais de <span className="font-bold text-[#e14216]">2 anos de experiência</span> na área de tecnologia, sou especializado no desenvolvimento de <span className="font-bold text-[#e14216]">Landing Pages, Sites E-commerce e soluções web customizadas </span>. Com sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js, meu foco é proporcionar soluções eficazes e inovadoras.
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-1 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
+            Com mais de <span className="font-bold text-[#e14216]">2 anos de experiência</span> na área de tecnologia, sou especializado no desenvolvimento de <span className="font-bold text-[#e14216]">Landing Pages, Sites E-commerce e soluções web customizadas</span>. Com sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js, meu foco é proporcionar soluções eficazes e inovadoras.
           </p>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
             Meu compromisso é com resultados de alto impacto e com a superação das suas expectativas. Estou pronto para ajudar a transformar suas ideias em realidade com a melhor tecnologia disponível.
           </p>
-
-          {/* Botão do WhatsApp com Tooltip (mensagem de hover) */}
-          <a
-            href="https://wa.me/55199999942072?text=Oi,%20venho%20do%20seu%20site.%20Gostaria%20de%20mais%20informações!"
-            target="_blank"
-            rel="noopener noreferrer"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="inline-block bg-[#e14216] text-white py-3 px-8 text-lg transition duration-300 sm:w-auto hover:bg-[#b23012] shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e14216] focus:ring-opacity-50 text-center rounded-md"
-          >
-            {/* Ícone do WhatsApp */}
-            <FaWhatsapp className="inline-block mr-2 text-2xl" />
-            {buttonText} {/* Texto que muda com hover */}
-          </a>
         </div>
 
-        {/* Imagem ao lado do texto */}
-        <div className="relative sm:w-1/2 w-full mt-8 sm:mt-0 flex justify-center">
-          <img 
-            src="/imagens fundos/img5.jpg" 
-            alt="Profissional Confiante" 
-            className="rounded-lg shadow-xl w-full h-auto object-cover"
+        {/* Imagem em destaque */}
+        <div className="relative w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+          <img
+            src="/Criativos/seis-indicadores-1.png"
+            alt="Profissional demonstrando confiança em um ambiente de trabalho moderno, em um estilo profissional e sério."
+            className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform hover:scale-105"
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+            }}
           />
         </div>
       </div>

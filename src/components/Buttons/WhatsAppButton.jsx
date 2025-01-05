@@ -3,8 +3,8 @@ import './WhatsAppButton.css'; // Importando o arquivo de estilos
 
 const WhatsAppButton = () => {
   const whatsappInfo = {
-    phoneNumber: "5519994585020",
-    chatMessage: "Olá, Cheguei através do site e gostaria de agendar um horário, por favor.",
+    phoneNumber: "551999042072",
+    chatMessage: "Oi, Thomas! Cheguei pelo site, podemos conversar um pouco?",
     buttonColor: "#208537", // Cor do botão
   };
 

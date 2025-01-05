@@ -18,9 +18,9 @@ const Hero = () => {
 
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center bg-fixed flex items-center justify-center"
+      className="relative w-full h-screen bg-cover bg-center bg-fixed flex items-center justify-start px-6 py-8 md:py-12 lg:py-16 text-white z-10"
       style={{
-        backgroundImage: 'url("/imagens fundos/img5.jpeg")', // Caminho para a imagem do fundo
+        backgroundImage: 'url("/banner-devthm2.png")', // Caminho para a imagem do fundo
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
@@ -28,8 +28,8 @@ const Hero = () => {
       {/* Sombreado na imagem de fundo */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#000000d4] to-transparent"></div>
 
-      <div className="relative flex flex-col items-center justify-center w-full px-6 py-8 md:py-12 lg:py-16 text-white z-10">
-        <div className="flex flex-col justify-center items-center text-center mb-8 lg:mb-0">
+      <div className="relative w-full md:w-2/3 lg:w-1/2 px-6 py-8 md:py-12 lg:py-16 z-10">
+        <div className="flex flex-col justify-start text-left mb-8 lg:mb-0">
           {/* Título com animação */}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-wide text-white drop-shadow-2xl mb-4"
@@ -37,7 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            Desenvolvedor Frontend | Web | Design
+             Desenvolvedor Web
           </motion.h1>
 
           {/* Descrição com animação */}
@@ -58,16 +58,15 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
           >
             <a
-              href={whatsappLink}
+              href="https://wa.me/551999042072"
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="inline-block relative bg-[#e14216] text-white py-3 px-8 text-lg font-semibold transition duration-300 hover:bg-[#b23012] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#e14216] focus:ring-opacity-50 hover:scale-105 shadow-lg rounded-md sm:py-3 sm:px-8 sm:text-xl"
+              className="inline-block bg-[#dc0000] text-white py-3 px-6 text-lg sm:text-xl transition duration-300 sm:w-auto hover:bg-[#b23012] shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#dc0000] focus:ring-opacity-50 text-center rounded-full"
             >
-              {/* Ícone do WhatsApp */}
               <FaWhatsapp className="inline-block mr-2 text-2xl" />
-              {buttonText} {/* Texto que muda com hover */}
+              {buttonText}
             </a>
           </motion.div>
         </div>
