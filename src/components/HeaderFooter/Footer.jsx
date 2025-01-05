@@ -16,18 +16,18 @@ const Footer = () => {
             </div>
             <div className="flex items-center mb-3">
               <span className="text-sm sm:text-base text-[#D1D1D1]">
-                Fale Comigo: 
+                Fale Comigo:
                 <a
-                  href="https://wa.me/5519994585020?text=Olá%20Thomas%2C%20vim%20pelo%20seu%20site."
+                  href="https://wa.me/55199042072?text=Olá%20Thomas%2C%20vim%20pelo%20seu%20site."
                   className="text-[#8E8E8E] hover:text-[#b80e0e] transition duration-300 ml-1"
                 >
-                  Whatsapp
+                  WhatsApp
                 </a>
               </span>
             </div>
             <div className="flex items-center">
               <span className="text-sm sm:text-base text-[#D1D1D1]">
-                Baixe este portfólio em PDF: 
+                Baixe este portfólio em PDF:
                 <a
                   href="/path/to/portfolio.pdf"
                   className="text-[#8E8E8E] hover:text-[#b80e0e] transition duration-300 ml-1"
@@ -80,7 +80,7 @@ const Footer = () => {
           <div className="w-full sm:w-1/2 lg:w-1/4 flex justify-center">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="bg-[#b80e0e] text-white py-2 px-6 rounded-full hover:bg-[#b80e0e] transition duration-300 mt-4 sm:mt-0"
+              className="bg-[#b80e0e] text-white py-2 px-6 rounded-full hover:bg-[#a60c0c] transition duration-300 mt-4 sm:mt-0"
             >
               Voltar ao Topo
             </button>
@@ -91,7 +91,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center mt-8 text-sm text-[#8E8E8E]">
-        © {new Date().getFullYear()} Thomas Eduardo . Todos os direitos reservados.
+        © {new Date().getFullYear()} Thomas Eduardo. Todos os direitos reservados.
       </div>
     </footer>
   );

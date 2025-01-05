@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
 
-const CTA = () => {
+const SeçãoAbordagemÚnica = () => {
   const [buttonText, setButtonText] = useState('Fale comigo no WhatsApp'); // Estado para o texto do botão
 
   const handleMouseEnter = () => {
@@ -11,6 +11,9 @@ const CTA = () => {
   const handleMouseLeave = () => {
     setButtonText('Vamos Conversar');
   };
+
+  const message = "Olá, gostaria de saber mais sobre os serviços!"; // Mensagem pré-definida
+  const whatsappNumber = "551999042072"; 
 
   return (
     <section
@@ -28,19 +31,23 @@ const CTA = () => {
         {/* Texto e descrição */}
         <div className="text-white w-full lg:w-1/2 text-left flex flex-col justify-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-1 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
-            Presença Online?
+            Transformando Ideias em Experiências
           </h2>
-          <p className="text-base sm:text-lg md:text-xl mt-6 lg:text-2xl mb-1 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Se você está buscando elevar sua presença online com uma abordagem criativa e inovadora, estou aqui para te ajudar.
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-6 mb-1 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
+            Minha abordagem inovadora no design de interfaces digitais combina
+            criatividade com praticidade, criando soluções que não apenas encantam,
+            mas também oferecem uma experiência fluida e intuitiva.
           </p>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Vamos trabalhar juntos para destacar suas habilidades e conquistar novas oportunidades no mundo digital.
+            Cada projeto é uma oportunidade de reinventar a forma como as pessoas
+            interagem com a tecnologia, convertendo ideias abstratas em experiências
+            reais que marcam e conquistam os usuários.
           </p>
 
-          {/* Botão do WhatsApp abaixo do texto */}
+          {/* Botão do WhatsApp */}
           <div className="mt-6">
             <a
-              href="https://wa.me/551999042072"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={handleMouseEnter}
@@ -56,7 +63,7 @@ const CTA = () => {
         {/* Imagem em destaque */}
         <div className="relative w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
           <img
-            src="/Criativos/seis-indicadores.png" 
+            src="/computer.png"
             alt="Profissional demonstrando confiança em um ambiente de trabalho moderno."
             className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform hover:scale-105"
             style={{
@@ -88,4 +95,4 @@ const CTA = () => {
   );
 };
 
-export default CTA;
+export default SeçãoAbordagemÚnica;
