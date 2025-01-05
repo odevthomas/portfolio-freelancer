@@ -20,7 +20,7 @@ const WhatsAppButton = () => {
         className="whatsapp-button" // Classe para aplicar o estilo
       >
         <img
-          src="/icons/wpp-icon.svg" // Substitua pelo caminho do ícone do WhatsApp
+          src="/icons/whatsapp.svg" // Substitua pelo caminho do ícone do WhatsApp
           alt="WhatsApp"
           style={{ width: '30px', height: '30px' }}
         />
