@@ -26,7 +26,7 @@ const ProjectSection = () => {
   const projectImages = [
     "/Projetos/gilbarbosa.png",
     "/Projetos/lellit.png",
-    "/Projetos/slgdigital.png",
+    "/Projetos/slg2025.png",
   ];
 
   const projectDetails = [

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicite seu Orçamento | Thomas Eduardo</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/from.css" />
+  <link rel="shortcut icon" href="./assets/img/icons/favicon.svg" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+  <div id="loading">
+    <div id="loading-bar">
+      <img src="./assets/img/perfil/block.svg" alt="loading" />
+    </div>
+    <div id="loading-text"></div>
+  </div>
+
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <div class="content">
+      <div class="widget widget1">
+        <div class="info-user">
+          <div class="img-user">
+            <img src="./assets/img/perfil/perfil.jpg" alt="Foto de Thomas Eduardo" />
+          </div>
+          <div class="name-user">
+            <h1>Thomas Eduardo</h1>
+            <span>Desenvolvedor Frontend</span>
+          </div>
+        </div>
+        <div class="info-icon">
+          <a href="./index.html">
+            <img src="./assets/img/icons/home.svg" alt="ícone de casa" />
+          </a>
+        </div>
+      </div>
+
+      <div class="widget widget5">
+        <!-- Formulário para Freelancer -->
+        <div class="form-container">
+          <h1>Formulário de Projetos Freelancer</h1>
+         
+          <form action="https://formspree.io/f/xblrdolo" method="POST">
+            <div class="form-group">
+              <label for="name">
+                <i class="fas fa-user"></i> 
+                Nome
+              </label>
+              <input type="text" id="name" name="name" placeholder="Digite seu nome" required />
+            </div>
+            <div class="form-group">
+              <label for="email">
+                <i class="fas fa-envelope"></i>
+                E-mail
+              </label>
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+            </div>
+            <div class="form-group">
+              <label for="message">
+                <i class="fas fa-comment"></i>
+                Sua Mensagem
+              </label>
+              <textarea id="message" name="message" rows="4" placeholder="Digite sua mensagem" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar</button>
+          </form>
+        </div>
+
+        <script src="./assets/js/backgrund.js"></script>
+        <script src="./assets/js/script.js"></script>
+      </body>
+    </html>

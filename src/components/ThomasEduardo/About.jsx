@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'; // Ícones de redes sociais
 
 const About = () => {
   const [buttonText, setButtonText] = useState('Vamos Conversar'); // Estado para o texto do botão
@@ -24,57 +24,52 @@ const About = () => {
         backgroundPosition: "center center",
       }}
     >
-      {/* Gradiente de sobreposição para melhorar a legibilidade do texto */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#00000000]"></div>
+      {/* Efeito de desfoque na imagem de fundo */}
+      <div className="absolute inset-0 bg-black opacity-50 blur-sm"></div>
 
       {/* Conteúdo centralizado */}
-      <div className="relative z-10 w-full max-w-6xl px-6 sm:px-12 py-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-        {/* Texto e descrição */}
-        <div className="text-white w-full lg:w-1/2 text-left flex flex-col justify-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-1 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
-            Perfil Profissional
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-1 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Com mais de <span className="font-bold text-[#e14216]">2 anos de experiência</span> na área de tecnologia, sou especializado no desenvolvimento de <span className="font-bold text-[#e14216]">Landing Pages, Sites E-commerce e soluções web customizadas</span>. Com sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js, meu foco é proporcionar soluções eficazes e inovadoras.
-          </p>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Meu compromisso é com resultados de alto impacto e com a superação das suas expectativas. Estou pronto para ajudar a transformar suas ideias em realidade com a melhor tecnologia disponível.
-          </p>
+      <div className="relative z-10 w-full max-w-6xl px-6 sm:px-12 py-10 text-center">
+        {/* Título centralizado */}
+        <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-lg mb-6">
+          Meu Perfil Profissional
+        </h2>
+
+        {/* Texto */}
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+          Com mais de <span className="font-bold text-[#e14216]">2 anos de experiência</span> na área de tecnologia, sou especializado no desenvolvimento de{' '}
+          <span className="font-bold text-[#e14216]">Landing Pages, Sites E-commerce e soluções web customizadas</span>. Tenho sólida expertise em React, CSS, Tailwind CSS, JavaScript, HTML e Node.js. Meu foco é proporcionar soluções inovadoras que atendam às suas necessidades.
+        </p>
+
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+          Meu compromisso é entregar resultados de alto impacto e superar suas expectativas. Estou pronto para ajudar a transformar suas ideias em realidade com a melhor tecnologia disponível.
+        </p>
+
+        {/* Botão de WhatsApp */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => window.open('https://api.whatsapp.com/send?phone=551999042072&text=Oi, estou interessado!')}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="flex items-center justify-center bg-[#fb1603] text-white text-lg font-semibold py-4 px-10 rounded-full hover:bg-[#d31400] transition duration-300 transform shadow-lg hover:scale-105"
+          >
+            <FaWhatsapp className="mr-3 text-xl" />
+            {buttonText}
+          </button>
         </div>
 
-        {/* Imagem em destaque */}
-        <div className="relative w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-          <img
-            src="/Criativos/seis-indicadores-1.png"
-            alt="Profissional demonstrando confiança em um ambiente de trabalho moderno, em um estilo profissional e sério."
-            className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform hover:scale-105"
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-            }}
-          />
+        {/* Redes Sociais */}
+        <div className="mt-8 flex justify-center space-x-6">
+          <a href="https://github.com/devthmedu" target="_blank" rel="noopener noreferrer" className="text-white text-2xl hover:text-[#333] transition duration-300">
+            <FaGithub />
+          </a>
+          <a href="https://www.instagram.com/_devthm/" target="_blank" rel="noopener noreferrer" className="text-white text-2xl hover:text-[#e1306c] transition duration-300">
+            <FaInstagram />
+          </a>
+          <a href="https://www.linkedin.com/notifications/?filter=all" target="_blank" rel="noopener noreferrer" className="text-white text-2xl hover:text-[#0a66c2] transition duration-300">
+            <FaLinkedin />
+          </a>
         </div>
       </div>
-
-      {/* Gradiente adicional de sobreposição para melhorar a legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000099] to-transparent opacity-60"></div>
-
-      {/* Estilos para animação e efeitos adicionais */}
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&display=swap');
-
-        h2 {
-          font-family: 'Roboto', sans-serif;
-        }
-
-        p {
-          font-family: 'Montserrat', sans-serif;
-        }
-
-        .hover\:scale-105:hover {
-          transform: scale(1.05);
-        }
-      `}</style>
     </section>
   );
 };

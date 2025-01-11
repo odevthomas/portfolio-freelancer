@@ -1,100 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import { FaDesktop, FaPaintBrush, FaLaptopCode, FaMobileAlt } from 'react-icons/fa';  // Novos ícones representando o desenvolvimento web frontend
 
-// Componente de Habilidade
-const SkillCard = ({ imgSrc, title }) => {
+const ChatbotSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center p-6 hover:scale-105 transition-all duration-300 transform hover:shadow-xl">
-      <motion.div
-        className="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-lg transform transition-all duration-300"
-        whileHover={{ scale: 1.1 }}
-      >
-        <img alt={title} className="w-full h-full object-cover" src={imgSrc} />
-      </motion.div>
-      <h3 className="text-lg text-white font-semibold text-center mt-3">{title}</h3>
-    </div>
-  );
-};
-
-// Componente de Carrossel de Habilidades (sem Swiper)
-const SkillsCarousel = () => {
-  const skills = [
-    { imgSrc: "/icons/react.svg", title: "React" },
-    { imgSrc: "/icons/nodejs.svg", title: "Node.js" },
-    { imgSrc: "/icons/css.svg", title: "CSS" },
-    { imgSrc: "/icons/vite.svg", title: "Vite" },
-    { imgSrc: "/icons/markdown.svg", title: "Markdown" },
-    { imgSrc: "/icons/figma.svg", title: "Figma" },
-    { imgSrc: "/icons/bitbucket.svg", title: "Canva" },
-    { imgSrc: "/icons/vscode.svg", title: "VSCode" },
-    { imgSrc: "/icons/vuejs.svg", title: "Vue" },
-    { imgSrc: "/icons/nodejs.svg", title: "Node.js" },
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 3 < skills.length ? prevIndex + 3 : 0
-    );
-  };
-
-  const goToPrevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 3 >= 0 ? prevIndex - 3 : skills.length - 3
-    );
-  };
-
-  return (
-    <section className="py-16 bg-cover bg-center relative text-white">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#101010] opacity-50"></div>
-      <div className="mx-auto max-w-[1340px] px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.h3
-          className="font-semibold text-3xl sm:text-4xl md:text-5xl text-gray-100 mb-3"
+    <section id="Servicos" className="py-16 bg-gradient-to-b from-[#000] to-[#000] text-gray-900">
+      <div className="container mx-auto px-6 text-center">
+        <motion.h2
+          className="mt-2 block font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          Explore minhas habilidades!
-        </motion.h3>
-        <motion.p
-          className="text-base sm:text-lg md:text-xl text-gray-300 mb-3"
+          Potencialize Seu Projeto com o Desenvolvimento Web Frontend!
+        </motion.h2>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          Com foco em desenvolvimento web frontend, estou preparado para elevar
-          seus projetos a um novo nível. Vamos juntos transformar suas ideias em
-          realidade digital de forma criativa e inovadora.
-        </motion.p>
-
-        {/* Carrossel Manual */}
-        <div className="flex justify-center items-center">
-          <button
-            onClick={goToPrevSlide}
-            className="bg-gray-800 text-white p-2 rounded-full mr-4"
+          {/* Design Responsivo */}
+          <motion.div
+            className="flex flex-col items-center text-gray-200 justify-center bg-[#2b2b2b95] p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {"<"}
-          </button>
+            <FaDesktop className="text-4xl text-[#fb1603] mb-4" />
+            <h3 className="text-2xl font-semibold mb-2 text-white">Design Responsivo</h3>
+            <p className="text-sm text-white mb-4">
+              O design responsivo é essencial para garantir que seu site seja acessível em dispositivos móveis, desktops e tablets, proporcionando uma excelente experiência ao usuário.
+            </p>
+          </motion.div>
 
-          <div className="flex justify-center items-center space-x-4">
-            {skills
-              .slice(currentIndex, currentIndex + 3)
-              .map((skill, index) => (
-                <SkillCard key={index} imgSrc={skill.imgSrc} title={skill.title} />
-              ))}
-          </div>
-
-          <button
-            onClick={goToNextSlide}
-            className="bg-gray-800 text-white p-2 rounded-full ml-4"
+          {/* Estética Atraente */}
+          <motion.div
+            className="flex flex-col items-center text-gray-200 justify-center bg-[#2b2b2b95] p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {">"}
-          </button>
-        </div>
+            <FaPaintBrush className="text-4xl text-[#fb1603] mb-4" />
+            <h3 className="text-2xl font-semibold mb-2 text-white">Estética Atraente</h3>
+            <p className="text-sm text-white mb-4">
+              Um design visualmente atraente e intuitivo é a chave para cativar seu público. Um bom design melhora a usabilidade e mantém os visitantes interessados no seu conteúdo.
+            </p>
+          </motion.div>
+
+          {/* Performance Rápida */}
+          <motion.div
+            className="flex flex-col items-center text-gray-200 justify-center bg-[#2b2b2b95] p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaLaptopCode className="text-4xl text-[#fb1603] mb-4" />
+            <h3 className="text-2xl font-semibold mb-2 text-white">Performance Rápida</h3>
+            <p className="text-sm text-white mb-4">
+              A otimização do tempo de carregamento e a escolha das tecnologias certas garantem um desempenho excepcional, aumentando a satisfação dos usuários e melhorando os rankings de SEO.
+            </p>
+          </motion.div>
+
+          {/* Acessibilidade e Experiência do Usuário */}
+          <motion.div
+            className="flex flex-col items-center text-gray-200 justify-center bg-[#2b2b2b95] p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaMobileAlt className="text-4xl text-[#fb1603] mb-4" />
+            <h3 className="text-2xl font-semibold mb-2 text-white">Acessibilidade e UX</h3>
+            <p className="text-sm text-white mb-4">
+              Garantir a acessibilidade e uma navegação intuitiva melhora a experiência do usuário, tornando seu site acessível a todos, incluindo pessoas com deficiência.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
+          <a
+            href="https://wa.me/5519981331191?text=Oi,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20desenvolver%20um%20site%20de%20alto%20desempenho!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-[#fb1603] text-white py-3 px-6 text-lg transition duration-300 w-full sm:w-auto hover:bg-[#e64012] transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#fb1603] focus:ring-opacity-50 text-center rounded-full"
+            aria-label="Clique para falar conosco sobre desenvolvimento web frontend"
+          >
+          Planeje o seu  Site!
+          </a>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default SkillsCarousel;
+export default ChatbotSection;

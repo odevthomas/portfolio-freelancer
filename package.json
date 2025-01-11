@@ -52,7 +52,7 @@
     "react-slick": "^0.30.3",
     "react-tsparticles": "^2.12.2",
     "slick-carousel": "^1.8.1",
-    "swiper": "^11.2.0",
+    "swiper": "^11.2.1",
     "tailwind-merge": "^2.5.3",
     "tsparticles": "^3.7.1"
   },

@@ -1,78 +1,97 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { Plus, Minus, Info, CheckCircle, Clock, Globe } from "lucide-react";
 
-const FAQ = () => {
+const FaqSection = () => {
+  const [expanded, setExpanded] = useState(null);
+
+  const toggleExpanded = (index) => {
+    setExpanded(expanded === index ? null : index);
+  };
+
   const faqs = [
     {
       question: "Qual linguagem você usa para desenvolver meu site?",
-      answer: "Eu utilizo as linguagens mais atuais para o desenvolvimento de sites, como HTML, CSS, JavaScript, React para frontend e Node.js para o backend. Depende do seu projeto, podemos usar outras tecnologias como Vue.js, Angular ou até mesmo PHP, caso o projeto precise de uma tecnologia específica. O mais importante é garantir que a solução seja eficaz e escalável para o seu negócio."
+      answer: "Eu utilizo as linguagens mais atuais para o desenvolvimento de sites, como HTML, CSS, JavaScript, React para frontend e Node.js para o backend. Podemos usar outras tecnologias como Vue.js, Angular ou PHP, se necessário.",
+      icon: <Info className="w-5 h-5 text-black" />
     },
     {
       question: "Qual é o prazo de entrega do meu site?",
-      answer: "O prazo de entrega depende de alguns fatores como a complexidade do design, funcionalidades personalizadas e o conteúdo que será integrado ao site. Se você já tiver um design pronto, o prazo é de 4 a 5 dias. Se for necessário criar um design do zero ou adicionar funcionalidades avançadas, o prazo pode ser estendido até 10 dias. O importante é que o resultado final atenda às suas expectativas e necessidades."
+      answer: "O prazo de entrega depende da complexidade do design e funcionalidades. Em geral, um design pronto leva de 4 a 5 dias, enquanto projetos mais complexos podem levar até 10 dias.",
+      icon: <Clock className="w-5 h-5 text-black" />
     },
     {
       question: "O que vem com o meu site?",
-      answer: "Ao contratar o meu serviço, você recebe um site totalmente funcional e responsivo. O site inclui um design moderno e otimizado para SEO, garantindo que ele seja facilmente encontrado nos motores de busca. Dependendo do projeto, também posso incluir integração com ferramentas de análise, funcionalidades como e-commerce, blogs ou sistemas de gerenciamento de conteúdo (CMS)."
+      answer: "Você recebe um site funcional, responsivo e otimizado para SEO. Dependendo do projeto, podemos incluir integração com ferramentas de análise, e-commerce ou sistemas de gerenciamento de conteúdo.",
+      icon: <CheckCircle className="w-5 h-5 text-black" />
     },
     {
       question: "Quem cuida do domínio e da hospedagem?",
-      answer: "O domínio é de responsabilidade do cliente. Ou seja, você pode escolher o nome de domínio que deseja e registrá-lo com qualquer provedor de sua preferência. Já a hospedagem, eu posso fornecer utilizando o meu servidor, com total suporte técnico. Se você preferir, posso indicar fornecedores de hospedagem que atendem suas necessidades, incluindo configurações específicas para sites de alto tráfego ou e-commerce."
+      answer: "O domínio é de responsabilidade do cliente. A hospedagem pode ser fornecida por mim ou indicada conforme suas necessidades.",
+      icon: <Globe className="w-5 h-5 text-black" />
     },
     {
       question: "Posso fazer mudanças no meu site depois de pronto?",
-      answer: "Sim, você pode fazer ajustes e melhorias após a entrega do site. Podemos negociar pacotes de manutenção, onde faço as alterações necessárias sempre que você precisar, ou, caso prefira, posso fornecer treinamento para que você mesmo faça alterações no conteúdo do site, como textos, imagens e outros."
+      answer: "Sim! Podemos negociar pacotes de manutenção ou eu posso fornecer treinamento para que você faça as alterações necessárias.",
+      icon: <CheckCircle className="w-5 h-5 text-black" />
     },
     {
       question: "Como posso rastrear o andamento do meu projeto?",
-      answer: "Durante o desenvolvimento do seu site, você terá total transparência e acompanhamento. Você terá acesso a um painel de progresso, onde poderá visualizar as etapas do projeto e dar feedback a qualquer momento. Além disso, realizaremos reuniões periódicas, onde discutiremos o andamento e faremos ajustes conforme necessário, garantindo que tudo esteja alinhado com suas expectativas."
+      answer: "Você terá acesso a um painel de progresso e realizaremos reuniões periódicas para garantir que tudo esteja alinhado com suas expectativas.",
+      icon: <Info className="w-5 h-5 text-black" />
     },
   ];
 
-  const [activeFAQIndex, setActiveFAQIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setActiveFAQIndex(activeFAQIndex === index ? null : index);
-  };
-
   return (
-    <section
-      id="faq"
-      className="relative w-full bg-cover bg-center bg-fixed py-16 sm:py-24"
+    <section className="relative w-full min-h-screen flex items-center justify-center px-6 sm:px-8 py-16"
       style={{
-        backgroundImage: 'url("/bg-arronw.png")',
+        backgroundImage: "url('/bg-fundo-about.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
       }}
     >
+      {/* Camada de opacidade */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#00000000]"></div>
+      <div className="container mx-auto relative px-6 text-white">
+        {/* Título da seção */}
+        <h3 className="text-4xl font-extrabold text-center mb-12 tracking-wide">
+          Perguntas Frequentes sobre Como Impulsionar Seu Negócio Online
+        </h3>
 
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-white mb-12">
-          Dúvidas Frequentes sobre o Desenvolvimento do Seu Site
-        </h2>
-
-        <div className="space-y-6">
+        {/* Container de Grid - Uma coluna em todas as telas */}
+        <div className="grid grid-cols-1 gap-8">
           {faqs.map((faq, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-white shadow-xl rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              onClick={() => toggleFAQ(index)}
+              className="border border-white rounded-lg shadow-lg transition-all duration-300 ease-in-out"
             >
-              <div className="flex justify-between items-center mb-3">
-                <strong className="text-lg sm:text-xl text-gray-800">{faq.question}</strong>
-                <span className="text-xl text-gray-500">{activeFAQIndex === index ? "−" : "+"}</span>
-              </div>
-              {activeFAQIndex === index && (
-                <div className="mt-3 text-sm sm:text-base text-gray-700">
-                  <p>{faq.answer}</p>
-                </div>
+              <button
+                className="flex items-center justify-between w-full p-6 text-left text-white bg-black rounded-lg"
+                onClick={() => toggleExpanded(index)}
+              >
+                <h2 className="font-semibold text-lg">
+                  {faq.question}
+                </h2>
+                <span className="text-white bg-black rounded-full p-2">
+                  {expanded === index ? (
+                    <Minus className="w-6 h-6" />
+                  ) : (
+                    <Plus className="w-6 h-6" />
+                  )}
+                </span>
+              </button>
+
+              {/* Exibe a resposta somente se esta FAQ estiver expandida */}
+              {expanded === index && (
+                <>
+                  <hr className="border-t-2 border-[#fff]" />
+                  <div className="flex items-start p-6 text-base text-gray-300">
+                    {faq.icon}
+                    <p className="ml-2">{faq.answer}</p>
+                  </div>
+                </>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -80,4 +99,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FaqSection;

@@ -1,93 +1,98 @@
-import React, { useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+
+// Certifique-se de importar o CSS do Swiper
+import "swiper/swiper-bundle.css";
 
 const SeçãoAbordagemÚnica = () => {
-  const [buttonText, setButtonText] = useState('Fale comigo no WhatsApp'); // Estado para o texto do botão
-
-  const handleMouseEnter = () => {
-    setButtonText('Opa, é só clicar que já te respondo!');
-  };
-
-  const handleMouseLeave = () => {
-    setButtonText('Vamos Conversar');
-  };
+  const SeçãoAbordagemÚnicaItems = [
+    { image: "/Criativos/bg-tecnologia.png", service: "Funil de Vendas" },
+    // Adicione outros itens aqui se necessário
+  ];
 
   return (
     <section
       id="sobrenos"
       className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
       style={{
-        backgroundImage: 'url("/bg-fundo-about.png")',
+        backgroundImage: "url('/bg-fundo-about.png')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0000001d] to-[#00000000]"></div>
+      <div className="container mx-auto text-center">
+        {/* Título e Subtítulo */}
+        <motion.h3
+          className="mt-2 block font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-100"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          Transformando Ideias em Experiências
+        </motion.h3>
 
-      <div className="relative z-10 w-full max-w-6xl px-6 sm:px-12 py-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-        {/* Texto e descrição */}
-        <div className="text-white w-full lg:w-1/2 text-left flex flex-col justify-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-1 font-extrabold leading-tight text-[#f8f8f8] drop-shadow-2xl">
-            Transformando Ideias em Experiências
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-6 mb-1 text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Minha abordagem inovadora no design de interfaces digitais combina
-            criatividade com praticidade, criando soluções que não apenas encantam,
-            mas também oferecem uma experiência fluida e intuitiva.
-          </p>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed drop-shadow-md max-w-full text-justify">
-            Cada projeto é uma oportunidade de reinventar a forma como as pessoas
-            interagem com a tecnologia, convertendo ideias abstratas em experiências
-            reais que marcam e conquistam os usuários.
-          </p>
+        <motion.p
+          className="text-[#ffffff] text-lg mt-10 sm:text-xl md:text-2xl leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          Com foco em desenvolvimento web frontend, estou preparado para elevar seus projetos a um novo nível. Vamos juntos transformar suas ideias em realidade digital de forma criativa e inovadora.
+        </motion.p>
 
-          {/* Botão do WhatsApp */}
-          <div className="mt-6">
-            <a
-              href="https://wa.me/551999042072"
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="inline-block bg-[#dc0000] text-white py-3 px-6 text-lg transition duration-300 w-full sm:w-auto hover:bg-[#b23012] shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#dc0000] focus:ring-opacity-50 text-center rounded-full"
-            >
-              <FaWhatsapp className="inline-block mr-2 text-2xl" />
-              {buttonText}
-            </a>
-          </div>
-        </div>
+        {/* Carrossel Swiper */}
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}  // Exibe 1 imagem por vez
+          loop={true}  // O carrossel irá continuar rolando infinitamente
+          autoplay={{
+            delay: 2500, // Atraso de 2.5 segundos antes de trocar a imagem
+            disableOnInteraction: false, // Não desativar a rotação ao interagir com o carrossel
+          }}
+          pagination={{ clickable: true }}  // Ativa a navegação por bolinhas
+          breakpoints={{
+            640: {
+              slidesPerView: 1,  // 1 imagem por vez em telas pequenas
+            },
+            1024: {
+              slidesPerView: 1,  // 1 imagem por vez em telas grandes
+            },
+          }}
+        >
+          {SeçãoAbordagemÚnicaItems.map((item, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                className="flex flex-col justify-center p-6 transition duration-500 ease-in-out"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Imagem do serviço */}
+                <motion.img
+                  src={item.image}
+                  alt={`Serviço ${index + 1}`}
+                  className="w-full h-auto object-cover rounded-5xl shadow-lg sm:h-[500px] md:h-[600px] lg:h-auto" // Ajuste para aumentar a altura nas telas menores
+                />
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-        {/* Imagem em destaque */}
-        <div className="relative w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-          <img
-            src="/computer.png"
-            alt="Profissional demonstrando confiança em um ambiente de trabalho moderno."
-            className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform hover:scale-105"
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-            }}
-          />
+        {/* Bolinhas de navegação personalizadas (se necessário) */}
+        <div className="flex justify-center gap-4 mt-8">
+          {SeçãoAbordagemÚnicaItems.map((_, index) => (
+            <motion.div
+              key={index}
+              className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 transform ${
+                index === 0 ? "bg-[#00000000]" : "bg-gray-400"
+              }`}
+              whileHover={{ scale: 1.3 }}
+              whileTap={{ scale: 0.9 }}
+            ></motion.div>
+          ))}
         </div>
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000099] to-transparent opacity-60"></div>
-
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&display=swap');
-
-        h2 {
-          font-family: 'Roboto', sans-serif;
-        }
-
-        p {
-          font-family: 'Montserrat', sans-serif;
-        }
-
-        .hover\:scale-105:hover {
-          transform: scale(1.05);
-        }
-      `}</style>
     </section>
   );
 };

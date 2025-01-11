@@ -25,12 +25,12 @@ const Clientes = () => {
   const companies = [
     {
       name: "SLG Digital",
-      style: "Agência Digital",
+      style: "Agência de Marketing Digital",
       image: "/Parceiros/slgdigital.jpg",
     },
     {
-      name: "Casa L'Elit",
-      style: "Comércio de Moda",
+      name: "Casa L'Ellit",
+      style: "Noivas e Beleza",
       image: "/Parceiros/casalellit.jpg",
     },
     {

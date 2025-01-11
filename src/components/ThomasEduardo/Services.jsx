@@ -28,14 +28,14 @@ const Services = () => {
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-3">
-          <motion.h2
-            className="text-4xl font-bold text-white mb-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            Meus Principais Serviços
-          </motion.h2>
+           <motion.h3
+          className="mt-2 block font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-100"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          Serviços Essenciais 
+        </motion.h3>
           <motion.p
             className="text-xl text-gray-300"
             initial={{ opacity: 0 }}

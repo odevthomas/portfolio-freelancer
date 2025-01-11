@@ -53,7 +53,7 @@ const Header = () => {
               src={logo}
               alt="Logo Gil Barbosa"
               className="h-10"
-              style={{ filter: "invert(1) brightness(2)" }}
+              style={{ filter: "invert(1) brightness(2)", borderRadius: '5px' }} // Estilo aprimorado
             />
           </a>
 
@@ -61,7 +61,7 @@ const Header = () => {
           <nav className="hidden lg:flex lg:items-center space-x-6">
             <ul className="flex space-x-6">
               {navigation.map((item, idx) => (
-                <li key={idx}>
+                <li key={idx} className="relative">
                   {item.path.startsWith("#") ? (
                     <ScrollLink
                       to={item.path.substring(1)}
@@ -74,6 +74,9 @@ const Header = () => {
                       aria-current={activeIndex === idx ? "page" : undefined}
                     >
                       {item.title}
+                      {activeIndex === idx && (
+                        <span className="absolute bottom-[-5px] left-0 w-full h-1 bg-[#d63f17] transition-all duration-300" />
+                      )}
                     </ScrollLink>
                   ) : (
                     <Link
@@ -85,6 +88,9 @@ const Header = () => {
                       aria-current={activeIndex === idx ? "page" : undefined}
                     >
                       {item.title}
+                      {activeIndex === idx && (
+                        <span className="absolute bottom-[-5px] left-0 w-full h-1 bg-[#d63f17] transition-all duration-300" />
+                      )}
                     </Link>
                   )}
                 </li>
@@ -119,7 +125,10 @@ const Header = () => {
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2
                       hover:bg-[#d63f17] hover:text-black rounded-lg focus:bg-[#d63f17] focus:text-black
                       ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
-                    onClick={() => setActiveIndex(idx)}
+                    onClick={() => {
+                      setActiveIndex(idx);
+                      setMenuOpen(false); // Fecha o menu após clicar
+                    }}
                   >
                     {item.title}
                   </ScrollLink>
@@ -129,7 +138,10 @@ const Header = () => {
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2
                       hover:bg-[#d63f17] hover:text-black rounded-lg focus:bg-[#d63f17] focus:text-black
                       ${activeIndex === idx ? "font-bold text-[#d63f17]" : ""} cursor-pointer`}
-                    onClick={() => setActiveIndex(idx)}
+                    onClick={() => {
+                      setActiveIndex(idx);
+                      setMenuOpen(false); // Fecha o menu após clicar
+                    }}
                   >
                     {item.title}
                   </Link>
