@@ -43,14 +43,10 @@ const FaqSection = () => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center px-6 sm:px-8 py-16"
-      style={{
-        backgroundImage: "url('/bg-fundo-about.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}
+    id="faq"
     >
       {/* Camada de opacidade */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg[#0000001d]opacity-50"></div>
 
       <div className="container mx-auto relative px-6 text-white">
         {/* Título da seção */}
@@ -66,13 +62,13 @@ const FaqSection = () => {
               className="border border-white rounded-lg shadow-lg transition-all duration-300 ease-in-out"
             >
               <button
-                className="flex items-center justify-between w-full p-6 text-left text-white bg-black rounded-lg"
+                className="flex items-center justify-between w-full p-6 text-left text-white bg[#0000001d]rounded-lg"
                 onClick={() => toggleExpanded(index)}
               >
                 <h2 className="font-semibold text-lg">
                   {faq.question}
                 </h2>
-                <span className="text-white bg-black rounded-full p-2">
+                <span className="text-white bg[#0000001d]rounded-full p-2">
                   {expanded === index ? (
                     <Minus className="w-6 h-6" />
                   ) : (

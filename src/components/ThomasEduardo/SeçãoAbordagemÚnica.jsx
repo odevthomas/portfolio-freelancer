@@ -21,6 +21,7 @@ const SeçãoAbordagemÚnica = () => {
         backgroundPosition: "center center",
       }}
     >
+      
       <div className="container mx-auto text-center">
         {/* Título e Subtítulo */}
         <motion.h3

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const CompanyCard = ({ image, name, style }) => {
   return (
     <div className="flex flex-col items-center justify-center p-6 hover:scale-105 transition-all duration-300 transform hover:shadow-xl">
-      <div className="w-24 h-24 mb-1 rounded-full p-4 flex items-center justify-center">
+      <div className="w-24 h-24 mb-4 rounded-full p-4 flex items-center justify-center">
         <motion.img
           src={image}
           alt={name}
@@ -44,12 +44,12 @@ const Clientes = () => {
     <section id="empresas-confiaram" className="w-full py-16 bg-gradient-to-b from-[#0000001d] to-[#00000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-3xl sm:text-4xl font-semibold text-center text-gray-100 mb-1"
+          className="text-3xl sm:text-4xl font-semibold text-center text-gray-100 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          Empresas que Confiaram no meu Trabalho
+          Empresas e Locais onde Colaborei
         </motion.h2>
 
         {/* Subtítulo */}
@@ -59,13 +59,14 @@ const Clientes = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
         >
-          Aqui estão algumas das empresas que tiveram uma experiência positiva com os meus serviços, e que confiarm no meu trabalho para suas necessidades.
+          Confira alguns dos lugares e empresas que confiaram no meu trabalho e na minha expertise para alcançar seus objetivos.
         </motion.p>
 
+        {/* Carrossel de empresas */}
         <Swiper
           spaceBetween={30}
           slidesPerView={1}
-          navigation={true}
+          navigation={false}  // Desativando as setas
           loop={true}
           pagination={{ clickable: true }}
           breakpoints={{

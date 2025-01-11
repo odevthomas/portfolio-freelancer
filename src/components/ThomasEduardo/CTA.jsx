@@ -4,7 +4,13 @@ import { FaLightbulb, FaCode, FaRocket, FaHandsHelping } from 'react-icons/fa';
 
 const ProjectSection = () => {
   return (
-    <section id="Projetos" className="py-16 bg-gradient-to-b from-[#000] to-[#000] text-gray-100">
+    <section id="Projetos" className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
+      style={{
+        backgroundImage: "url('/bg-fundo-about.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
       <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
         
         <motion.h2

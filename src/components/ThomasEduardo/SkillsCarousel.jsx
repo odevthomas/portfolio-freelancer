@@ -4,7 +4,8 @@ import { FaDesktop, FaPaintBrush, FaLaptopCode, FaMobileAlt } from 'react-icons/
 
 const ChatbotSection = () => {
   return (
-    <section id="Servicos" className="py-16 bg-gradient-to-b from-[#000] to-[#000] text-gray-900">
+    <section id="Servicos" className="py-16 bg-gradient-to-b from-[#0000001d] to-[#0000001d] text-gray-900">
+      
       <div className="container mx-auto px-6 text-center">
         <motion.h2
           className="mt-2 block font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-100"

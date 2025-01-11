@@ -10,7 +10,16 @@ const Depoimentos = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 md:py-32 bg-black relative w-full">
+    <section
+      className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
+      style={{
+        backgroundImage: "url('/bg-fundo-about.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
+
+      
       <div className="container mx-auto px-6 text-white">
         {/* Título da seção */}
         <h3 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 text-center">
@@ -19,7 +28,7 @@ const Depoimentos = () => {
         <p className="text-xl sm:text-2xl md:text-3xl text-gray-400 text-center mb-10">
           Veja o que as pessoas estão dizendo sobre os meus serviços personalizados e como eu ajudo a transformar suas ideias em realidade.
         </p>
-        
+
         {/* Exibição das mensagens do cliente */}
         <div className="flex flex-col items-center space-y-6">
           {mensagens.map((mensagem, index) => (
@@ -48,9 +57,7 @@ const Depoimentos = () => {
               </div>
               <div
                 className={`absolute w-0 h-0 border-l-8 border-l-${index % 2 === 0 ? 'green-300' : 'green-500'} border-t-8 border-t-transparent ${
-                  index % 2 === 0
-                    ? "top-1/2 left-0 transform -translate-y-1/2"
-                    : "top-1/2 right-0 transform -translate-y-1/2"
+                  index % 2 === 0 ? "top-1/2 left-0 transform -translate-y-1/2" : "top-1/2 right-0 transform -translate-y-1/2"
                 }`}
               />
             </div>

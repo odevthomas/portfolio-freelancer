@@ -26,7 +26,6 @@ const Hero = () => {
       }}
     >
       {/* Sombreado na imagem de fundo */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000000d4] to-transparent"></div>
 
       <div className="relative w-full md:w-2/3 lg:w-1/2 px-6 py-8 md:py-8 lg:py-16 z-10">
         <div className="flex flex-col justify-start text-left mb-8 lg:mb-0">

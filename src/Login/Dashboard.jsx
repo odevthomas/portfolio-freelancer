@@ -1,4 +1,3 @@
-// src/components/Dashboard.jsx
 import React, { useEffect, useState } from "react";
 import { auth } from "../Login/Firebase";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
@@ -8,6 +7,7 @@ import { FaDownload, FaLink, FaCalendarAlt, FaInfoCircle } from "react-icons/fa"
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Adicionando estado de erro
   const navigate = useNavigate();
   
   const user = auth.currentUser;
@@ -18,15 +18,22 @@ const Dashboard = () => {
       navigate("/login"); // Se o usuário não estiver autenticado, redireciona para o login
     } else {
       const fetchUserData = async () => {
-        const userDocRef = doc(db, "usuarios", user.uid); // Aqui usamos o ID do usuário autenticado para pegar seus dados
-        const docSnap = await getDoc(userDocRef);
-        
-        if (docSnap.exists()) {
-          setUserData(docSnap.data());
-        } else {
-          console.log("Nenhum dado encontrado para este usuário.");
+        try {
+          const userDocRef = doc(db, "usuarios", user.uid); // Aqui usamos o ID do usuário autenticado para pegar seus dados
+          const docSnap = await getDoc(userDocRef);
+          
+          if (docSnap.exists()) {
+            setUserData(docSnap.data());
+          } else {
+            setError("Nenhum dado encontrado para este usuário."); // Mensagem de erro
+            console.log("Nenhum dado encontrado para este usuário.");
+          }
+        } catch (err) {
+          setError("Erro ao carregar os dados: " + err.message); // Mensagem de erro em caso de falha na consulta
+          console.error("Erro ao carregar os dados:", err);
+        } finally {
+          setLoading(false); // Setando o carregamento como false após a consulta
         }
-        setLoading(false);
       };
       
       fetchUserData();
@@ -34,7 +41,11 @@ const Dashboard = () => {
   }, [user, db, navigate]);
 
   if (loading) {
-    return <div>Carregando...</div>;
+    return <div>Carregando...</div>; // Se estiver carregando
+  }
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>; // Se houver erro
   }
 
   return (
