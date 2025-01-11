@@ -31,7 +31,7 @@ const ProjectSection = () => {
 
   const projectDetails = [
     {
-      title: "Thomas Eduardo Beauty Center",
+      title: "Gil Barbosa Beauty Center",
       description:
         "Landing page focada em conversão, com design otimizado para a experiência do usuário. Criamos uma solução visualmente atrativa que destaca os serviços de beleza, facilitando a navegação e aumentando a taxa de conversão.",
       projectLink: "https://gilbarbosabeauty.com.br",

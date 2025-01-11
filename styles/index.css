@@ -408,3 +408,32 @@ body {
     max-width: 100%;
   }
 }
+
+/* Impedir seleção de texto apenas em uma classe */
+.no-select {
+  user-select: none;
+}
+
+/* Impedir o download de imagens específicas */
+.no-download img {
+  pointer-events: none;
+  user-select: none;
+}
+/* Impedir seleção de texto */
+* {
+  user-select: none; /* Desativa seleção de texto */
+}
+
+/* Impedir download de imagens */
+img {
+  pointer-events: none; /* Desativa qualquer interação com imagens */
+}
+
+/* Impedir clique com o botão direito do mouse sobre imagens */
+img {
+  -webkit-user-drag: none; /* Impede que a imagem seja arrastada em navegadores WebKit */
+}
+
+img {
+  user-select: none; /* Impede seleção de imagem */
+}
