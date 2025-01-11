@@ -37,11 +37,11 @@ const ResumeModal = () => {
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
           <div className="bg-whiblackte rounded-lg p-6 w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Currículo de Thomas Eduardo</h2>
-              <button onClick={closeModal} className="text-gray-500 hover:text-gray-800">
+              <button onClick={closeModal} className="text-gray-100 hover:text-gray-800">
                 <FaTimes className="w-6 h-6" />
               </button>
             </div>
@@ -119,7 +119,7 @@ const ResumeModal = () => {
                   trackDownload();  // Rastreando o download
                   window.print();
                 }}
-                className="bg-[#000000] text-white py-2 px-4 rounded hover:bg-[#d31400] transition duration-300"
+                className="bg-[#ffffff] text-black py-2 px-4 rounded hover:bg-[#d31400] transition duration-300"
               >
                 Baixar PDF
               </button>
