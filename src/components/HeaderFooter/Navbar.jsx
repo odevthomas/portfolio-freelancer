@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "/logo.png";
+import logo from "/logonova.png";
 import { Menu, X } from "lucide-react";
 
 const navigation = [
@@ -51,9 +51,8 @@ const Header = () => {
           <a href="/" aria-label="Ir para a página inicial">
             <img
               src={logo}
-              alt="Logo Gil Barbosa"
+              alt="Logo Thomas Eduardo"
               className="h-10"
-              style={{ filter: "invert(1) brightness(2)", borderRadius: '5px' }} // Estilo aprimorado
             />
           </a>
 

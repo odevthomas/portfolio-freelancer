@@ -31,7 +31,7 @@ const ProjectSection = () => {
 
   const projectDetails = [
     {
-      title: "Gil Barbosa Beauty Center",
+      title: "Thomas Eduardo Beauty Center",
       description:
         "Landing page focada em conversão, com design otimizado para a experiência do usuário. Criamos uma solução visualmente atrativa que destaca os serviços de beleza, facilitando a navegação e aumentando a taxa de conversão.",
       projectLink: "https://gilbarbosabeauty.com.br",
@@ -68,23 +68,23 @@ const ProjectSection = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-16 bg-gradient-to-b from-[#121212] to-[#1e1e1e] text-white w-full"
+      className="py-8 sm:py-16 bg-gradient-to-b from-[#121212] to-[#1e1e1e] text-white w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Título */}
-        <h2 className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+        <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
           Criatividade e Inovação
         </h2>
 
         {/* Subtítulo */}
-        <p className="text-center text-lg sm:text-xl lg:text-2xl text-gray-400 mb-12">
+        <p className="text-center text-base sm:text-lg lg:text-xl text-gray-400 mb-8">
           Projetos que combinam design, funcionalidade e inovação para proporcionar a melhor experiência.
         </p>
 
-        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:gap-12 mb-8">
+        <div className="relative flex flex-col sm:flex-row items-center gap-6 lg:gap-8 mb-6">
           {/* Imagem do projeto */}
           <motion.div
             className="flex-1 w-full transition duration-500 ease-in-out"
@@ -101,9 +101,9 @@ const ProjectSection = () => {
           </motion.div>
 
           {/* Descrição e link do projeto */}
-          <div className="flex-1 w-full sm:w-1/3 lg:w-1/3 mb-3 lg:mt-0 text-center lg:text-left">
+          <div className="flex-1 w-full sm:w-2/3 lg:w-1/3 mb-3 text-center lg:text-left">
             <motion.h3
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4"
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -112,7 +112,7 @@ const ProjectSection = () => {
             </motion.h3>
 
             <motion.p
-              className="text-base sm:text-lg lg:text-xl text-gray-200 mb-4"
+              className="text-sm sm:text-base lg:text-lg text-gray-200 mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -130,7 +130,7 @@ const ProjectSection = () => {
                 href={projectDetails[currentIndex].projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#dc0000] hover:bg-[#d20c0c] text-white py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-110"
+                className="inline-block bg-[#dc0000] hover:bg-[#d20c0c] text-white py-2 px-6 rounded-full text-lg transition-all duration-300 transform hover:scale-110"
               >
                 Ver Projeto
               </a>
@@ -139,7 +139,7 @@ const ProjectSection = () => {
         </div>
 
         {/* Navegação com bolinhas abaixo da imagem */}
-        <div className="flex justify-center gap-2 mt-8"> {/* Diminuí o espaço entre as bolinhas */}
+        <div className="flex justify-center gap-2 mt-6"> {/* Diminuí o espaço entre as bolinhas */}
           {projectImages.map((_, index) => (
             <motion.div
               key={index}

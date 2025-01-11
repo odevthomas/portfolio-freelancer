@@ -4,14 +4,12 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "/logo.png";
+import logo from "/logonova.png";  // Logo original
 import { Menu, X } from "lucide-react"; // Ícones de menu e close
 
 const navigation = [
-  { title: "Gil Barbosa", path: "/gilbarbosabeautycenter" },
-    { title: "Inicio", path: "/" },
-
- 
+  { title: "Acessar o Site ", path: "/ThomasEduardo" },
+  { title: "Voltar ", path: "/" },
 ];
 
 const Header = () => {
@@ -29,15 +27,14 @@ const Header = () => {
 
   // Effect para mostrar ou esconder o cabeçalho ao rolar a página
   useEffect(() => {
-    // Adiciona um pequeno atraso para mostrar o cabeçalho após o carregamento da página
     const timer = setTimeout(() => {
       setShowHeader(true); // Mostrar o cabeçalho após o atraso
-    }, 300);  // 300ms de atraso
+    }, 300);
 
     return () => {
       clearTimeout(timer); // Limpar o temporizador quando o componente for desmontado
     };
-  }, []); // Este efeito só roda uma vez, após o carregamento inicial
+  }, []);
 
   // Effect para esconder/mostrar o cabeçalho ao rolar a página
   useEffect(() => {
@@ -45,14 +42,12 @@ const Header = () => {
 
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        // Rolando para baixo e passou de 50px, esconder o cabeçalho
         setShowHeader(false);
       } else if (window.scrollY < lastScrollY) {
-        // Rolando para cima, mostrar o cabeçalho
         setShowHeader(true);
       }
 
-      lastScrollY = window.scrollY; // Atualiza a última posição de rolagem
+      lastScrollY = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -69,18 +64,17 @@ const Header = () => {
       transition={{ duration: 0.8, type: "spring", stiffness: 150 }}
     >
       <div className="relative w-full h-20 bg-gradient-to-b from-black to-transparent opacity-90">
-        <div className="flex justify-between items-center h-full px-6 lg:px-8">
-          <a href="/">
+        <div className="flex items-center h-full px-6 lg:px-8 space-x-4">  {/* Adicionando espaçamento adequado */}
+          <a href="/" className="mr-4">
             <img
               src={logo}
-              alt="Logo Gil Barbosa"
-              className="h-14"
-              style={{ filter: "invert(1) brightness(2)" }}
+              alt="Logo Thonas Eduardo"
+              className="h-14"  // Cor original da logo
             />
           </a>
 
           {/* Menu Desktop */}
-          <nav className="hidden lg:flex lg:items-center space-x-6">
+          <nav className="hidden lg:flex lg:items-center justify-start w-full space-x-6">  {/* Alinhando links à esquerda */}
             <ul className="flex space-x-6">
               {navigation.map((item, idx) => (
                 <li key={idx}>
@@ -90,8 +84,8 @@ const Header = () => {
                       smooth={true}
                       duration={500}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                        hover:text-[#dc0000] hover:scale-110 hover:shadow-lg focus:text-[#dc0000] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#dc0000]" : ""}`}
                       onClick={() => setActiveIndex(idx)}
                       aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
                     >
@@ -101,8 +95,8 @@ const Header = () => {
                     <Link
                       to={item.path}
                       className={`text-white text-lg transition-all duration-300 relative
-                        hover:text-[#F1A7B6] hover:scale-110 hover:shadow-lg focus:text-[#F1A7B6] focus:outline-none 
-                        ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                        hover:text-[#dc0000] hover:scale-110 hover:shadow-lg focus:text-[#dc0000] focus:outline-none 
+                        ${activeIndex === idx ? "font-bold text-[#dc0000]" : ""}`}
                       onClick={() => setActiveIndex(idx)}
                       aria-current={activeIndex === idx ? "page" : undefined} // Acessibilidade
                     >
@@ -139,8 +133,8 @@ const Header = () => {
                     smooth={true}
                     duration={500}
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2 
-                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      hover:bg-[#dc0000] hover:text-black rounded-lg focus:bg-[#dc0000] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#dc0000]" : ""}`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}
@@ -149,8 +143,8 @@ const Header = () => {
                   <Link
                     to={item.path}
                     className={`text-white text-lg transition-all duration-300 w-full text-center py-2
-                      hover:bg-[#F1A7B6] hover:text-black rounded-lg focus:bg-[#F1A7B6] focus:text-black
-                      ${activeIndex === idx ? "font-bold text-[#F1A7B6]" : ""}`}
+                      hover:bg-[#dc0000] hover:text-black rounded-lg focus:bg-[#dc0000] focus:text-black
+                      ${activeIndex === idx ? "font-bold text-[#dc0000]" : ""}`}
                     onClick={() => setActiveIndex(idx)}
                   >
                     {item.title}

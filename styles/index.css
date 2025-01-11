@@ -46,6 +46,7 @@ body {
   background-position: center;
   height: 100vh;
   overflow: hidden;
+  transition: background-color 0.5s ease;
 }
 
 #sobre-nos::before {
@@ -61,6 +62,11 @@ body {
   text-align: left;
   max-width: 700px;
   padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-5px);
 }
 
 .about-content h2 {
@@ -84,7 +90,7 @@ body {
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-size: 1rem;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   text-align: center;
@@ -92,8 +98,8 @@ body {
 
 .about-button:hover {
   transform: scale(1.05);
-  background-color: #dc0000;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  background-color: #c70000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Estilos para Serviços */
@@ -101,6 +107,7 @@ body {
   background-color: #111111;
   color: #f2f2f2;
   padding: 4rem 1rem;
+  transition: background-color 0.5s ease;
 }
 
 #servicos h2 {
@@ -117,6 +124,7 @@ body {
   padding: 1.5rem;
   text-align: center;
   position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
@@ -129,6 +137,7 @@ body {
   height: 250px;
   object-fit: cover;
   border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover .service-image {
@@ -197,7 +206,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #dc0000;
+  background-color: #b23012;
 }
 
 ::-webkit-scrollbar-track {
@@ -232,12 +241,13 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   color: #dc0000;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #dc0000;
+  color: #c70000;
+  transform: scale(1.1);
 }
 
 .swiper-button-next::after,
@@ -284,6 +294,7 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-description {
@@ -325,6 +336,11 @@ body {
   max-width: 500px;
   background-color: #1e1e1e;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
 }
 
 .contact-form input,
@@ -336,6 +352,12 @@ body {
   border: 1px solid #444;
   border-radius: 4px;
   width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #dc0000;
 }
 
 .contact-form button {
@@ -374,6 +396,11 @@ body {
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.imagem-grande:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

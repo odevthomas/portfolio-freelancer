@@ -44,11 +44,11 @@ const Home = () => {
       {/* Seção de Projetos */}
       <ProjectSection />
 
-      {/* Seção Clientes */}
-      <Clientes />
-
+    
       {/* Call to Action (CTA) */}
       <CTA />
+  {/* Seção Clientes */}
+      <Clientes />
 
       {/* Seção Depoimentos */}
       <Depoimentos />

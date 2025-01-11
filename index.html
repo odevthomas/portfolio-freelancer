@@ -20,9 +20,9 @@
     <link id="favicon"
           rel="icon"
           type="image/svg+xml"
-          href="/logo.png" />
+          href="/logonova.png" />
     <link rel="apple-touch-icon"
-          href="/logo.png" />
+          href="/logonova.png" />
 
     <!-- Estilos internos -->
     <link rel="stylesheet"
@@ -92,7 +92,7 @@
       function updateFavicon() {
         const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const favicon = document.getElementById('favicon');
-        favicon.href = darkModeMediaQuery.matches ? '/favicon-branco.svg' : '/logo.png';
+        favicon.href = darkModeMediaQuery.matches ? '/favicon-branco.svg' : '/logonova.png';
       }
       updateFavicon();
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);

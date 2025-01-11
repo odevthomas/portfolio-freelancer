@@ -1,8 +1,9 @@
 import React from "react";
+import ResumeModal from "../Ferramentas/ResumeModal"; // Ajuste o caminho conforme necessário
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#171717] to-[#0a0a0a] py-8 text-white">
+    <footer className="bg-gradient-to-b from-[#171717] to-[#0a0a0a] py-8 text-[#000] overflow-auto"> {/* Adicionado overflow-auto */}
       <div className="container mx-auto px-6">
         <div className="flex flex-wrap justify-between items-center gap-8">
 
@@ -10,30 +11,18 @@ const Footer = () => {
           <div className="w-full sm:w-1/2 lg:w-1/4">
             <h3 className="text-lg font-semibold mb-4 text-[#b80e0e]">Contato</h3>
             <div className="flex items-center mb-3">
-              <span className="text-sm sm:text-base text-[#D1D1D1]">
+              <span className="text-sm sm:text-base text-[#fff]">
                 São Paulo - SP,
               </span>
             </div>
             <div className="flex items-center mb-3">
-              <span className="text-sm sm:text-base text-[#D1D1D1]">
+              <span className="text-sm sm:text-base text-[#fff]">
                 Fale Comigo:
                 <a
                   href="https://wa.me/55199042072?text=Olá%20Thomas%2C%20vim%20pelo%20seu%20site."
                   className="text-[#8E8E8E] hover:text-[#b80e0e] transition duration-300 ml-1"
                 >
                   WhatsApp
-                </a>
-              </span>
-            </div>
-            <div className="flex items-center">
-              <span className="text-sm sm:text-base text-[#D1D1D1]">
-                Baixe este portfólio em PDF:
-                <a
-                  href="/path/to/portfolio.pdf"
-                  className="text-[#8E8E8E] hover:text-[#b80e0e] transition duration-300 ml-1"
-                  download
-                >
-                  Baixar
                 </a>
               </span>
             </div>
@@ -74,6 +63,11 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+
+          {/* Botão para Ver Currículo */}
+          <div className="w-full sm:w-1/2 lg:w-1/4 flex justify-center">
+            <ResumeModal /> {/* Incluindo o modal aqui */}
           </div>
 
           {/* Botão Voltar ao Topo */}
