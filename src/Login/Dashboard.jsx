@@ -1,38 +1,75 @@
-import React, { useState, useEffect } from "react";
+// src/components/Dashboard.jsx
+import React, { useEffect, useState } from "react";
+import { auth } from "../Login/Firebase";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { auth } from "./Firebase";
+import { FaDownload, FaLink, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
 
 const Dashboard = () => {
-  const [loading, setLoading] = useState(true); // Estado de carregamento
-  const [user, setUser] = useState(null); // Estado do usuário autenticado
-  const navigate = useNavigate(); // Hook para navegação
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  
+  const user = auth.currentUser;
+  const db = getFirestore();
 
-  // Verifica se o usuário está autenticado
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user); // Define o usuário autenticado
-      } else {
-        navigate("/login"); // Redireciona para a página de login se não estiver autenticado
-      }
-      setLoading(false); // Define que o carregamento foi concluído
-    });
-
-    return () => unsubscribe(); // Cleanup do listener
-  }, [navigate]);
+    if (!user) {
+      navigate("/login"); // Se o usuário não estiver autenticado, redireciona para o login
+    } else {
+      const fetchUserData = async () => {
+        const userDocRef = doc(db, "usuarios", user.uid); // Aqui usamos o ID do usuário autenticado para pegar seus dados
+        const docSnap = await getDoc(userDocRef);
+        
+        if (docSnap.exists()) {
+          setUserData(docSnap.data());
+        } else {
+          console.log("Nenhum dado encontrado para este usuário.");
+        }
+        setLoading(false);
+      };
+      
+      fetchUserData();
+    }
+  }, [user, db, navigate]);
 
   if (loading) {
-    return <p>Carregando...</p>; // Exibe enquanto verifica a autenticação
+    return <div>Carregando...</div>;
   }
 
   return (
-    <div className="dashboard-container">
-      <h2>Painel de Controle - {user ? user.email : "Usuário Desconhecido"}</h2>
-      {/* Exiba as informações do projeto aqui */}
-      <div className="project-info">
-        <h3>Documentação do Projeto</h3>
-        <p>Aqui estão as informações do seu projeto...</p>
-        {/* Adicione imagens e outros detalhes do projeto */}
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-6">Bem-vindo ao seu Dashboard, {user.displayName || "Usuário"}!</h1>
+
+      <div className="bg-gray-800 p-6 rounded-lg shadow-md text-white">
+        <h2 className="text-2xl font-semibold mb-4">Projeto Final</h2>
+        <div className="mb-4">
+          <FaDownload className="inline-block mr-2" />
+          <a href={userData.projetoFinal} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+            Baixar o Projeto Final
+          </a>
+        </div>
+        
+        <h2 className="text-2xl font-semibold mb-4">Informações do Domínio</h2>
+        <div className="mb-4">
+          <FaLink className="inline-block mr-2" />
+          <a href={userData.dominio} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+            Acessar o Domínio
+          </a>
+        </div>
+
+        <h2 className="text-2xl font-semibold mb-4">Validade do Projeto</h2>
+        <div className="mb-4">
+          <FaCalendarAlt className="inline-block mr-2" />
+          <span>{userData.validade}</span> {/* A validade pode ser formatada se for uma data */}
+        </div>
+
+        <h2 className="text-2xl font-semibold mb-4">Último Serviço Realizado</h2>
+        <div className="mb-4">
+          <FaInfoCircle className="inline-block mr-2" />
+          <p>{userData.ultimoServico.descricao}</p>
+          <span className="text-gray-400">Realizado em: {userData.ultimoServico.dataServico}</span>
+        </div>
       </div>
     </div>
   );
