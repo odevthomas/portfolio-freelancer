@@ -57,6 +57,7 @@ const ResumeModal = () => {
               <h3 className="font-semibold">Resumo</h3>
               <p>
                 Sou especializado em React, JavaScript, Firebase e soluções sob medida para atender às suas necessidades. Minha abordagem combina inovação e funcionalidade para entregar resultados impressionantes.
+        
               </p>
             </div>
 
@@ -64,8 +65,7 @@ const ResumeModal = () => {
               <h3 className="font-semibold">Experiência</h3>
               <ul className="list-disc list-inside">
                 <li>Desenvolvedor Freelancer (2024 - Presente)</li>
-                <li>Desenvolvedor Frontend na Empresa XYZ (2021 - 2024)</li>
-                <li>Estágio em Desenvolvimento Web na Empresa ABC (2020 - 2021)</li>
+                <li>Desenvolvedor Frontend na Empresa LSG (2024 - Presente)</li>
               </ul>
             </div>
 
