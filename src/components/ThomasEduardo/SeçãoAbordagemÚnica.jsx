@@ -7,7 +7,7 @@ import "swiper/swiper-bundle.css";
 
 const SeçãoAbordagemÚnica = () => {
   const SeçãoAbordagemÚnicaItems = [
-    { image: "/Criativos/bg-tecnologia.png", service: "Funil de Vendas" },
+    { image: "/Criativos/mackbook.png", },
     // Adicione outros itens aqui se necessário
   ];
 

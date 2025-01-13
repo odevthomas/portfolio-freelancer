@@ -93,7 +93,8 @@ const ProjectSection = () => {
           transition={{ duration: 1.5 }}
         >
           <a
-            href="https://wa.me/5519981331191?text=Oi,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20transformar%20meu%20projeto%20em%20algo%20inovador!"
+            href="https://wa.me/5519999042072?text=Oi,%20Thomas!%20Vim%20pelo%20site%20e%20gostaria%20de%20bater%20um%20papo.
+"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-[#fb1603] text-white py-3 px-6 text-lg transition duration-300 w-full sm:w-auto hover:bg-[#e64012] transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#fb1603] focus:ring-opacity-50 text-center rounded-full"
