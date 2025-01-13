@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "/logonova.png";
+import logo from "/logo.pn";
 import { Menu, X } from "lucide-react";
 
 const navigation = [
