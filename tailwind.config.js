@@ -11,10 +11,15 @@ const config = withMT({
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   // Configurações do tema
- theme: {
-  extend: {
-    colors: {
-      'lado-oeste': {
+  theme: {
+    extend: {
+      fontFamily: {
+        'satoshi': ['Satoshi', 'sans-serif'],
+        'sans': ['Satoshi', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        // Cores principais
+        primary: {
           '50': '#fffbec',
           '100': '#fff6d3',
           '200': '#ffeaa5',
@@ -27,33 +32,52 @@ const config = withMT({
           '900': '#82420c',
           '950': '#462004',
         },
-        'rose': {
-          '50': '#F5C2D9',
-          '100': '#F8B4D9',
-          '200': '#F28DBE',
-          '300': '#ED62A1',
-          '400': '#D0006B',
-          '500': '#A3005D',
+        // Cores de destaque
+        accent: {
+          rose: {
+            light: '#F5C2D9',
+            DEFAULT: '#D0006B',
+            dark: '#A3005D',
+          },
+          gold: '#FFD700',
+          mint: '#A8E6CF',
+          wine: '#8B0000',
+          sky: '#87CEEB',
         },
-        'gold': {
-          '500': '#FFD700',
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      },
+      animation: {
+        'gradient': 'gradient 8s linear infinite',
+        'spin-slow': 'spin 8s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
         },
-        'mint': {
-          '500': '#A8E6CF',
-        },
-        'wine': {
-          '500': '#8B0000',
-        },
-        'sky': {
-          '500': '#87CEEB',
-        },
+      },
     },
   },
-},
   // Habilita o modo escuro através da classe "dark"
   darkMode: "class",
   // Plugins utilizados no Tailwind CSS
-  plugins: [nextui()],
+  plugins: [
+    nextui(),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 });
 
 export default config;

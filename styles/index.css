@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('./satoshi.css');
 
 /* slick-carousel */
 @tailwind base;
@@ -9,12 +10,13 @@
 :root {
   --primary-color: #131110;
   --secondary-color: #f4f4f4;
-  --accent-color: #b0b0b0;
+  --accent-color: #dc0000;
   --highlight-color: #999999;
-  --background-color: #1a1a1a;
+  --background-color: #0a0a0a;
   --text-color: #ffffff;
-  --font-primary: 'Raleway', sans-serif;
+  --font-primary: 'Satoshi', sans-serif;
   --font-secondary: 'Playfair Display', serif;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- Reset e Base --- */
@@ -31,7 +33,8 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-family: var(--font-primary);
 }
 
 /* Seção Sobre Nós */
@@ -41,7 +44,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-image: url('cta6.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -57,8 +59,7 @@ body {
 }
 
 .about-content {
-  position: relative;
-  z-index: 10;
+  @apply relative z-10;
   text-align: left;
   max-width: 700px;
   padding: 1.5rem;
@@ -84,22 +85,44 @@ body {
 }
 
 .about-button {
-  background-color: #dc0000;
+  @apply transform transition-all duration-300 active:scale-95;
+  background: linear-gradient(45deg, var(--accent-color), #ff1a1a);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   color: white;
-  font-weight: bold;
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
   font-size: 1rem;
+  border-radius: 50px;
   transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(220, 0, 0, 0.2);
   text-decoration: none;
   text-align: center;
+}
+
+.about-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #ff1a1a, var(--accent-color));
+  transition: width 0.3s var(--transition-smooth);
+  z-index: -1;
+}
+
+.about-button:hover::before {
+  width: 100%;
 }
 
 .about-button:hover {
   transform: scale(1.05);
   background-color: #c70000;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 30px rgba(220, 0, 0, 0.4);
 }
 
 /* Estilos para Serviços */
@@ -115,21 +138,30 @@ body {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
+  background: linear-gradient(90deg, #fff, var(--accent-color), #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
 }
 
 .service-card {
-  background-color: rgba(143, 143, 143, 0.15);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 1.5rem;
+  @apply transition-all duration-300 hover:shadow-xl hover:shadow-gray-800/20;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
   text-align: center;
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.522);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-color);
 }
 
 .service-image {
@@ -181,6 +213,17 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 /* Justificação de texto */
@@ -240,14 +283,18 @@ body {
 /* Customização das setas de navegação do Swiper */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #dc0000;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #f30d0d !important;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 50%;
+  transform: scale(0.7);
+  transition: all 0.3s ease;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #c70000;
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0.8);
 }
 
 .swiper-button-next::after,
@@ -295,6 +342,25 @@ body {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s var(--transition-smooth);
+  position: relative;
+}
+
+.project-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(220, 0, 0, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s var(--transition-smooth);
+}
+
+.project-image:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.project-image:hover::after {
+  opacity: 1;
 }
 
 .project-description {
@@ -347,17 +413,20 @@ body {
 .contact-form textarea {
   padding: 12px;
   font-size: 1rem;
-  background-color: #333;
+  background: rgba(255, 255, 255, 0.03);
   color: white;
-  border: 1px solid #444;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   border-radius: 4px;
   width: 100%;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s var(--transition-smooth);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #dc0000;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(220, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .contact-form button {
@@ -436,4 +505,50 @@ img {
 
 img {
   user-select: none; /* Impede seleção de imagem */
+}
+
+/* Animação de entrada para elementos */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s var(--transition-smooth) forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #f30d0d !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: #f30d0d !important;
+}
+
+/* Adicione estes estilos */
+.stat-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(220, 0, 0, 0.1), 0 4px 6px -2px rgba(220, 0, 0, 0.05);
+}
+
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.about-button {
+  box-shadow: 0 0 20px rgba(220, 0, 0, 0.2);
+}
+
+.about-button:hover {
+  box-shadow: 0 0 30px rgba(220, 0, 0, 0.4);
 }

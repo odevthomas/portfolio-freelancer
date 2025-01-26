@@ -1,67 +1,111 @@
 import React from "react";
-import { MessageCircle } from "lucide-react"; // Ícone de mensagem estilo WhatsApp
+import { MessageCircle, Star, Calendar } from "lucide-react";
 
 const Depoimentos = () => {
-  const mensagens = [
-    { cliente: "João Silva", texto: "Cara, você é muito bom, assim que puder vamos expandir nossa parceria." },
-    { cliente: "Maria Oliveira", texto: "Oii, ficou perfeito! Minha mãe adorou a cor e os detalhes." },
-    { cliente: "Thomas", texto: "Gostei muito do seu trabalho e adorei o layout do nosso site." },
-    { cliente: "Carlos Almeida", texto: "Eu curti muito essa API que você colocou no site." },
+  const depoimentos = [
+    {
+      cliente: "João Silva",
+      texto: "Cara, você é muito bom, assim que puder vamos expandir nossa parceria.",
+      avaliacao: 5,
+      data: "Mar 2024",
+      cargo: "CEO TechStart"
+    },
+    {
+      cliente: "Maria Oliveira",
+      texto: "Oii, ficou perfeito! Minha mãe adorou a cor e os detalhes do site da loja.",
+      avaliacao: 5,
+      data: "Fev 2024",
+      cargo: "Proprietária Boutique Elegance"
+    },
+    {
+      cliente: "Thomas",
+      texto: "Gostei muito do seu trabalho e adorei o layout do nosso site. Superou minhas expectativas!",
+      avaliacao: 5,
+      data: "Jan 2024",
+      cargo: "Diretor Criativo"
+    },
+    {
+      cliente: "Carlos Almeida",
+      texto: "Eu curti muito essa API que você colocou no site. O sistema ficou muito mais rápido!",
+      avaliacao: 5,
+      data: "Jan 2024",
+      cargo: "CTO Inovação Tech"
+    },
   ];
 
+  const renderEstrelas = (quantidade) => {
+    return [...Array(quantidade)].map((_, index) => (
+      <Star
+        key={index}
+        size={16}
+        className="text-yellow-400 fill-yellow-400"
+      />
+    ));
+  };
+
   return (
-    <section
-      className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
-      style={{
-        backgroundImage: "url('/bg-fundo-about.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}
-    >
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Cabeçalho da Seção */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Feedback dos
+            <span className="text-[#e14216]"> Clientes</span>
+          </h2>
+          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
+            Descubra o que nossos clientes dizem sobre nossas soluções e como estamos transformando suas ideias em realidade.
+          </p>
+        </div>
 
-      
-      <div className="container mx-auto px-6 text-white">
-        {/* Título da seção */}
-        <h3 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 text-center">
-          Depoimentos dos Meus Clientes
-        </h3>
-        <p className="text-xl sm:text-2xl md:text-3xl text-gray-400 text-center mb-10">
-          Veja o que as pessoas estão dizendo sobre os meus serviços personalizados e como eu ajudo a transformar suas ideias em realidade.
-        </p>
-
-        {/* Exibição das mensagens do cliente */}
-        <div className="flex flex-col items-center space-y-6">
-          {mensagens.map((mensagem, index) => (
+        {/* Grid de Depoimentos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          {depoimentos.map((depoimento, index) => (
             <div
               key={index}
-              className={`bg-[#83838338] text-white rounded-lg shadow-lg p-6 flex items-start space-x-4 w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 ${index % 2 === 0 ? "self-start" : "self-end"}`}
-              style={{
-                borderRadius: "15px",
-                padding: "20px",
-                position: "relative",
-                margin: "10px 0",
-                maxWidth: "80%",
-              }}
+              className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 transform transition-all duration-300 hover:scale-[1.02] hover:border-[#e14216]"
             >
-              <div className="flex flex-col w-full">
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center">
-                    <div className="border border-[#4CAF50] rounded-full p-2 bg-[#4CAF50] mr-2">
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-[#e14216] rounded-full p-2">
                       <MessageCircle size={24} className="text-white" />
                     </div>
-                    <span className="text-lg font-semibold">Mensagem</span>
+                  <div>
+                    <h3 className="font-semibold text-white text-lg">
+                      {depoimento.cliente}
+                    </h3>
+                    <p className="text-gray-400 text-sm">{depoimento.cargo}</p>
                   </div>
-                  <span className="text-xs text-gray-300">Recebida</span>
                 </div>
-                <div className="text-sm text-gray-300">{mensagem.texto}</div>
+                <div className="flex items-center space-x-2">
+                  <Calendar size={16} className="text-gray-400" />
+                  <span className="text-gray-400 text-sm">{depoimento.data}</span>
+                  </div>
+                </div>
+
+              {/* Conteúdo do Depoimento */}
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                "{depoimento.texto}"
+              </p>
+
+              {/* Avaliação */}
+              <div className="flex items-center space-x-1">
+                {renderEstrelas(depoimento.avaliacao)}
               </div>
-              <div
-                className={`absolute w-0 h-0 border-l-8 border-l-${index % 2 === 0 ? 'green-300' : 'green-500'} border-t-8 border-t-transparent ${
-                  index % 2 === 0 ? "top-1/2 left-0 transform -translate-y-1/2" : "top-1/2 right-0 transform -translate-y-1/2"
-                }`}
-              />
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <a
+            href="https://api.whatsapp.com/send?phone=551999042072&text=Oi, estou interessado!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 bg-[#e14216] text-white font-semibold rounded-full hover:bg-[#ff4d1c] transition-all duration-300 transform hover:scale-105"
+          >
+            Quero um Projeto Assim
+          </a>
         </div>
       </div>
     </section>

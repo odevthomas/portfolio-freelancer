@@ -1,167 +1,241 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../Login/Firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import googleLogo from '/public/icons/google.svg';
 import Header from "../components/HeaderFooter/NavLogin";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); 
-  const [isModalOpen, setIsModalOpen] = useState(false); // Controle do modal
-  const navigate = useNavigate();  
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRegisterMode, setIsRegisterMode] = useState(false);
+  const navigate = useNavigate();
 
   const provider = new GoogleAuthProvider();
 
-  const handleLogin = async (e) => {
+  const handleAuth = async (e, type) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");  
-    } catch (error) {
-      setError(error.message);  
-    }
-  };
+    setIsLoading(true);
+    setError("");
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");  
+      if (type === "login") {
+        await signInWithEmailAndPassword(auth, email, password);
+      } else {
+        await createUserWithEmailAndPassword(auth, email, password);
+      }
+      navigate("/dashboard");
     } catch (error) {
-      setError(error.message);  
+      setError(
+        error.code === "auth/wrong-password"
+          ? "Senha incorreta. Tente novamente."
+          : error.code === "auth/user-not-found"
+          ? "Usuário não encontrado."
+          : error.code === "auth/email-already-in-use"
+          ? "Este email já está em uso."
+          : "Ocorreu um erro. Tente novamente."
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleGoogleLogin = async () => {
+    setIsLoading(true);
     try {
       await signInWithPopup(auth, provider);
-      navigate("/dashboard");  
+      navigate("/dashboard");
     } catch (error) {
-      setError(error.message);  
+      setError("Erro ao fazer login com Google. Tente novamente.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Função para abrir o modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Função para fechar o modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header /> {/* Adicionando o Header no topo */}
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      <Header />
       
-      <div className="flex flex-1 items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'url(bg-nova.png)' }}>
-        <div className="w-full sm:max-w-sm md:max-w-md p-8 space-y-6 bg-black rounded-lg shadow-md bg-opacity-90 mt-8"> 
-          <h2 className="text-3xl font-bold text-left text-gray-100">Cadastre-se para acessar seus dados </h2>
-          {error && <p className="text-red-500 text-center">{error}</p>}
+      <div className="flex flex-1 items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-2xl shadow-2xl"
+        >
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-3xl font-bold text-white text-center"
+          >
+            {isRegisterMode ? "Criar Conta" : "Bem-vindo de volta"}
+          </motion.h2>
           
-          <form onSubmit={handleLogin} className="space-y-6">
-            {/* Input de Email */}
-            <div className="flex items-center border border-gray-700 rounded-lg bg-gray-800">
-              <FaEnvelope className="text-gray-400 text-xl ml-3" />
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full p-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-              />
+          <AnimatePresence>
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="bg-red-500 bg-opacity-10 border border-red-500 text-red-500 px-4 py-2 rounded-lg text-center"
+              >
+                {error}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <form onSubmit={(e) => handleAuth(e, isRegisterMode ? "register" : "login")} className="space-y-6">
+            <div className="space-y-4">
+              <div className="relative">
+                <div className="flex items-center border border-gray-600 rounded-lg bg-gray-700 focus-within:border-blue-500 transition-colors">
+                  <FaEnvelope className="text-gray-400 text-xl ml-3" />
+                  <input
+                    type="email"
+                    placeholder="Seu email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full p-3 bg-transparent text-white rounded-lg focus:outline-none placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="flex items-center border border-gray-600 rounded-lg bg-gray-700 focus-within:border-blue-500 transition-colors">
+                  <FaLock className="text-gray-400 text-xl ml-3" />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Sua senha"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="w-full p-3 bg-transparent text-white rounded-lg focus:outline-none placeholder-gray-400"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="px-3 text-gray-400 hover:text-white transition-colors"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Input de Senha */}
-            <div className="flex items-center border border-gray-700 rounded-lg bg-gray-800">
-              <FaLock className="text-gray-400 text-xl ml-3" />
-              <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full p-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-              />
-            </div>
-
-            {/* Links de Esqueci a Senha e Redefinir Senha */}
-            <div className="flex justify-between">
-              <button type="button" className="text-sm text-blue-600 hover:underline" onClick={() => alert('Esqueci a senha')}>Esqueci a senha</button>
-              <button type="button" className="text-sm text-blue-600 hover:underline" onClick={() => alert('Cadastro')}>Redefinir senha</button>
-            </div>
-
-            {/* Botão de Login */}
-            <button type="submit" className="w-full p-3 font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition">
-              Login
-            </button>
-          </form>
-
-          {/* Botão de Cadastrar */}
-          <button onClick={handleRegister} className="w-full p-3 font-semibold text-white bg-green-500 rounded-lg hover:bg-green-600 transition">
-            Cadastrar
-          </button>
-
-          {/* Botão de Login com Google */}
-          <button onClick={handleGoogleLogin} className="flex items-center justify-center w-full p-3 font-semibold text-white bg-[#1b1b1b] rounded-lg hover:bg-[#303030] transition">
-            <img src={googleLogo} alt="Google Logo" className="w-5 h-5 mr-2" />
-            Login com Google
-          </button>
-
-          {/* Política de Privacidade */}
-          <div className="text-center text-sm text-gray-600 mt-6">
-            <p>Ao fazer login, você concorda com nossa 
-              <button 
-                onClick={openModal} 
-                className="text-blue-600 hover:underline">
-                Política de Privacidade
-              </button>.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Modal da Política de Privacidade */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white rounded-lg p-6 max-w-lg w-full">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Política de Privacidade</h3>
-            <div className="overflow-y-auto max-h-80">
-              <p className="text-gray-600 mb-4">
-                Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.
-              </p>
-              <p className="text-gray-600 mb-4">
-                1. **Coleta de Informações**: Coletamos informações pessoais quando você se registra em nosso site, como nome, e-mail e outros dados necessários para o processo de login.
-              </p>
-              <p className="text-gray-600 mb-4">
-                2. **Uso das Informações**: Utilizamos suas informações pessoais para fornecer acesso ao nosso site, para melhorar a experiência do usuário e para enviar atualizações e notificações.
-              </p>
-              <p className="text-gray-600 mb-4">
-                3. **Proteção de Dados**: Implementamos medidas de segurança para proteger suas informações pessoais. No entanto, nenhum método de transmissão pela internet ou método de armazenamento eletrônico é 100% seguro, por isso não podemos garantir sua segurança absoluta.
-              </p>
-              <p className="text-gray-600 mb-4">
-                4. **Compartilhamento de Dados**: Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para fornecer serviços que você solicitou ou quando exigido por lei.
-              </p>
-              <p className="text-gray-600 mb-4">
-                5. **Seus Direitos**: Você tem o direito de acessar, corrigir ou excluir suas informações pessoais a qualquer momento. Para isso, entre em contato conosco.
-              </p>
-              <p className="text-gray-600 mb-4">
-                Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco.
-              </p>
-            </div>
-            <div className="flex justify-end mt-4">
-              <button onClick={closeModal} className="bg-red-500 text-white px-4 py-2 rounded">
-                Fechar
+            <div className="flex justify-between text-sm">
+              <button type="button" className="text-blue-400 hover:text-blue-300 transition-colors">
+                Esqueceu a senha?
               </button>
             </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={isLoading}
+              className="w-full p-3 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  Processando...
+                </div>
+              ) : (
+                isRegisterMode ? "Criar conta" : "Entrar"
+              )}
+            </motion.button>
+          </form>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-600"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 text-gray-400 bg-gray-800">ou continue com</span>
+            </div>
           </div>
-        </div>
-      )}
+
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleGoogleLogin}
+            disabled={isLoading}
+            className="flex items-center justify-center w-full p-3 font-semibold text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
+          >
+            <img src={googleLogo} alt="Google" className="w-5 h-5 mr-2" />
+            Google
+          </motion.button>
+
+          <div className="text-center text-gray-400">
+            {isRegisterMode ? "Já tem uma conta?" : "Ainda não tem uma conta?"}{" "}
+            <button
+              onClick={() => setIsRegisterMode(!isRegisterMode)}
+              className="text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              {isRegisterMode ? "Faça login" : "Registre-se"}
+            </button>
+          </div>
+
+          <div className="text-center text-xs text-gray-500">
+            Ao continuar, você concorda com nossos{" "}
+            <button onClick={() => setIsModalOpen(true)} className="text-blue-400 hover:text-blue-300">
+              Termos e Política de Privacidade
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="bg-gray-800 rounded-2xl p-6 max-w-lg w-full"
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">Política de Privacidade</h3>
+              <div className="overflow-y-auto max-h-[60vh] text-gray-300 space-y-4">
+                <p>
+                  Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.
+                </p>
+                <p>
+                  1. <strong>Coleta de Informações</strong>: Coletamos informações pessoais quando você se registra em nosso site.
+                </p>
+                <p>
+                  2. <strong>Uso das Informações</strong>: Utilizamos suas informações para melhorar sua experiência.
+                </p>
+                <p>
+                  3. <strong>Proteção de Dados</strong>: Implementamos medidas de segurança robustas.
+                </p>
+                <p>
+                  4. <strong>Seus Direitos</strong>: Você tem total controle sobre seus dados.
+                </p>
+              </div>
+              <div className="mt-6 flex justify-end">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors"
+                >
+                  Entendi
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

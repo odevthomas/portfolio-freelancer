@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Plus, Minus, Info, CheckCircle, Clock, Globe } from "lucide-react";
+import { Plus, Minus, Info, CheckCircle, Clock, Globe, Code, Database, Gauge, Cloud, Users, Star } from "lucide-react";
 
 const FaqSection = () => {
   const [expanded, setExpanded] = useState(null);
@@ -10,35 +10,35 @@ const FaqSection = () => {
 
   const faqs = [
     {
-      question: "Qual linguagem você usa para desenvolver meu site?",
-      answer: "Eu utilizo as linguagens mais atuais para o desenvolvimento de sites, como HTML, CSS, JavaScript, React para frontend e Node.js para o backend. Podemos usar outras tecnologias como Vue.js, Angular ou PHP, se necessário.",
-      icon: <Info className="w-5 h-5 text-black" />
+      question: "Quais tecnologias você domina no desenvolvimento frontend?",
+      answer: "Tenho sólida experiência com React.js, Next.js, TypeScript e JavaScript (ES6+). Trabalho com HTML5, CSS3 e Tailwind CSS para criar interfaces modernas e responsivas. Também utilizo Redux e Context API para gerenciamento de estado.",
+      icon: <Code className="w-5 h-5 text-black" />
     },
     {
-      question: "Qual é o prazo de entrega do meu site?",
-      answer: "O prazo de entrega depende da complexidade do design e funcionalidades. Em geral, um design pronto leva de 4 a 5 dias, enquanto projetos mais complexos podem levar até 10 dias.",
-      icon: <Clock className="w-5 h-5 text-black" />
+      question: "Você tem experiência com desenvolvimento full-stack?",
+      answer: "Sim! Além do frontend, trabalho com Node.js, Express.js e bancos de dados como MongoDB e Firebase. Tenho experiência na construção de APIs RESTful e integração com diversos serviços.",
+      icon: <Database className="w-5 h-5 text-black" />
     },
     {
-      question: "O que vem com o meu site?",
-      answer: "Você recebe um site funcional, responsivo e otimizado para SEO. Dependendo do projeto, podemos incluir integração com ferramentas de análise, e-commerce ou sistemas de gerenciamento de conteúdo.",
-      icon: <CheckCircle className="w-5 h-5 text-black" />
+      question: "Como você garante a qualidade e performance dos projetos?",
+      answer: "Utilizo ferramentas como Google Lighthouse e PageSpeed Insights para otimização. Implemento técnicas como code splitting, lazy loading e cache para melhorar a performance. Meus projetos costumam atingir pontuação 95+ em métricas de performance.",
+      icon: <Gauge className="w-5 h-5 text-black" />
     },
     {
-      question: "Quem cuida do domínio e da hospedagem?",
-      answer: "O domínio é de responsabilidade do cliente. A hospedagem pode ser fornecida por mim ou indicada conforme suas necessidades.",
-      icon: <Globe className="w-5 h-5 text-black" />
+      question: "Qual é sua experiência com DevOps e deploy?",
+      answer: "Trabalho com Git, GitHub Actions para CI/CD, Docker e serviços AWS. Tenho experiência com deploy em plataformas como Vercel e implementação de pipelines automatizados que reduzem significativamente o tempo de deploy.",
+      icon: <Cloud className="w-5 h-5 text-black" />
     },
     {
-      question: "Posso fazer mudanças no meu site depois de pronto?",
-      answer: "Sim! Podemos negociar pacotes de manutenção ou eu posso fornecer treinamento para que você faça as alterações necessárias.",
-      icon: <CheckCircle className="w-5 h-5 text-black" />
+      question: "Como você lida com projetos em equipe?",
+      answer: "Tenho experiência em trabalhar com metodologias ágeis, utilizando Git para controle de versão e realizando code reviews. Valorizo a comunicação clara e documentação adequada para garantir que todos estejam alinhados.",
+      icon: <Users className="w-5 h-5 text-black" />
     },
     {
-      question: "Como posso rastrear o andamento do meu projeto?",
-      answer: "Você terá acesso a um painel de progresso e realizaremos reuniões periódicas para garantir que tudo esteja alinhado com suas expectativas.",
-      icon: <Info className="w-5 h-5 text-black" />
-    },
+      question: "Quais são seus diferenciais como desenvolvedor?",
+      answer: "Além das habilidades técnicas, tenho certificações AWS e Google Analytics. Possuo experiência comprovada em otimização de performance, tendo reduzido tempos de carregamento em até 60% e implementado soluções escaláveis que processam grandes volumes de dados.",
+      icon: <Star className="w-5 h-5 text-black" />
+    }
   ];
 
   return (

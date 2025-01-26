@@ -1,21 +1,26 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 
 // Componente para exibir cada empresa
-const CompanyCard = ({ image, name, style }) => {
+const CompanyCard = ({ image, name, style, description }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-6 hover:scale-105 transition-all duration-300 transform hover:shadow-xl">
-      <div className="w-24 h-24 mb-4 rounded-full p-4 flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center p-8 hover:scale-105 transition-all duration-300 transform hover:shadow-2xl bg-gradient-to-b from-[#ffffff05] to-[#ffffff10] rounded-2xl backdrop-blur-sm">
+      <div className="w-32 h-32 mb-6 rounded-full p-4 flex items-center justify-center bg-gradient-to-r from-purple-500/10 to-blue-500/10">
         <motion.img
           src={image}
           alt={name}
-          className="w-full h-full object-cover rounded-full"
-          whileHover={{ scale: 1.1 }}
+          className="w-full h-full object-cover rounded-full border-2 border-purple-500/20"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ type: "spring", stiffness: 300 }}
         />
       </div>
-      <h3 className="text-lg sm:text-xl text-gray-100 font-semibold text-center">{name}</h3>
-      <p className="text-sm sm:text-base text-gray-500 text-center">{style}</p>
+      <h3 className="text-xl sm:text-2xl text-gray-100 font-satoshi-bold mb-2 text-center">{name}</h3>
+      <p className="text-base sm:text-lg text-purple-300 font-satoshi-medium mb-3 text-center">{style}</p>
+      <p className="text-sm text-gray-400 text-center font-satoshi-regular">{description}</p>
     </div>
   );
 };
@@ -27,65 +32,72 @@ const Clientes = () => {
       name: "SLG Digital",
       style: "Agência de Marketing Digital",
       image: "/Parceiros/slgdigital.jpg",
+      description: "Desenvolvimento de estratégias avançadas de marketing digital, otimização SEO e gestão completa de campanhas nas redes sociais."
     },
     {
       name: "Casa L'Ellit",
-      style: "Noivas e Beleza",
+      style: "Boutique de Noivas Premium",
       image: "/Parceiros/casalellit.jpg",
+      description: "Criação de identidade visual sofisticada, marketing digital especializado e estratégia de comunicação para o mercado luxury de noivas."
     },
     {
       name: "Gil Barbosa Beauty Center",
-      style: "Centro de Beleza",
+      style: "Centro de Beleza & Estética",
       image: "/Parceiros/gilbarbosabeautycenter.jpg",
+      description: "Gestão completa de mídias sociais, produção de conteúdo premium e estratégias de crescimento para o setor de beleza e estética."
     },
+    {
+      name: "Studio Beauty",
+      style: "Salão de Beleza Premium",
+      image: "/Parceiros/studiobeauty.jpg",
+      description: "Desenvolvimento de estratégia digital integrada, branding e campanhas sazonais para captação de clientes VIP."
+    },
+    {
+      name: "Café & Bistrô",
+      style: "Gastronomia Gourmet",
+      image: "/Parceiros/cafeebistro.jpg",
+      description: "Criação de identidade visual moderna, fotografia gastronômica e estratégias de marketing local para aumentar o fluxo de clientes."
+    }
   ];
 
   return (
-    <section id="empresas-confiaram" className="w-full py-16 bg-gradient-to-b from-[#0000001d] to-[#00000000]">
+    <section id="empresas-confiaram" className="w-full py-24 bg-gradient-to-b from-[#0000001d] to-[#00000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-semibold text-center text-gray-100 mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          Empresas e Locais onde Colaborei
-        </motion.h2>
+          <h2 className="text-4xl sm:text-5xl font-satoshi-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-6">
+            Parcerias de Sucesso
+          </h2>
+          <p className="text-xl sm:text-2xl text-gray-300 font-satoshi-medium max-w-3xl mx-auto leading-relaxed">
+            Conheça algumas das empresas que transformaram sua presença digital através da nossa colaboração estratégica.
+          </p>
+        </motion.div>
 
-        {/* Subtítulo */}
-        <motion.p
-          className="text-lg sm:text-xl text-center text-gray-300 mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-        >
-          Confira alguns dos lugares e empresas que confiaram no meu trabalho e na minha expertise para alcançar seus objetivos.
-        </motion.p>
-
-        {/* Carrossel de empresas */}
         <Swiper
-          spaceBetween={30}
+          spaceBetween={40}
           slidesPerView={1}
-          navigation={false}  // Desativando as setas
           loop={true}
-          pagination={{ clickable: true }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
           breakpoints={{
             640: {
-              slidesPerView: 2, // 2 slides para telas pequenas
+              slidesPerView: 2,
             },
             1024: {
-              slidesPerView: 3, // 3 slides para telas grandes
+              slidesPerView: 3,
             },
           }}
-          className="mySwiper"
+          className="pb-12"
         >
           {companies.map((company, index) => (
             <SwiperSlide key={index}>
-              <CompanyCard
-                image={company.image}
-                name={company.name}
-                style={company.style}
-              />
+              <CompanyCard {...company} />
             </SwiperSlide>
           ))}
         </Swiper>

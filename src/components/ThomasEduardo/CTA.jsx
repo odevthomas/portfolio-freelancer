@@ -6,7 +6,6 @@ const ProjectSection = () => {
   return (
     <section id="Projetos" className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
       style={{
-        backgroundImage: "url('/bg-fundo-about.png')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}

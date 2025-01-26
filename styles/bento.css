@@ -1,16 +1,30 @@
+:root {
+  --primary-color: #131110;
+  --secondary-color: #f4f4f4;
+  --accent-color: #dc0000;
+  --highlight-color: #999999;
+  --background-color: #0a0a0a;
+  --text-color: #ffffff;
+  --font-primary: 'Satoshi', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  font-family: var(--font-primary);
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+  background-color: var(--background-color);
   border-radius: 8px;
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
+  color: var(--text-color);
 }
 
 .grid-item:hover {
@@ -27,7 +41,7 @@
 .social-links a {
   margin: 0 10px;
   text-decoration: none;
-  color: #007bff;
+  color: var(--accent-color);
 }
 
 .carousel {
