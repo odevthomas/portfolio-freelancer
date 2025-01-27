@@ -4,102 +4,83 @@ import { FaLightbulb, FaCode, FaRocket, FaHandsHelping } from 'react-icons/fa';
 
 const ProjectSection = () => {
   return (
-    <section id="Projetos" className="relative w-full min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center px-6 sm:px-8 py-16"
-      style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}
-    >
-      <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
-        
-        <motion.h2
-                     className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-                     initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+    <section id="Projetos" className="relative w-full min-h-screen bg-[#111] flex items-center justify-center px-4 py-20">
+      {/* Elemento decorativo de fundo */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 bg-[#fb1603] rounded-full blur-[150px] opacity-10 -top-20 -left-20" />
+        <div className="absolute w-96 h-96 bg-[#fb1603] rounded-full blur-[150px] opacity-10 -bottom-20 -right-20" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          Cada Projeto é uma Oportunidade de Reinventar a Tecnologia!
-        </motion.h2>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Cada Projeto é uma
+            <span className="text-[#fb1603]"> Oportunidade </span>
+            de Reinventar a Tecnologia!
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Convertendo ideias abstratas em experiências reais que marcam e conquistam os usuários.
+          </p>
+        </motion.div>
 
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 max-w-4xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-        >
-          Convertendo ideias abstratas em experiências reais que marcam e conquistam os usuários. Cada interação e cada detalhe são projetados para transformar a maneira como as pessoas se conectam com a tecnologia.
-        </motion.p>
-
-        {/* Layout de Grid para Projetos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 my-12">
-          {/* Card 1 */}
-          <motion.div
-            className="flex flex-col items-center justify-center bg-[#1f1f1f] p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaLightbulb className="text-5xl text-[#fb1603] mb-4 transition-transform duration-300 ease-in-out" />
-            <h3 className="text-2xl font-semibold mb-2 text-white">Inovação e Criatividade</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              Cada projeto é uma chance de explorar novas formas de pensar e criar soluções criativas que encantam os usuários e atendem às necessidades do mercado.
-            </p>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div
-            className="flex flex-col items-center justify-center bg-[#1f1f1f] p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaCode className="text-5xl text-[#fb1603] mb-4 transition-transform duration-300 ease-in-out" />
-            <h3 className="text-2xl font-semibold mb-2 text-white">Desenvolvimento com Qualidade</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              Criar código limpo e eficiente é essencial para garantir que cada funcionalidade funcione perfeitamente, proporcionando uma experiência sem falhas.
-            </p>
-          </motion.div>
-
-          {/* Card 3 */}
-          <motion.div
-            className="flex flex-col items-center justify-center bg-[#1f1f1f] p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaRocket className="text-5xl text-[#fb1603] mb-4 transition-transform duration-300 ease-in-out" />
-            <h3 className="text-2xl font-semibold mb-2 text-white">Crescimento e Escalabilidade</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              Pensar em escalabilidade desde o início do projeto permite que ele cresça e se adapte ao longo do tempo, garantindo sustentabilidade no longo prazo.
-            </p>
-          </motion.div>
-
-          {/* Card 4 */}
-          <motion.div
-            className="flex flex-col items-center justify-center bg-[#1f1f1f] p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaHandsHelping className="text-5xl text-[#fb1603] mb-4 transition-transform duration-300 ease-in-out" />
-            <h3 className="text-2xl font-semibold mb-2 text-white">Colaboração e Resultados</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              O trabalho colaborativo e a comunicação eficiente são fundamentais para transformar ideias em realidade, garantindo resultados que impactam positivamente os usuários.
-            </p>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {[
+            {
+              icon: <FaLightbulb />,
+              title: "Inovação",
+              desc: "Explorando novas formas de pensar e criar soluções criativas"
+            },
+            {
+              icon: <FaCode />,
+              title: "Qualidade",
+              desc: "Código limpo e eficiente para experiências sem falhas"
+            },
+            {
+              icon: <FaRocket />,
+              title: "Escalabilidade",
+              desc: "Projetos que crescem e se adaptam ao longo do tempo"
+            },
+            {
+              icon: <FaHandsHelping />,
+              title: "Colaboração",
+              desc: "Transformando ideias em realidade com trabalho em equipe"
+            }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-6 hover:border-[#fb1603] transition-all duration-300"
+            >
+              <div className="text-[#fb1603] text-4xl mb-4">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
-          className="mt-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-center"
         >
           <a
-            href="https://wa.me/5519999042072?text=Oi,%20Thomas!%20Vim%20pelo%20site%20e%20gostaria%20de%20bater%20um%20papo.
-"
+            href="https://wa.me/5519999042072?text=Oi,%20Thomas!%20Vim%20pelo%20site%20e%20gostaria%20de%20bater%20um%20papo."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#fb1603] text-white py-3 px-6 text-lg transition duration-300 w-full sm:w-auto hover:bg-[#e64012] transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#fb1603] focus:ring-opacity-50 text-center rounded-full"
-            aria-label="Clique para falar conosco sobre como transformar seu projeto"
+            className="inline-block bg-[#fb1603] text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-[#e61503] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[#fb1603]/20"
           >
-            Vamos Criar Algo Incrível Juntos!
+            Vamos Criar Algo Incrível Juntos! →
           </a>
         </motion.div>
       </div>

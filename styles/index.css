@@ -8,9 +8,26 @@
 
 /* --- Cores e Tipografia --- */
 :root {
+  /* Cores principais do tema */
+  --primary-red: #FF0000;
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  
+  /* Variações de cores */
+  --red-light: #FF3333;
+  --red-dark: #CC0000;
+  --black-light: #333333;
+  --black-dark: #1A1A1A;
+  
+  /* Cores funcionais */
+  --text-primary: var(--black-dark);
+  --text-secondary: var(--black-light);
+  --background-primary: var(--primary-white);
+  --background-secondary: #F5F5F5;
+  --accent-color: var(--primary-red);
+  --border-color: #E5E5E5;
   --primary-color: #030303;
   --secondary-color: #f4f4f4;
-  --accent-color: #dc0000;
   --highlight-color: #030303;
   --background-color: #0a0a0a;
   --text-color: #ffffff;
@@ -551,4 +568,32 @@ img {
 
 .about-button:hover {
   box-shadow: 0 0 30px rgba(220, 0, 0, 0.4);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
 }

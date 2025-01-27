@@ -98,7 +98,7 @@ const LandingPage = () => {
               </Link>
               
               <Link
-                to="/ThomasEduardo"
+                to="/thomas-eduardo"
                 className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
               >
                 Ver Portfólio

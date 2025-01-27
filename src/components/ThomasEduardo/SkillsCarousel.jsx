@@ -1,158 +1,143 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaDesktop, FaPaintBrush, FaLaptopCode, FaMobileAlt } from 'react-icons/fa';
+import { FaDesktop, FaPaintBrush, FaLaptopCode, FaMobileAlt, FaRocket, FaTools, FaShieldAlt, FaSearch } from 'react-icons/fa';
 
 const SkillsCarousel = () => {
   const skills = [
     {
+      icon: <FaRocket />,
+      title: "Performance Web",
+      description: "Otimização de velocidade e desempenho para uma experiência excepcional.",
+      gradient: "from-purple-600 to-blue-500"
+    },
+    {
       icon: <FaDesktop />,
       title: "Design Responsivo",
-      description: "Desenvolvimento de interfaces que se adaptam perfeitamente a qualquer dispositivo, garantindo a melhor experiência para seus usuários.",
-      color: "#fb1603",
-      gradient: "from-red-600 to-red-400"
+      description: "Interfaces adaptativas que funcionam perfeitamente em qualquer dispositivo.",
+      gradient: "from-blue-600 to-cyan-500"
     },
     {
       icon: <FaPaintBrush />,
       title: "UI/UX Design",
-      description: "Criação de interfaces modernas e intuitivas que cativam seus usuários e fortalecem sua marca no mercado digital.",
-      color: "#fb1603",
-      gradient: "from-orange-600 to-red-500"
+      description: "Designs modernos e intuitivos que encantam seus usuários.",
+      gradient: "from-cyan-500 to-teal-500"
     },
     {
       icon: <FaLaptopCode />,
       title: "Código Limpo",
-      description: "Desenvolvimento com as melhores práticas de programação, garantindo performance e facilidade de manutenção.",
-      color: "#fb1603",
-      gradient: "from-red-500 to-pink-500"
+      description: "Desenvolvimento com as melhores práticas para fácil manutenção.",
+      gradient: "from-teal-500 to-green-500"
     },
     {
       icon: <FaMobileAlt />,
       title: "Mobile First",
-      description: "Priorização da experiência mobile, atendendo às necessidades do público que mais cresce na internet.",
-      color: "#fb1603",
-      gradient: "from-pink-600 to-red-500"
+      description: "Priorização da experiência mobile para alcançar mais usuários.",
+      gradient: "from-green-500 to-yellow-500"
+    },
+    {
+      icon: <FaTools />,
+      title: "Manutenção",
+      description: "Suporte contínuo e atualizações para seu projeto.",
+      gradient: "from-yellow-500 to-orange-500"
+    },
+    {
+      icon: <FaShieldAlt />,
+      title: "Segurança",
+      description: "Proteção e conformidade com as melhores práticas de segurança.",
+      gradient: "from-orange-500 to-red-500"
+    },
+    {
+      icon: <FaSearch />,
+      title: "SEO Otimizado",
+      description: "Estratégias para melhor visibilidade nos mecanismos de busca.",
+      gradient: "from-red-500 to-purple-500"
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0, scale: 0.9 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
   return (
-    <section className="relative py-20 bg-gradient-to-b from-black via-[#1a1a1a] to-black overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#fb1603]/10 via-transparent to-transparent opacity-90"></div>
+    <section className="relative py-32 bg-gradient-to-b from-black via-[#0a0a0a] to-black overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#fb1603]/20 via-transparent to-transparent opacity-75"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-center mb-20"
         >
-          <motion.h2 
-className="text-5xl md:text-6xl font-extrabold text-center"            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
+          <motion.span 
+            className="inline-block text-[#fb1603] text-lg font-bold tracking-wider mb-6 px-6 py-2 border border-[#fb1603] rounded-full"
+            whileHover={{ scale: 1.05 }}
           >
-            Expertise em
-            <motion.span 
-          className="text-[#dc0000]"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >  Desenvolvimento Web</motion.span>
-          </motion.h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            Transformando ideias em experiências digitais memoráveis através de tecnologias modernas e design inovador
+            HABILIDADES & EXPERTISE
+          </motion.span>
+          
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-8">
+            Soluções
+            <span className="bg-gradient-to-r from-[#fb1603] to-[#dc0000] bg-clip-text text-transparent"> Digitais</span> Completas
+          </h2>
+          
+          <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            Combinando tecnologia moderna e criatividade para transformar sua presença digital
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -10,
-                transition: { type: "spring", stiffness: 300 }
-              }}
-              className="group relative   from-[#2b2b2b] to-[#1a1a1a] p-8 rounded-2xl shadow-xl transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group relative bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-gray-800 hover:border-[#fb1603] transition-all duration-500"
             >
-              <div className={`absolute inset-0 ${skill.gradient} opacity-0 group-hover:opacity-90 rounded-2xl transition-opacity duration-500`}></div>
-              <motion.div 
-                className="absolute inset-0 bg-black/50 rounded-2xl"
-                initial={false}
-                whileHover={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              />
+              <div className={`absolute inset-0 bg-gradient-to-r ${skill.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`}></div>
               
               <div className="relative z-10">
                 <motion.div 
-                  className="text-4xl text-[#fb1603] mb-6"
+                  className="text-5xl text-[#fb1603] mb-6"
                   whileHover={{ rotate: 360, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   {skill.icon}
                 </motion.div>
-                <motion.h3 
-                  className="text-2xl font-bold text-white mb-4"
-                  whileHover={{ x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#fb1603] transition-colors duration-300">
                   {skill.title}
-                </motion.h3>
-                <p className="text-gray-400 group-hover:text-white transition-colors duration-300">
+                </h3>
+                
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                   {skill.description}
                 </p>
               </div>
+
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fb1603] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="mt-16 text-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="mt-20 text-center"
         >
           <motion.a
             href="https://wa.me/5519999042072?text=Oi,%20Thomas!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20mais%20sobre%20seus%20serviços."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#fb1603] rounded-full hover:bg-[#e64012] transform transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#fb1603] rounded-full hover:bg-[#dc0000] transition-all duration-300"
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 0 25px rgba(251, 22, 3, 0.5)"
+              boxShadow: "0 0 30px rgba(251, 22, 3, 0.4)"
             }}
             whileTap={{ scale: 0.95 }}
           >
-            Vamos Criar Algo Incrível
+            Vamos Iniciar um Projeto
           </motion.a>
         </motion.div>
       </div>

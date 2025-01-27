@@ -103,7 +103,7 @@ const ProjectSection = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-16 sm:py-24  from-[#0000] via-[#1a1a1a] to-[#1e1e1e] text-white overflow-hidden"
+      className="py-20 min-h-screen bg-gradient-to-b from-black via-[#111] to-black text-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -114,18 +114,21 @@ const ProjectSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Criatividade e Inovação
-          </h2>
-          <p className="mt-4 text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+          <div className="inline-block">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
+              Criatividade e Inovação
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#dc0000]"></div>
+            </h2>
+          </div>
+          <p className="mt-6 text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Projetos que combinam design, funcionalidade e inovação para proporcionar experiências digitais extraordinárias.
           </p>
         </motion.div>
 
         <div className="relative">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <div className="flex flex-col lg:flex-row items-stretch gap-12">
             <motion.div 
               className="w-full lg:w-3/5 relative group"
               initial={{ opacity: 0, x: -50 }}
@@ -133,29 +136,28 @@ const ProjectSection = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="relative overflow-hidden rounded-xl shadow-2xl">
+              <div className="relative overflow-hidden rounded-2xl shadow-[0_0_30px_rgba(220,0,0,0.15)] h-full">
                 <img
                   src={projectImages[currentIndex]}
                   alt={`Projeto ${projectDetails[currentIndex].title}`}
-                  className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
-              {/* Navegação */}
               <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
                 <button
                   onClick={() => handleNavigation("prev")}
-                  className="p-2 rounded-full bg-white/10 backdrop-blur-sm text-white pointer-events-auto hover:bg-white/20 transition-all"
+                  className="p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
                 >
-                  <FiChevronLeft size={24} />
+                  <FiChevronLeft size={28} />
                 </button>
                 <button
                   onClick={() => handleNavigation("next")}
-                  className="p-2 rounded-full bg-white/10 backdrop-blur-sm text-white pointer-events-auto hover:bg-white/20 transition-all"
+                  className="p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
                 >
-                  <FiChevronRight size={24} />
+                  <FiChevronRight size={28} />
                 </button>
               </div>
             </motion.div>
@@ -167,30 +169,31 @@ const ProjectSection = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl">
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#dc0000] to-[#dc0000] bg-clip-text text-transparent">
+              <div className="bg-white/[0.03] backdrop-blur-sm p-10 rounded-2xl border border-white/10 h-full flex flex-col">
+                <h3 className="text-4xl font-bold mb-6 text-white">
                   {projectDetails[currentIndex].title}
+                  <div className="h-1 w-20 bg-[#dc0000] mt-4"></div>
                 </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-gray-300 mb-8 leading-relaxed text-lg">
                   {projectDetails[currentIndex].description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {projectDetails[currentIndex].tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-sm bg-[#dc0000]/10 text-[#dc0000] rounded-full"
+                      className="px-4 py-2 text-sm bg-white/5 border border-[#dc0000]/20 text-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-colors duration-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-3 gap-6 mb-10">
                   {Object.entries(projectDetails[currentIndex].stats).map(([key, value]) => (
-                    <div key={key} className="text-center p-3 bg-white/5 rounded-lg">
-                      <div className="text-xl font-bold text-[#dc0000]">{value}</div>
-                      <div className="text-sm text-gray-400">{key}</div>
+                    <div key={key} className="text-center p-4 bg-black/30 rounded-xl border border-white/5 hover:border-[#dc0000]/30 transition-colors duration-300">
+                      <div className="text-2xl font-bold text-[#dc0000]">{value}</div>
+                      <div className="text-sm text-gray-400 mt-1">{key}</div>
                     </div>
                   ))}
                 </div>
@@ -199,7 +202,7 @@ const ProjectSection = () => {
                   href={projectDetails[currentIndex].projectLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#dc0000] to-[#dc0000] hover:from-[#dc0000] hover:to-[#dc0000] text-white px-6 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+                  className="mt-auto group flex items-center justify-center gap-3 bg-[#dc0000] hover:bg-[#b00000] text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg hover:shadow-[#dc0000]/20"
                 >
                   Ver Projeto
                   <FiExternalLink className="transition-transform group-hover:translate-x-1" />
@@ -208,16 +211,15 @@ const ProjectSection = () => {
             </motion.div>
           </div>
 
-          {/* Indicadores */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-4 mt-12">
             {projectImages.map((_, index) => (
               <motion.button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index 
-                    ? "bg-[#dc0000] w-8" 
-                    : "bg-gray-600 hover:bg-[#dc0000]"
+                    ? "bg-[#dc0000] w-10" 
+                    : "bg-white/20 w-6 hover:bg-[#dc0000]/50"
                 }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}

@@ -1,29 +1,48 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import LandingPage from './pages/LandingPage';
 import ThomasEduardo from './pages/ThomasEduardo';
-import LandingPage from './pages/LandingPage'; // Corrigido para o nome correto
-import Login from './pages/Login'; // Corrigido para o nome correto (com a primeira letra maiúscula)
-import Dashboard from './Login/Dashboard'; // Corrigido para o nome correto (com a primeira letra maiúscula)
-import PrivacyPolicyAndTerms from './components/Ferramentas/PrivacyPolicyAndTerms'; // Corrigido para o nome correto (com a primeira letra maiúscula)
-
+import Login from './pages/Login';
+import Error404 from './pages/Error404';
+import Notification from './components/UI/Notification';
+import Dashboard from './Login/Dashboard';
+import PrivacyPolicyAndTerms from './components/Ferramentas/PrivacyPolicyAndTerms';
 
 import '../styles/index.css';
 
-const App = () => {
-  return (
-    <Router> {/* O Router envolve toda a aplicação para definir as rotas */}
-      <Routes>
-        {/* Definindo as rotas e os componentes que devem ser renderizados */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/ThomasEduardo" element={<ThomasEduardo />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/privacypolicy" element={<PrivacyPolicyAndTerms />} />
+function App() {
+  const [notification, setNotification] = useState(null);
 
-        {/* A rota para /firebase não é necessária, pois o Firebase está sendo usado internamente nos componentes */}
-      </Routes>
-    </Router>
+  const showNotification = (message, type = 'info') => {
+    setNotification({ message, type });
+  };
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
+  return (
+    <ThemeProvider>
+      <Router>
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={closeNotification}
+          />
+        )}
+        <Routes>
+          <Route path="/" element={<LandingPage showNotification={showNotification} />} />
+          <Route path="/thomas-eduardo" element={<ThomasEduardo showNotification={showNotification} />} />
+          <Route path="/login" element={<Login showNotification={showNotification} />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicyAndTerms />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;

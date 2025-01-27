@@ -8,19 +8,26 @@ import 'swiper/css/effect-cards';
 // Componente para exibir cada empresa
 const CompanyCard = ({ image, name, style, description }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-8 hover:scale-105 transition-all duration-300 transform hover:shadow-2xl  from-[#fff] to-[#0a0a0a] rounded-2xl backdrop-blur-sm">
-      <div className="w-32 h-32 mb-6 rounded-full p-4 flex items-center justify-center bg-gradient-to-r">
-        <motion.img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover rounded-full"
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        />
+    <div className="bg-black/30 border border-white/10 backdrop-blur-sm rounded-xl p-6 h-full hover:transform hover:scale-105 transition-all duration-300">
+      <div className="relative group">
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+        <div className="w-24 h-24 mx-auto relative">
+          <motion.img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover rounded-full border-2 border-red-600"
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
+        </div>
       </div>
-      <h3 className="text-xl sm:text-2xl text-gray-100 font-satoshi-bold mb-2 text-center">{name}</h3>
-      <p className="text-base sm:text-lg text-red-900 font-satoshi-medium mb-3 text-center">{style}</p>
-      <p className="text-sm text-gray-400 text-center font-satoshi-regular">{description}</p>
+      
+      <div className="mt-6 text-center">
+        <h3 className="text-xl font-bold text-white mb-2">{name}</h3>
+        <div className="h-0.5 w-12 bg-red-600 mx-auto mb-3"></div>
+        <p className="text-sm font-medium text-red-500 mb-4">{style}</p>
+        <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 };
@@ -61,7 +68,7 @@ const Clientes = () => {
   ];
 
   return (
-    <section id="empresas-confiaram" className="w-full py-24  from-[#0a0a0a0a0a0a1d] to-[#0a0a0a0a0a0a00]">
+    <section id="empresas-confiaram" className="w-full py-24 bg-gradient-to-b from-black to-black/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,19 +76,20 @@ const Clientes = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-         
-          <h2 className="text-5xl md:text-6xl font-extrabold text-center">
-          Parcerias de 
-            <span className="text-[#dc0000]">  Sucesso</span>
-
+          <div className="inline-block">
+            <h2 className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-100">
+              Parcerias de <span className="text-red-600">Sucesso</span>
             </h2>
-          <p className="text-xl sm:text-2xl text-gray-300 font-satoshi-medium max-w-3xl mx-auto leading-relaxed">
+            <div className="h-1 w-32 bg-red-600 mx-auto mt-4"></div>
+          </div>
+          
+          <p className="text-xl mt-8 text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed">
             Conheça algumas das empresas que transformaram sua presença digital através da nossa colaboração estratégica.
           </p>
         </motion.div>
 
         <Swiper
-          spaceBetween={40}
+          spaceBetween={30}
           slidesPerView={1}
           loop={true}
           pagination={{
@@ -91,9 +99,11 @@ const Clientes = () => {
           breakpoints={{
             640: {
               slidesPerView: 2,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 30,
             },
           }}
           className="pb-12"
