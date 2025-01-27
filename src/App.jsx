@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Error404 from './pages/Error404';
 import Notification from './components/UI/Notification';
 import Dashboard from './Login/Dashboard';
-import PrivacyPolicyAndTerms from './components/Ferramentas/PrivacyPolicyAndTerms';
 
 import '../styles/index.css';
 
@@ -37,7 +36,6 @@ function App() {
           <Route path="/thomas-eduardo" element={<ThomasEduardo showNotification={showNotification} />} />
           <Route path="/login" element={<Login showNotification={showNotification} />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicyAndTerms />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

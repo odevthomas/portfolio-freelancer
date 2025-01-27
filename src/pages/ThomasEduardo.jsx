@@ -28,12 +28,12 @@ const Home = () => {
 
       {/* Seção Hero */}
       <Hero />
+      
+      {/* Seção Sobre */}
+      <About />
 
       {/* Seção Serviços */}
       <Services />
-
-      {/* Seção Sobre */}
-      <About />
 
       {/* Seção Habilidades */}
       <SkillsCarousel />
@@ -43,7 +43,6 @@ const Home = () => {
 
       {/* Seção de Projetos */}
       <ProjectSection />
-
     
       {/* Call to Action (CTA) */}
       <CTA />

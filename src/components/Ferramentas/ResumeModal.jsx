@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import { FaTimes } from 'react-icons/fa'; // Ícone de fechar
+import { FaTimes, FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ResumeModal = () => {
-  const [isOpen, setIsOpen] = useState(false); // Estado para controlar a visibilidade do modal
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Função para abrir o modal
-  const openModal = () => {
-    setIsOpen(true);
-  };
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
-  // Função para fechar o modal
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  // Função para rastrear o download do CV no Google Analytics
   const trackDownload = () => {
-    if (window.gtag) { // Verifica se o gtag está disponível
+    if (window.gtag) {
       window.gtag('event', 'download', {
         event_category: 'Currículo',
         event_label: 'Download CV',
@@ -27,105 +19,161 @@ const ResumeModal = () => {
 
   return (
     <div>
-      {/* Botão para abrir o modal */}
       <button
         onClick={openModal}
-        className="bg-[#fb1603] text-white py-2 px-4 rounded hover:bg-[#d31400] transition duration-300"
+        className="bg-[#fb1603] text-white py-3 px-6 rounded-lg hover:bg-[#d31400] transition duration-300 font-semibold flex items-center gap-2"
       >
-        Ver Currículo
+        <span>Ver Currículo</span>
       </button>
 
-      {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
-          <div className="bg-whiblackte rounded-lg p-6 w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Currículo de Thomas Eduardo</h2>
-              <button onClick={closeModal} className="text-gray-100 hover:text-gray-800">
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="absolute inset-0 bg-black opacity-90" onClick={closeModal}></div>
+          
+          <div className="relative bg-[#111111] rounded-xl w-11/12 max-w-4xl max-h-[85vh] overflow-y-auto border border-gray-800">
+            {/* Cabeçalho */}
+            <div className="sticky top-0 bg-[#111111] p-6 border-b border-gray-800 flex justify-between items-center">
+              <h2 className="text-2xl font-bold text-white">Thomas Eduardo</h2>
+              <button onClick={closeModal} className="text-gray-400 hover:text-white transition-colors">
                 <FaTimes className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="mb-4">
-              <h3 className="font-semibold">Olá! Sou Thomas Eduardo</h3>
-              <p>
-                Um desenvolvedor web apaixonado por criar experiências digitais memoráveis. Com mais de 2 anos de experiência, estou aqui para transformar suas ideias em realidade com soluções personalizadas e de alta qualidade.
-              </p>
+            <div className="p-6">
+              {/* Seção de Introdução */}
+              <div className="mb-8">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-1">
+                    <h3 className="text-[#fb1603] text-lg font-semibold mb-2">Desenvolvedor Web Full Stack</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Desenvolvedor apaixonado por criar experiências digitais memoráveis, com mais de 2 anos de experiência em desenvolvimento web moderno.
+                    </p>
+                  </div>
+                  <div className="flex gap-4">
+                    <a href="https://github.com/seu-github" target="_blank" rel="noopener noreferrer" 
+                       className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                      <FaGithub className="w-6 h-6 text-white" />
+                    </a>
+                    <a href="https://linkedin.com/in/seu-linkedin" target="_blank" rel="noopener noreferrer"
+                       className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                      <FaLinkedin className="w-6 h-6 text-white" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid de Informações */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Experiência */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white border-b border-gray-800 pb-2">Experiência</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium">Desenvolvedor Frontend - LSG</h4>
+                      <p className="text-gray-400 text-sm">2024 - Presente</p>
+                      <ul className="text-gray-300 mt-2 space-y-1 list-disc list-inside">
+                        <li>Desenvolvimento de interfaces modernas com React</li>
+                        <li>Integração com APIs e serviços externos</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium">Desenvolvedor Freelancer</h4>
+                      <p className="text-gray-400 text-sm">2024 - Presente</p>
+                      <ul className="text-gray-300 mt-2 space-y-1 list-disc list-inside">
+                        <li>Desenvolvimento de soluções personalizadas</li>
+                        <li>Gestão de projetos e relacionamento com clientes</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Habilidades */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white border-b border-gray-800 pb-2">Habilidades</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium mb-2">Frontend</h4>
+                      <ul className="text-gray-300 space-y-1">
+                        <li>React.js</li>
+                        <li>JavaScript</li>
+                        <li>Tailwind CSS</li>
+                        <li>HTML5/CSS3</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium mb-2">Backend</h4>
+                      <ul className="text-gray-300 space-y-1">
+                        <li>Firebase</li>
+                        <li>Node.js</li>
+                        <li>API REST</li>
+                        <li>AWS</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Projetos */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white border-b border-gray-800 pb-2">Projetos Recentes</h3>
+                  <div className="space-y-3">
+                    <div className="bg-white/5 p-4 rounded-lg">
+                      <h4 className="text-[#fb1603] font-medium">Dashboard Empresarial</h4>
+                      <p className="text-gray-300 text-sm mt-1">React + Firebase + Tailwind CSS</p>
+                    </div>
+                    <div className="bg-white/5 p-4 rounded-lg">
+                      <h4 className="text-[#fb1603] font-medium">Sistema de Autenticação</h4>
+                      <p className="text-gray-300 text-sm mt-1">Firebase Auth + React + Firestore</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Educação */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white border-b border-gray-800 pb-2">Educação</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium">AWS Cloud Computing</h4>
+                      <p className="text-gray-400 text-sm">2023 - 2024</p>
+                    </div>
+                    <div>
+                      <h4 className="text-[#fb1603] font-medium">DevOps</h4>
+                      <p className="text-gray-400 text-sm">2023 - Pausado</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contato */}
+              <div className="mt-8 bg-white/5 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-white mb-4">Contato</h3>
+                <div className="grid md:grid-cols-2 gap-4 text-gray-300">
+                  <div>
+                    <p className="font-medium">Email:</p>
+                    <p>developer.thomas@outlook.com.br</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">Telefone:</p>
+                    <p>+55 19 99990-4207</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="mb-4">
-              <h3 className="font-semibold">Resumo</h3>
-              <p>
-                Sou especializado em React, JavaScript, Firebase e soluções sob medida para atender às suas necessidades. Minha abordagem combina inovação e funcionalidade para entregar resultados impressionantes.
-        
-              </p>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold">Experiência</h3>
-              <ul className="list-disc list-inside">
-                <li>Desenvolvedor Freelancer (2024 - Presente)</li>
-                <li>Desenvolvedor Frontend na Empresa LSG (2024 - Presente)</li>
-              </ul>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold">Últimos Projetos</h3>
-              <ul className="list-disc list-inside">
-                <li>Desenvolvimento de Dashboard com React e Firebase</li>
-                <li>Integração de autenticação com Firebase Auth e Firestore</li>
-                <li>Criação de API para gerenciamento de dados e upload de arquivos</li>
-                <li>Desenvolvimento de site institucional com React e Tailwind CSS</li>
-              </ul>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold">Habilidades</h3>
-              <p>
-                - Proficiente em React.js, JavaScript, HTML5, CSS3, Tailwind CSS, Firebase e Vite.<br />
-                - Experiência em integração de APIs e autenticação segura com Firebase Auth.<br />
-                - Foco em design moderno e usabilidade.<br />
-                - Conhecimentos em controle de versão e deploy contínuo.
-              </p>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold">Educação</h3>
-              <p>
-                AWS Cloud Computing (2023 - 2024)<br />
-                DevOps (2023 - Pausado)
-              </p>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold">Contato</h3>
-              <p>
-                <strong>Email:</strong> developer.thomas@outlook.com.br<br />
-                <strong>Telefone:</strong> +55 19 99990-4207 (Brasil)
-              </p>
-            </div>
-
-            <div className="mb-4">
-              <h3 className="font-semibold"></h3>
-              <p>
-                Estou aqui para potencializar seu projeto web com criatividade e inovação. Vamos juntos transformar suas ideias em experiências digitais incríveis! Entre em contato e vamos criar algo incrível juntos.
-              </p>
-            </div>
-
-            {/* Botão para gerar PDF */}
-            <div className="flex justify-between mt-6">
+            {/* Rodapé com botões */}
+            <div className="sticky bottom-0 bg-[#111111] p-6 border-t border-gray-800 flex justify-between items-center">
               <button
                 onClick={() => {
-                  trackDownload();  // Rastreando o download
+                  trackDownload();
                   window.print();
                 }}
-                className="bg-[#ffffff] text-black py-2 px-4 rounded hover:bg-[#d31400] transition duration-300"
+                className="bg-white text-black py-2 px-6 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center gap-2"
               >
-                Baixar PDF
+                <FaDownload className="w-4 h-4" />
+                <span>Baixar PDF</span>
               </button>
               <button
                 onClick={closeModal}
-                className="bg-[#fb1603] text-white py-2 px-4 rounded hover:bg-[#d31400] transition duration-300"
+                className="bg-[#fb1603] text-white py-2 px-6 rounded-lg hover:bg-[#d31400] transition duration-300"
               >
                 Fechar
               </button>

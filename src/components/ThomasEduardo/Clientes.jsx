@@ -1,38 +1,47 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
+import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cards';
+import 'swiper/css/effect-fade';
+import 'swiper/css/autoplay';
 
-// Componente para exibir cada empresa
-const CompanyCard = ({ image, name, style, description }) => {
+const ClientCard = ({ image, name, style, description }) => {
   return (
-    <div className="bg-black/30 border border-white/10 backdrop-blur-sm rounded-xl p-6 h-full hover:transform hover:scale-105 transition-all duration-300">
-      <div className="relative group">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-        <div className="w-24 h-24 mx-auto relative">
-          <motion.img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover rounded-full border-2 border-red-600"
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          />
+    <motion.div 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="relative overflow-hidden bg-gradient-to-br from-black/80 to-black/95 rounded-2xl"
+    >
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20"></div>
+      <div className="relative p-8 h-full flex flex-col">
+        <div className="flex items-center space-x-6 mb-8">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-800 rounded-lg blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <img
+              src={image}
+              alt={name}
+              className="relative w-20 h-20 object-cover rounded-lg  border-red-600/50 group-hover:border-red-600 transition-colors duration-300"
+            />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-1">{name}</h3>
+            <p className="text-red-500 font-medium">{style}</p>
+          </div>
         </div>
+        
+        <div className="relative">
+          <div className="absolute left-0 top-0 w-12 h-[2px] bg-gradient-to-r from-red-600 to-transparent"></div>
+          <p className="text-gray-300 leading-relaxed pt-4">{description}</p>
+        </div>
+        
+        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-red-600/10 to-transparent rounded-tl-full"></div>
       </div>
-      
-      <div className="mt-6 text-center">
-        <h3 className="text-xl font-bold text-white mb-2">{name}</h3>
-        <div className="h-0.5 w-12 bg-red-600 mx-auto mb-3"></div>
-        <p className="text-sm font-medium text-red-500 mb-4">{style}</p>
-        <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
-      </div>
-    </div>
+    </motion.div>
   );
 };
 
-// Componente para o carrossel de empresas
 const Clientes = () => {
   const companies = [
     {
@@ -68,49 +77,61 @@ const Clientes = () => {
   ];
 
   return (
-    <section id="empresas-confiaram" className="w-full py-24 bg-gradient-to-b from-black to-black/95">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full py-32 bg-black">
+      <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="inline-block">
-            <h2 className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-100">
-              Parcerias de <span className="text-red-600">Sucesso</span>
-            </h2>
-            <div className="h-1 w-32 bg-red-600 mx-auto mt-4"></div>
-          </div>
+          <h2 className="inline-block text-6xl font-black">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-300">
+              Cases de
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700 ml-4">
+              Impacto
+            </span>
+          </h2>
           
-          <p className="text-xl mt-8 text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed">
-            Conheça algumas das empresas que transformaram sua presença digital através da nossa colaboração estratégica.
-          </p>
+          <motion.div 
+            className="mt-6 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <p className="text-xl text-gray-400 leading-relaxed">
+              Transformamos a presença digital de empresas através de estratégias personalizadas e resultados mensuráveis.
+            </p>
+          </motion.div>
         </motion.div>
 
         <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
           spaceBetween={30}
           slidesPerView={1}
-          loop={true}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
           }}
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20,
+              effect: 'slide'
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 30,
+              effect: 'slide'
             },
           }}
-          className="pb-12"
+          className="!pb-12"
         >
           {companies.map((company, index) => (
             <SwiperSlide key={index}>
-              <CompanyCard {...company} />
+              <ClientCard {...company} />
             </SwiperSlide>
           ))}
         </Swiper>

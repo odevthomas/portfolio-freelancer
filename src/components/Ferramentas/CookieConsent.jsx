@@ -31,43 +31,39 @@ const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <section className="fixed bottom-4 left-1/2 transform -translate-x-1/2 max-w-md p-4 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg z-50">
-      <h2 className="font-semibold text-gray-800 dark:text-white">🍪 Cookie Notice</h2>
-
-      <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-        We use cookies to ensure that we give you the best experience on our website.{" "}
-        <a href="#" className="text-blue-500 hover:underline">
-          Read cookies policies
-        </a>
-        .
-      </p>
-
-      <div className="flex items-center justify-between mt-4 gap-x-4">
-        {/* Botão para gerenciar preferências */}
-        <button
-          className="text-xs text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 underline focus:outline-none"
-          onClick={declineCookies}
-        >
-          Manage your preferences
-        </button>
-
-        {/* Botões para aceitar ou recusar cookies */}
-        <div className="flex gap-x-4">
+    <div className="fixed bottom-0 left-0 right-0 bg-black bg-opacity-95 text-white z-50 backdrop-blur-sm border-t border-red-600">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center space-x-4">
+          <div className="text-red-500 text-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10.174 13.409a.75.75 0 01-1.348 0l-4-7A.75.75 0 015.5 5h9a.75.75 0 01.674 1.082l-4 7z" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="text-lg font-bold mb-1">Sua Privacidade Importa</h2>
+            <p className="text-sm text-gray-300 max-w-2xl">
+              Utilizamos cookies para melhorar sua experiência de navegação. 
+              Eles nos ajudam a entender como você interage com nosso site e a personalizá-lo de acordo com suas preferências.
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-center space-x-4">
           <button
-            className="text-xs text-gray-800 bg-gray-100 font-medium rounded-lg hover:bg-gray-200 text-white px-4 py-2.5 duration-300 transition-colors focus:outline-none"
             onClick={declineCookies}
+            className="px-4 py-2 text-sm border border-white hover:bg-white hover:text-black transition-colors duration-300 rounded-md"
           >
-            Decline
+            Recusar
           </button>
           <button
-            className="text-xs bg-gray-900 font-medium rounded-lg hover:bg-gray-700 text-white px-4 py-2.5 duration-300 transition-colors focus:outline-none"
             onClick={acceptCookies}
+            className="px-4 py-2 text-sm bg-red-600 hover:bg-red-700 transition-colors duration-300 rounded-md"
           >
-            Accept
+            Aceitar Cookies
           </button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
