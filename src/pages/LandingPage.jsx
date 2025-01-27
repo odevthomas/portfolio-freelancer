@@ -37,7 +37,7 @@ const LandingPage = () => {
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-orange-500 rounded-full filter blur-3xl opacity-20 -top-10 -left-10 animate-pulse"></div>
+          <div className="absolute w-96 h-96 bg-[#dc0000] rounded-full filter blur-3xl opacity-20 -top-10 -left-10 animate-pulse"></div>
           <div className="absolute w-96 h-96 bg-[#dc0000] rounded-full filter blur-3xl opacity-20 -bottom-10 -right-10 animate-pulse delay-1000"></div>
         </div>
 
@@ -54,7 +54,7 @@ const LandingPage = () => {
               transition={{ delay: 0.2 }}
               className="inline-block"
             >
-              <span className="px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-orange-500 to-[#dc0000] text-white">
+              <span className="px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-[#dc0000] to-[#dc0000] text-white">
                 Desenvolvedor Full Stack
               </span>
             </motion.div>
@@ -67,7 +67,7 @@ const LandingPage = () => {
               transition={{ delay: 0.3 }}
             >
               Transformando Ideias em
-              <span className="block mt-2 bg-gradient-to-r from-orange-400 to-[#dc0000] bg-clip-text text-transparent">
+              <span className="block mt-2 bg-gradient-to-r from-[#dc0000] to-[#dc0000] bg-clip-text text-transparent">
                 Experiências Digitais
               </span>
             </motion.h1>
@@ -90,8 +90,8 @@ const LandingPage = () => {
               transition={{ delay: 0.5 }}
             >
               <Link
-                to="/login"
-                className="group flex items-center gap-2 bg-gradient-to-r from-orange-600 to-[#dc0000] text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                to="/dashboard"
+                className="group flex items-center gap-2 bg-gradient-to-r from-[#dc0000] to-[#dc0000] text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Área do Cliente
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -111,7 +111,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
             {[
               {
-                icon: <FaRocket className="text-4xl text-orange-400" />,
+                icon: <FaRocket className="text-4xl text-[#dc0000]" />,
                 title: "Performance",
                 description: "Sites rápidos e otimizados"
               },
@@ -121,7 +121,7 @@ const LandingPage = () => {
                 description: "Soluções criativas e únicas"
               },
               {
-                icon: <FaCode className="text-4xl text-orange-500" />,
+                icon: <FaCode className="text-4xl text-[#dc0000]" />,
                 title: "Tecnologia",
                 description: "Stack moderna e robusta"
               }

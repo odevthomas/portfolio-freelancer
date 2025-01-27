@@ -8,18 +8,18 @@ import 'swiper/css/effect-cards';
 // Componente para exibir cada empresa
 const CompanyCard = ({ image, name, style, description }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-8 hover:scale-105 transition-all duration-300 transform hover:shadow-2xl bg-gradient-to-b from-[#ffffff05] to-[#ffffff10] rounded-2xl backdrop-blur-sm">
-      <div className="w-32 h-32 mb-6 rounded-full p-4 flex items-center justify-center bg-gradient-to-r from-purple-500/10 to-blue-500/10">
+    <div className="flex flex-col items-center justify-center p-8 hover:scale-105 transition-all duration-300 transform hover:shadow-2xl  from-[#fff] to-[#0a0a0a] rounded-2xl backdrop-blur-sm">
+      <div className="w-32 h-32 mb-6 rounded-full p-4 flex items-center justify-center bg-gradient-to-r">
         <motion.img
           src={image}
           alt={name}
-          className="w-full h-full object-cover rounded-full border-2 border-purple-500/20"
+          className="w-full h-full object-cover rounded-full"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 300 }}
         />
       </div>
       <h3 className="text-xl sm:text-2xl text-gray-100 font-satoshi-bold mb-2 text-center">{name}</h3>
-      <p className="text-base sm:text-lg text-purple-300 font-satoshi-medium mb-3 text-center">{style}</p>
+      <p className="text-base sm:text-lg text-red-900 font-satoshi-medium mb-3 text-center">{style}</p>
       <p className="text-sm text-gray-400 text-center font-satoshi-regular">{description}</p>
     </div>
   );
@@ -61,7 +61,7 @@ const Clientes = () => {
   ];
 
   return (
-    <section id="empresas-confiaram" className="w-full py-24 bg-gradient-to-b from-[#0000001d] to-[#00000000]">
+    <section id="empresas-confiaram" className="w-full py-24  from-[#0a0a0a0a0a0a1d] to-[#0a0a0a0a0a0a00]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,9 +69,12 @@ const Clientes = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-satoshi-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-6">
-            Parcerias de Sucesso
-          </h2>
+         
+          <h2 className="text-5xl md:text-6xl font-extrabold text-center">
+          Parcerias de 
+            <span className="text-[#dc0000]">  Sucesso</span>
+
+            </h2>
           <p className="text-xl sm:text-2xl text-gray-300 font-satoshi-medium max-w-3xl mx-auto leading-relaxed">
             Conheça algumas das empresas que transformaram sua presença digital através da nossa colaboração estratégica.
           </p>

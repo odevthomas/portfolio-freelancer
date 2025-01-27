@@ -24,7 +24,7 @@ const SeçãoAbordagemÚnica = () => {
       <div className="container mx-auto text-center">
         {/* Título e Subtítulo */}
         <motion.h3
-          className="mt-2 block font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-100"
+                     className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -85,7 +85,7 @@ const SeçãoAbordagemÚnica = () => {
             <motion.div
               key={index}
               className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 transform ${
-                index === 0 ? "bg-[#00000000]" : "bg-gray-400"
+                index === 0 ? "bg-[#0a0a0a0a0a0a00]" : "bg-gray-400"
               }`}
               whileHover={{ scale: 1.3 }}
               whileTap={{ scale: 0.9 }}

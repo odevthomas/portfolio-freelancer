@@ -4,7 +4,7 @@ import ResumeModal from "../Ferramentas/ResumeModal";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#171717] to-[#0a0a0a] py-12 text-[#fff] border-t border-[#2a2a2a]">
+    <footer className="bg-gradient-to-b from-[#0a0a0a] to-[#0a0a0a] py-12 text-[#fff] ">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Informações de Contato */}

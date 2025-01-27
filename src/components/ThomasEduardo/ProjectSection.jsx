@@ -23,10 +23,10 @@ const ImageModal = ({ isOpen, image, onClose }) => {
         transition={{ type: "spring", damping: 20 }}
       />
       <button 
-        className="absolute top-4 right-4 text-white hover:text-red-500 transition-colors"
+        className="absolute top-4 right-4 text-white hover:text-[#dc0000] transition-colors"
         onClick={onClose}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/20a0a0a/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -79,7 +79,7 @@ const ProjectSection = () => {
       tags: ["Vue.js", "Node.js", "MongoDB", "WebSockets"],
       stats: {
         produtividade: "+75%",
-        tarefas: "+1000/mês",
+        tarefas: "+10a0a0a/mês",
         usuários: "+500"
       }
     },
@@ -103,7 +103,7 @@ const ProjectSection = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-16 sm:py-24 bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#1e1e1e] text-white overflow-hidden"
+      className="py-16 sm:py-24  from-[#0000] via-[#1a1a1a] to-[#1e1e1e] text-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -116,7 +116,7 @@ const ProjectSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-red-500 to-white animate-gradient">
+          <h2                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Criatividade e Inovação
           </h2>
           <p className="mt-4 text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
@@ -168,7 +168,7 @@ const ProjectSection = () => {
               viewport={{ once: true }}
             >
               <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl">
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#dc0000] to-[#dc0000] bg-clip-text text-transparent">
                   {projectDetails[currentIndex].title}
                 </h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
@@ -179,7 +179,7 @@ const ProjectSection = () => {
                   {projectDetails[currentIndex].tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-sm bg-red-500/10 text-red-400 rounded-full"
+                      className="px-3 py-1 text-sm bg-[#dc0000]/10 text-[#dc0000] rounded-full"
                     >
                       {tag}
                     </span>
@@ -189,7 +189,7 @@ const ProjectSection = () => {
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   {Object.entries(projectDetails[currentIndex].stats).map(([key, value]) => (
                     <div key={key} className="text-center p-3 bg-white/5 rounded-lg">
-                      <div className="text-xl font-bold text-red-500">{value}</div>
+                      <div className="text-xl font-bold text-[#dc0000]">{value}</div>
                       <div className="text-sm text-gray-400">{key}</div>
                     </div>
                   ))}
@@ -199,7 +199,7 @@ const ProjectSection = () => {
                   href={projectDetails[currentIndex].projectLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+                  className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#dc0000] to-[#dc0000] hover:from-[#dc0000] hover:to-[#dc0000] text-white px-6 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Ver Projeto
                   <FiExternalLink className="transition-transform group-hover:translate-x-1" />
@@ -216,8 +216,8 @@ const ProjectSection = () => {
                 onClick={() => handleDotClick(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   currentIndex === index 
-                    ? "bg-red-500 w-8" 
-                    : "bg-gray-600 hover:bg-red-400"
+                    ? "bg-[#dc0000] w-8" 
+                    : "bg-gray-600 hover:bg-[#dc0000]"
                 }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}

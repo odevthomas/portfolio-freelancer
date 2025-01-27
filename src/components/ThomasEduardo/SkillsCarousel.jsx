@@ -61,7 +61,7 @@ const SkillsCarousel = () => {
 
   return (
     <section className="relative py-20 bg-gradient-to-b from-black via-[#1a1a1a] to-black overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#fb1603]/10 via-transparent to-transparent opacity-30"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#fb1603]/10 via-transparent to-transparent opacity-90"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -71,17 +71,16 @@ const SkillsCarousel = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-            initial={{ scale: 0.9 }}
+className="text-5xl md:text-6xl font-extrabold text-center"            initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
           >
             Expertise em
             <motion.span 
-              className="text-[#fb1603] inline-block"
+          className="text-[#dc0000]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-            > Desenvolvimento Web</motion.span>
+            >  Desenvolvimento Web</motion.span>
           </motion.h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
             Transformando ideias em experiências digitais memoráveis através de tecnologias modernas e design inovador
@@ -103,9 +102,9 @@ const SkillsCarousel = () => {
                 y: -10,
                 transition: { type: "spring", stiffness: 300 }
               }}
-              className="group relative bg-gradient-to-br from-[#2b2b2b] to-[#1a1a1a] p-8 rounded-2xl shadow-xl transition-all duration-300 cursor-pointer"
+              className="group relative   from-[#2b2b2b] to-[#1a1a1a] p-8 rounded-2xl shadow-xl transition-all duration-300 cursor-pointer"
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${skill.gradient} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-500`}></div>
+              <div className={`absolute inset-0 ${skill.gradient} opacity-0 group-hover:opacity-90 rounded-2xl transition-opacity duration-500`}></div>
               <motion.div 
                 className="absolute inset-0 bg-black/50 rounded-2xl"
                 initial={false}

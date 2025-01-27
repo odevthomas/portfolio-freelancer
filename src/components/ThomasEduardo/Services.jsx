@@ -80,7 +80,7 @@ const Services = () => {
   return (
     <section
       id="servicos"
-      className="py-20 bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#1e1e1e] text-white relative overflow-hidden"
+      className="py-20 from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] text-white relative overflow-hidden"
     >
       {/* Efeito de luz do mouse */}
       <div
@@ -141,7 +141,7 @@ const Services = () => {
           {servicesItems.map((item, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                className="bg-gradient-to-br from-[#1a1a1a] to-[#252525] rounded-xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 relative group"
+                className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 relative group"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -152,7 +152,7 @@ const Services = () => {
                 <div className="absolute inset-0 rounded-xl bg-[#f30d0d] opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
                 
                 <div className="flex flex-col h-full relative z-10">
-                  <div className="flex items-center justify-center mb-6 bg-[#2a2a2a] p-3 rounded-full w-16 h-16 mx-auto group-hover:shadow-[0_0_15px_rgba(243,13,13,0.3)] transition-all duration-300">
+                  <div className="flex items-center justify-center mb-6 bg-[#0a0a0a] p-3 rounded-full w-16 h-16 mx-auto group-hover:shadow-[0_0_15px_rgba(243,13,13,0.3)] transition-all duration-300">
                     {React.cloneElement(item.icon, { 
                       className: "text-3xl text-[#f30d0d] group-hover:scale-110 transition-transform duration-300" 
                     })}
@@ -166,7 +166,7 @@ const Services = () => {
                       whileHover={{ scale: 1.03 }}
                       transition={{ duration: 0.3 }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000cc] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a0a0a0acc] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.div>
 
                   <h4 className="text-2xl font-bold mb-3 text-[#f30d0d] group-hover:text-[#ff1a1a] transition-colors">

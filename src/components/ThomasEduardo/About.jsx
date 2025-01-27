@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section id="sobrenos" className="py-20 bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <section id="sobrenos" className="py-20 from-gray-900 to-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Título Principal - Span Completo */}
@@ -31,9 +31,9 @@ const About = () => {
             className="col-span-full mb-8"
           >
             <h2 className="text-5xl md:text-6xl font-extrabold text-center">
-              <span className="bg-gradient-to-r from-white via-red-500 to-[#dc0000] bg-clip-text text-transparent">
-                Desenvolvedor Full Stack
-              </span>
+            Desenvolvedor
+            <span className="text-[#fb1603]"> Full Stack</span>
+
             </h2>
           </motion.div>
 
@@ -41,7 +41,7 @@ const About = () => {
           {/* Card Bio */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="md:col-span-2 bg-gradient-to-br from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
+            className="md:col-span-2  from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
           >
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-[#dc0000] mb-4">Sobre Mim</h3>
@@ -59,7 +59,7 @@ const About = () => {
           {/* Card CTA */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm flex flex-col justify-between"
+            className=" from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm flex flex-col justify-between"
           >
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-[#dc0000]">Vamos Trabalhar Juntos?</h3>
@@ -82,7 +82,7 @@ const About = () => {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 p-6 rounded-3xl border border-gray-700/30 backdrop-blur-sm flex flex-col items-center justify-center"
+              className=" from-gray-800/20 to-gray-900/20 p-6 rounded-3xl border border-gray-700/30 backdrop-blur-sm flex flex-col items-center justify-center"
             >
               <stat.icon className="text-[#dc0000] text-3xl mb-3" />
               <h4 className="text-2xl font-bold text-white mb-1">{stat.value}</h4>
@@ -93,7 +93,7 @@ const About = () => {
           {/* Especialidades Card */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="md:col-span-2 bg-gradient-to-br from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
+            className="md:col-span-2  from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
           >
             <h3 className="text-3xl font-bold text-[#dc0000] mb-4">Especialidades</h3>
             <p className="text-xl text-gray-300 leading-relaxed">
@@ -104,7 +104,7 @@ const About = () => {
           {/* Social Links */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
+            className=" from-gray-800/20 to-gray-900/20 p-8 rounded-3xl border border-gray-700/30 backdrop-blur-sm"
           >
             <div className="flex justify-around items-center h-full">
               {[

@@ -13,8 +13,8 @@ const ProjectSection = () => {
       <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
         
         <motion.h2
-          className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6"
-          initial={{ opacity: 0 }}
+                     className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+                     initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >

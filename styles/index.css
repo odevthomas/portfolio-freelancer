@@ -8,10 +8,10 @@
 
 /* --- Cores e Tipografia --- */
 :root {
-  --primary-color: #131110;
+  --primary-color: #030303;
   --secondary-color: #f4f4f4;
   --accent-color: #dc0000;
-  --highlight-color: #999999;
+  --highlight-color: #030303;
   --background-color: #0a0a0a;
   --text-color: #ffffff;
   --font-primary: 'Satoshi', sans-serif;
@@ -55,7 +55,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(234, 131, 170, 0.4);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .about-content {
@@ -73,7 +73,7 @@ body {
 .about-content h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .about-content p {
@@ -86,7 +86,7 @@ body {
 
 .about-button {
   @apply transform transition-all duration-300 active:scale-95;
-  background: linear-gradient(45deg, var(--accent-color), #ff1a1a);
+  background: linear-gradient(45deg, var(--accent-color), #dc0000);
   border: none;
   padding: 1rem 2rem;
   font-weight: 600;
@@ -98,7 +98,7 @@ body {
   font-size: 1rem;
   border-radius: 50px;
   transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 20px rgba(220, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   text-align: center;
 }
@@ -110,7 +110,7 @@ body {
   left: 0;
   width: 0;
   height: 100%;
-  background: linear-gradient(45deg, #ff1a1a, var(--accent-color));
+  background: linear-gradient(45deg, #dc0000, var(--accent-color));
   transition: width 0.3s var(--transition-smooth);
   z-index: -1;
 }
@@ -121,13 +121,13 @@ body {
 
 .about-button:hover {
   transform: scale(1.05);
-  background-color: #c70000;
+  background-color: #dc0000;
   box-shadow: 0 0 30px rgba(220, 0, 0, 0.4);
 }
 
 /* Estilos para Serviços */
 #servicos {
-  background-color: #111111;
+  background-color: #000000;
   color: #f2f2f2;
   padding: 4rem 1rem;
   transition: background-color 0.5s ease;
@@ -150,7 +150,7 @@ body {
   @apply transition-all duration-300 hover:shadow-xl hover:shadow-gray-800/20;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
@@ -432,7 +432,7 @@ body {
 .contact-form button {
   padding: 12px 24px;
   font-size: 1rem;
-  background-color: #e14216;
+  background-color: #dc0000;
   color: white;
   border-radius: 50px;
   cursor: pointer;

@@ -44,13 +44,13 @@ const Depoimentos = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-20 px-4 sm:px-6">
+    <section className="relative w-full min-h-screen from-black via-gray-900 to-black py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Cabeçalho da Seção */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Feedback dos
-            <span className="text-[#e14216]"> Clientes</span>
+            <span className="text-[#dc0000]"> Clientes</span>
           </h2>
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
             Descubra o que nossos clientes dizem sobre nossas soluções e como estamos transformando suas ideias em realidade.
@@ -62,12 +62,12 @@ const Depoimentos = () => {
           {depoimentos.map((depoimento, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 transform transition-all duration-300 hover:scale-[1.02] hover:border-[#e14216]"
+              className=" from-gray-900 to-black border border-gray-800 rounded-2xl p-6 transform transition-all duration-300 hover:scale-[1.02] hover:border-[#dc0000]"
             >
               {/* Cabeçalho do Card */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-[#e14216] rounded-full p-2">
+                  <div className="bg-[#dc0000] rounded-full p-2">
                       <MessageCircle size={24} className="text-white" />
                     </div>
                   <div>
@@ -102,7 +102,7 @@ const Depoimentos = () => {
             href="https://api.whatsapp.com/send?phone=551999042072&text=Oi, estou interessado!"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 bg-[#e14216] text-white font-semibold rounded-full hover:bg-[#ff4d1c] transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center px-8 py-3 bg-[#dc0000] text-white font-semibold rounded-full hover:bg-[#ff4d1c] transition-all duration-300 transform hover:scale-105"
           >
             Quero um Projeto Assim
           </a>
