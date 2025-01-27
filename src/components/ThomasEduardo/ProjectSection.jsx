@@ -8,7 +8,7 @@ const ImageModal = ({ isOpen, image, onClose }) => {
 
   return (
     <motion.div 
-      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-2 sm:p-4"
       onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -17,16 +17,16 @@ const ImageModal = ({ isOpen, image, onClose }) => {
       <motion.img
         src={image}
         alt="Projeto em destaque"
-        className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+        className="max-w-[95vw] max-h-[95vh] sm:max-w-[90vw] sm:max-h-[90vh] object-contain rounded-lg shadow-2xl"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", damping: 20 }}
       />
       <button 
-        className="absolute top-4 right-4 text-white hover:text-[#dc0000] transition-colors"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-[#dc0000] transition-colors"
         onClick={onClose}
       >
-        <svg xmlns="http://www.w3.org/20a0a0a/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/20a0a0a/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -103,32 +103,32 @@ const ProjectSection = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-20 min-h-screen bg-gradient-to-b from-black via-[#111] to-black text-white overflow-hidden"
+      className="py-10 sm:py-20 min-h-screen bg-gradient-to-b from-black via-[#111] to-black text-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <motion.div style={{ y }} className="container mx-auto px-4 sm:px-6">
+      <motion.div style={{ y }} className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
         >
           <div className="inline-block">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
               Criatividade e Inovação
               <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#dc0000]"></div>
             </h2>
           </div>
-          <p className="mt-6 text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
             Projetos que combinam design, funcionalidade e inovação para proporcionar experiências digitais extraordinárias.
           </p>
         </motion.div>
 
         <div className="relative">
-          <div className="flex flex-col lg:flex-row items-stretch gap-12">
+          <div className="flex flex-col lg:flex-row items-stretch gap-6 sm:gap-12">
             <motion.div 
               className="w-full lg:w-3/5 relative group"
               initial={{ opacity: 0, x: -50 }}
@@ -136,7 +136,7 @@ const ProjectSection = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-[0_0_30px_rgba(220,0,0,0.15)] h-full">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-[0_0_30px_rgba(220,0,0,0.15)] h-[300px] sm:h-[400px] lg:h-full">
                 <img
                   src={projectImages[currentIndex]}
                   alt={`Projeto ${projectDetails[currentIndex].title}`}
@@ -146,18 +146,18 @@ const ProjectSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
-              <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
+              <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 sm:left-4 sm:right-4 flex justify-between pointer-events-none">
                 <button
                   onClick={() => handleNavigation("prev")}
-                  className="p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
+                  className="p-2 sm:p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
                 >
-                  <FiChevronLeft size={28} />
+                  <FiChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" />
                 </button>
                 <button
                   onClick={() => handleNavigation("next")}
-                  className="p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
+                  className="p-2 sm:p-3 rounded-full bg-black/50 backdrop-blur-sm text-white pointer-events-auto hover:bg-[#dc0000] transition-all duration-300"
                 >
-                  <FiChevronRight size={28} />
+                  <FiChevronRight className="w-5 h-5 sm:w-7 sm:h-7" />
                 </button>
               </div>
             </motion.div>
@@ -169,31 +169,31 @@ const ProjectSection = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white/[0.03] backdrop-blur-sm p-10 rounded-2xl border border-white/10 h-full flex flex-col">
-                <h3 className="text-4xl font-bold mb-6 text-white">
+              <div className="bg-white/[0.03] backdrop-blur-sm p-6 sm:p-10 rounded-xl sm:rounded-2xl border border-white/10 h-full flex flex-col">
+                <h3 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white">
                   {projectDetails[currentIndex].title}
-                  <div className="h-1 w-20 bg-[#dc0000] mt-4"></div>
+                  <div className="h-1 w-16 sm:w-20 bg-[#dc0000] mt-3 sm:mt-4"></div>
                 </h3>
-                <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+                <p className="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg">
                   {projectDetails[currentIndex].description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
                   {projectDetails[currentIndex].tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 text-sm bg-white/5 border border-[#dc0000]/20 text-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-colors duration-300"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm bg-white/5 border border-[#dc0000]/20 text-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-colors duration-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 mb-10">
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-10">
                   {Object.entries(projectDetails[currentIndex].stats).map(([key, value]) => (
-                    <div key={key} className="text-center p-4 bg-black/30 rounded-xl border border-white/5 hover:border-[#dc0000]/30 transition-colors duration-300">
-                      <div className="text-2xl font-bold text-[#dc0000]">{value}</div>
-                      <div className="text-sm text-gray-400 mt-1">{key}</div>
+                    <div key={key} className="text-center p-2 sm:p-4 bg-black/30 rounded-lg sm:rounded-xl border border-white/5 hover:border-[#dc0000]/30 transition-colors duration-300">
+                      <div className="text-xl sm:text-2xl font-bold text-[#dc0000]">{value}</div>
+                      <div className="text-xs sm:text-sm text-gray-400 mt-1">{key}</div>
                     </div>
                   ))}
                 </div>
@@ -202,7 +202,7 @@ const ProjectSection = () => {
                   href={projectDetails[currentIndex].projectLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto group flex items-center justify-center gap-3 bg-[#dc0000] hover:bg-[#b00000] text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg hover:shadow-[#dc0000]/20"
+                  className="mt-auto group flex items-center justify-center gap-2 sm:gap-3 bg-[#dc0000] hover:bg-[#b00000] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg hover:shadow-[#dc0000]/20"
                 >
                   Ver Projeto
                   <FiExternalLink className="transition-transform group-hover:translate-x-1" />
@@ -211,15 +211,15 @@ const ProjectSection = () => {
             </motion.div>
           </div>
 
-          <div className="flex justify-center gap-4 mt-12">
+          <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
             {projectImages.map((_, index) => (
               <motion.button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index 
-                    ? "bg-[#dc0000] w-10" 
-                    : "bg-white/20 w-6 hover:bg-[#dc0000]/50"
+                    ? "bg-[#dc0000] w-8 sm:w-10" 
+                    : "bg-white/20 w-4 sm:w-6 hover:bg-[#dc0000]/50"
                 }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
