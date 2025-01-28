@@ -10,7 +10,7 @@ import Services from "../components/ThomasEduardo/Services";
 import About from "../components/ThomasEduardo/About";
 import SkillsCarousel from "../components/ThomasEduardo/SkillsCarousel";
 import ProjectSection from "../components/ThomasEduardo/ProjectSection"; 
-import SeçãoAbordagemÚnica  from "../components/ThomasEduardo/SeçãoAbordagemÚnica"; 
+import SeçãoAbordagemÚnica from "../components/ThomasEduardo/SeçãoAbordagemÚnica"; 
 import Clientes from "../components/ThomasEduardo/Clientes";
 import Depoimentos from "../components/ThomasEduardo/Depoimentos";
 import CTA from "../components/ThomasEduardo/CTA";
@@ -20,7 +20,6 @@ import FAQ from "../components/ThomasEduardo/FAQ";
 import WhatsAppButton from "../components/Buttons/WhatsAppButton";
 import CookieConsent from "../components/Ferramentas/CookieConsent";
 
-// Novo componente Loading
 import Loading from "../components/ThomasEduardo/Loading";
 
 const Home = () => {
@@ -57,7 +56,7 @@ const Home = () => {
       <SkillsCarousel />
 
       {/* Seção Abordagem Única */}
-      <SeçãoAbordagemÚnica  />
+      <SeçãoAbordagemÚnica />
 
       {/* Seção de Projetos */}
       <ProjectSection />

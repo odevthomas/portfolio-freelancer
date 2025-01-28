@@ -1,87 +1,110 @@
-import React, { useEffect, useState } from "react";
-import { auth } from "../Login/Firebase";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
-import { FaDownload, FaLink, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
+import React from "react";
+import { motion } from "framer-motion";
+import { BookOpen, ClipboardList, Settings, Link, LogOut, Download, ClipboardCheck, ArrowUpRight } from 'lucide-react';
 
 const Dashboard = () => {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Adicionando estado de erro
-  const navigate = useNavigate();
-  
-  const user = auth.currentUser;
-  const db = getFirestore();
+  const handleLogout = () => {
+    localStorage.removeItem("authenticated");
+    window.location.href = "/";
+  };
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/login"); // Se o usuário não estiver autenticado, redireciona para o login
-    } else {
-      const fetchUserData = async () => {
-        try {
-          const userDocRef = doc(db, "usuarios", user.uid); // Aqui usamos o ID do usuário autenticado para pegar seus dados
-          const docSnap = await getDoc(userDocRef);
-          
-          if (docSnap.exists()) {
-            setUserData(docSnap.data());
-          } else {
-            setError("Nenhum dado encontrado para este usuário."); // Mensagem de erro
-            console.log("Nenhum dado encontrado para este usuário.");
-          }
-        } catch (err) {
-          setError("Erro ao carregar os dados: " + err.message); // Mensagem de erro em caso de falha na consulta
-          console.error("Erro ao carregar os dados:", err);
-        } finally {
-          setLoading(false); // Setando o carregamento como false após a consulta
-        }
-      };
-      
-      fetchUserData();
+  const cards = [
+    {
+      title: "Documentação",
+      icon: <BookOpen className="w-5 h-5" />,
+      content: "Acesse toda documentação técnica, requisitos e guias de desenvolvimento do projeto."
+    },
+    {
+      title: "Roadmap",
+      icon: <ClipboardList className="w-5 h-5" />,
+      content: [
+        "UI/UX Design",
+        "Autenticação",
+        "Integração API",
+        "Testes & QA"
+      ]
+    },
+    {
+      title: "Melhorias",
+      icon: <Settings className="w-5 h-5" />, 
+      content: [
+        "Suporte Multilíngue",
+        "Sistema de Notificações",
+        "Otimização de Performance",
+        "Analytics Dashboard"
+      ]
     }
-  }, [user, db, navigate]);
-
-  if (loading) {
-    return <div>Carregando...</div>; // Se estiver carregando
-  }
-
-  if (error) {
-    return <div className="text-red-500">{error}</div>; // Se houver erro
-  }
+  ];
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Bem-vindo ao seu Dashboard, {user.displayName || "Usuário"}!</h1>
+    <div className="min-h-screen bg-black text-white">
+      <header className="sticky top-0 z-50 backdrop-blur-sm bg-black/50 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <h1 className="text-2xl font-bold">Dashboard</h1>
+            <button onClick={handleLogout} className="flex items-center space-x-2 text-red-500 hover:text-red-400">
+              <span>Sair</span>
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </header>
 
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md text-white">
-        <h2 className="text-2xl font-semibold mb-4">Projeto Final</h2>
-        <div className="mb-4">
-          <FaDownload className="inline-block mr-2" />
-          <a href={userData.projetoFinal} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-            Baixar o Projeto Final
-          </a>
-        </div>
-        
-        <h2 className="text-2xl font-semibold mb-4">Informações do Domínio</h2>
-        <div className="mb-4">
-          <FaLink className="inline-block mr-2" />
-          <a href={userData.dominio} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-            Acessar o Domínio
-          </a>
-        </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-red-500/50 transition-colors"
+            >
+              <div className="flex items-center space-x-3 text-red-500">
+                {card.icon}
+                <h2 className="text-xl font-semibold">{card.title}</h2>
+              </div>
+              {Array.isArray(card.content) ? (
+                <ul className="mt-4 space-y-2">
+                  {card.content.map((item, i) => (
+                    <li key={i} className="flex items-center space-x-2 text-gray-400">
+                      <ArrowUpRight className="w-4 h-4" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-4 text-gray-400">{card.content}</p>
+              )}
+              <div className="absolute inset-0 rounded-xl transition group-hover:bg-red-500/5" />
+            </motion.div>
+          ))}
 
-        <h2 className="text-2xl font-semibold mb-4">Validade do Projeto</h2>
-        <div className="mb-4">
-          <FaCalendarAlt className="inline-block mr-2" />
-          <span>{userData.validade}</span> {/* A validade pode ser formatada se for uma data */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm"
+          >
+            <div className="flex items-center space-x-3 text-red-500">
+              <ClipboardCheck className="w-5 h-5" />
+              <h2 className="text-xl font-semibold">Nova Solicitação</h2>
+            </div>
+            <form className="mt-4">
+              <textarea 
+                className="w-full h-24 bg-black/50 border border-white/10 rounded-lg p-3 text-white placeholder-gray-500 focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                placeholder="Descreva sua solicitação..."
+              />
+              <button className="mt-3 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">
+                Enviar
+              </button>
+            </form>
+          </motion.div>
         </div>
+      </main>
 
-        <h2 className="text-2xl font-semibold mb-4">Último Serviço Realizado</h2>
-        <div className="mb-4">
-          <FaInfoCircle className="inline-block mr-2" />
-          <p>{userData.ultimoServico.descricao}</p>
-          <span className="text-gray-400">Realizado em: {userData.ultimoServico.dataServico}</span>
-        </div>
-      </div>
+      <footer className="mt-auto py-6 text-center text-gray-500 text-sm">
+        © 2024 Dashboard. Todos os direitos reservados.
+      </footer>
     </div>
   );
 };
