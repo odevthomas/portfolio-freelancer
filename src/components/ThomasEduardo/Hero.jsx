@@ -51,11 +51,10 @@ const Hero = memo(() => {
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none tracking-tight">
-                  Transformando
+                  Thomas 
                   <span className="block mt-2">
-                    <span className="text-[#dc0000]">ideias</span> em
+                    <span className="text-[#dc0000]">Eduardo</span> 
                   </span>
-                  <span className="block mt-2">realidade digital</span>
                 </h1>
               </motion.div>
 
@@ -90,7 +89,7 @@ const Hero = memo(() => {
 
                 <div className="flex gap-4 sm:gap-6">
                   <a
-                    href="https://github.com/seu-usuario"
+                    href="https://github.com/odevthomas"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 border border-white/10 hover:border-white/20 backdrop-blur-sm"
@@ -98,7 +97,7 @@ const Hero = memo(() => {
                     <FaGithub className="text-xl sm:text-2xl text-white" />
                   </a>
                   <a
-                    href="https://linkedin.com/in/seu-usuario"
+                    href="https://linkedin.com/in/odevthomas"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 border border-white/10 hover:border-white/20 backdrop-blur-sm"

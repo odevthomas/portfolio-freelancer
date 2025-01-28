@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Componentes de Header e Footer
 import Navbar from "../components/HeaderFooter/Navbar"; 
@@ -20,7 +20,25 @@ import FAQ from "../components/ThomasEduardo/FAQ";
 import WhatsAppButton from "../components/Buttons/WhatsAppButton";
 import CookieConsent from "../components/Ferramentas/CookieConsent";
 
+// Novo componente Loading
+import Loading from "../components/ThomasEduardo/Loading";
+
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulação de carregamento, substitua com lógica real
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 segundos
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       {/* Navbar */}
@@ -46,7 +64,8 @@ const Home = () => {
     
       {/* Call to Action (CTA) */}
       <CTA />
-  {/* Seção Clientes */}
+
+      {/* Seção Clientes */}
       <Clientes />
 
       {/* Seção Depoimentos */}

@@ -75,9 +75,7 @@ const About = () => {
                 </motion.div>
               </motion.div>
               
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-                Thomas Eduardo 
-              </h2>
+          
           </motion.div>
 
           {/* Grid Principal */}
@@ -129,9 +127,9 @@ const About = () => {
             >
                 <div className="flex justify-around items-center">
                 {[
-                  { icon: FaGithub, url: "https://github.com/devthmedu", color: "#ffffff" },
-                    { icon: FaInstagram, url: "https://www.instagram.com/_devthm/", color: "#dc0000" },
-                    { icon: FaLinkedin, url: "https://www.linkedin.com/notifications/?filter=all", color: "#ffffff" }
+                  { icon: FaGithub, url: "https://github.com/odevthomas", color: "#ffffff" },
+                    { icon: FaInstagram, url: "https://www.instagram.com/odevthomas/", color: "#dc0000" },
+                    { icon: FaLinkedin, url: "https://www.linkedin.com/odevthomas/?filter=all", color: "#ffffff" }
                 ].map((social, index) => (
                   <motion.a
                     key={index}
