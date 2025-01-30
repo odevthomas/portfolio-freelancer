@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 const Hero = memo(() => {
   const [buttonText, setButtonText] = useState("Entre em Contato pelo WhatsApp");
-  const whatsappLink = "https://wa.me/55xxxxxxxxxx?text=Oi%20Thomas%20Eduardo,%20vim%20pelo%20site!%20Gostaria%20de%20um%20orçamento.";
+  const whatsappLink = "https://api.whatsapp.com/send?phone=551999042072&text=Oi%20Thomas!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto.%20Vamos%20conversar%3F";
 
   const handleMouseEnter = () => setButtonText("Vamos conversar sobre seu projeto?");
   const handleMouseLeave = () => setButtonText("Entre em Contato pelo WhatsApp");
@@ -30,10 +30,8 @@ const Hero = memo(() => {
         aria-label="Seção principal"
       >
         {/* Overlay com gradiente mais suave */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-0"></div>
 
         {/* Efeito de partículas ou linhas (opcional) */}
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(220,0,0,0.1)_50%,transparent_75%)] bg-[length:500px_500px] animate-gradient-shift z-1"></div>
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -46,9 +44,10 @@ const Hero = memo(() => {
                 className="space-y-4 sm:space-y-6"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="h-1 w-12 sm:w-20 bg-[#dc0000]"></div>
-                  <span className="text-white text-sm sm:text-base font-medium">Desenvolvedor Full Stack</span>
-                </div>
+                  <span className="inline-block text-[#dc0000] text-sm sm:text-base md:text-lg font-bold tracking-wider px-4 sm:px-8 py-2 sm:py-3 border-2 border-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-all duration-300">
+                 Full Stack
+                </span>
+                                </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none tracking-tight">
                   Thomas 

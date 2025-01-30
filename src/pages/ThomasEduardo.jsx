@@ -52,14 +52,15 @@ const Home = () => {
       {/* Seção Serviços */}
       <Services />
 
-      {/* Seção Habilidades */}
-      <SkillsCarousel />
+       {/* Seção Abordagem Única */}
+       <SeçãoAbordagemÚnica />
 
-      {/* Seção Abordagem Única */}
-      <SeçãoAbordagemÚnica />
-
+       
       {/* Seção de Projetos */}
       <ProjectSection />
+
+      {/* Seção Habilidades */}
+      <SkillsCarousel />
     
       {/* Call to Action (CTA) */}
       <CTA />

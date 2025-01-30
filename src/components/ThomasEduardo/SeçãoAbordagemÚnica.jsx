@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 const SeçãoAbordagemÚnica = () => {
   const SeçãoAbordagemÚnicaItems = [
     { 
-      image: "/Criativos/mackbook.png",
+      image: "/notbook.png",
       alt: "Desenvolvimento Web Frontend"
     },
     // Adicione outros itens aqui se necessário

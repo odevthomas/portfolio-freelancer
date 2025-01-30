@@ -18,7 +18,7 @@ const About = () => {
 
   const stats = [
     { icon: FaCode, value: "2+", label: "Anos de Experiência" },
-    { icon: FaRocket, value: "50+", label: "Projetos Entregues" },
+    { icon: FaRocket, value: "9+", label: "Projetos Entregues" },
     { icon: FaLaptopCode, value: "100%", label: "Satisfação" },
     { icon: FaMedal, value: "24/7", label: "Suporte" }
   ];
@@ -27,7 +27,7 @@ const About = () => {
     <>
       <Helmet>
         <title>Thomas Eduardo - Desenvolvedor Full Stack | React, Next.js, Node.js</title>
-        <meta name="description" content="Desenvolvedor Full Stack com mais de 2 anos de experiência. Especializado em React, Next.js e Node.js. Conheça meu trabalho e vamos criar algo incrível juntos!" />
+        <meta name="description" content="Desenvolvedor Full Stack com 2 anos de experiência. Especializado em React, Next.js e Node.js. Conheça meu trabalho e vamos criar algo incrível juntos!" />
         <meta name="keywords" content="desenvolvedor full stack, react, next.js, node.js, desenvolvimento web, são paulo" />
         <meta property="og:title" content="Thomas Eduardo - Desenvolvedor Full Stack" />
         <meta property="og:description" content="Desenvolvedor Full Stack especializado em React, Next.js e Node.js. Mais de 50 projetos entregues com sucesso." />
@@ -44,11 +44,7 @@ const About = () => {
         {/* Efeito de gradiente de fundo */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50"></div>
         
-        {/* Linhas decorativas animadas */}
-        <div className="absolute inset-0">
-          <div className="absolute left-0 top-0 w-1/3 h-1 bg-gradient-to-r from-[#dc0000] to-transparent"></div>
-          <div className="absolute right-0 bottom-0 w-1/3 h-1 bg-gradient-to-l from-[#dc0000] to-transparent"></div>
-        </div>
+        
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Cabeçalho */}

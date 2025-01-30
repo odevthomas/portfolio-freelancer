@@ -55,7 +55,7 @@ const ProjectSection = () => {
       tags: ["React", "TailwindCSS", "Framer Motion", "SEO Otimizado"],
       stats: {
         conversão: "+150%",
-        visitantes: "+300/mês",
+        visitantes: "+300",
         bounce: "-40%"
       }
     },
@@ -66,9 +66,11 @@ const ProjectSection = () => {
       projectLink: "https://www.lellit.com.br",
       tags: ["Next.js", "Styled Components", "Firebase", "Analytics"],
       stats: {
-        agendamentos: "+200%",
+        agendamentos: "+100%",
         engajamento: "+180%",
-        satisfação: "98%"
+        satisfação: "98%",
+        visitantes: "+600",
+
       }
     },
     {
@@ -79,8 +81,9 @@ const ProjectSection = () => {
       tags: ["Vue.js", "Node.js", "MongoDB", "WebSockets"],
       stats: {
         produtividade: "+75%",
-        tarefas: "+10a0a0a/mês",
-        usuários: "+500"
+        engajamento: "+50%",
+        usuários: "+500",
+        visitantes: "+400",
       }
     },
   ];
@@ -117,9 +120,12 @@ const ProjectSection = () => {
           className="text-center mb-10 sm:mb-20"
         >
           <div className="inline-block">
+          <span className="inline-block text-[#dc0000] text-sm sm:text-base md:text-lg font-bold tracking-wider px-4 sm:px-8 py-2 sm:py-3 border-2 border-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-all duration-300">
+              Ultimos Projetos 
+                </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
+
               Criatividade e Inovação
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#dc0000]"></div>
             </h2>
           </div>
           <p className="mt-4 sm:mt-6 text-base sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
