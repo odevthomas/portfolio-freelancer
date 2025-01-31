@@ -26,7 +26,7 @@ const ImageModal = ({ isOpen, image, onClose }) => {
         className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-[#dc0000] transition-colors"
         onClick={onClose}
       >
-        <svg xmlns="http://www.w3.org/20a0a0a/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -121,7 +121,7 @@ const ProjectSection = () => {
         >
           <div className="inline-block">
           <span className="inline-block text-[#dc0000] text-sm sm:text-base md:text-lg font-bold tracking-wider px-4 sm:px-8 py-2 sm:py-3 border-2 border-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-all duration-300">
-              Ultimos Projetos 
+              Ultimos Projetos Frontend 
                 </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
 

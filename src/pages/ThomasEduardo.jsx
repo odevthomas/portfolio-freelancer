@@ -9,9 +9,10 @@ import Hero from "../components/ThomasEduardo/Hero";
 import Services from "../components/ThomasEduardo/Services";
 import About from "../components/ThomasEduardo/About";
 import SkillsCarousel from "../components/ThomasEduardo/SkillsCarousel";
-import ProjectSection from "../components/ThomasEduardo/ProjectSection"; 
+import ProjetosFrontedn from "../components/ThomasEduardo/ProjetosFrontend"; 
+import ProjetosBacend from "../components/ThomasEduardo/ProjetosBacend"; 
+
 import SeçãoAbordagemÚnica from "../components/ThomasEduardo/SeçãoAbordagemÚnica"; 
-import Clientes from "../components/ThomasEduardo/Clientes";
 import Depoimentos from "../components/ThomasEduardo/Depoimentos";
 import CTA from "../components/ThomasEduardo/CTA";
 import FAQ from "../components/ThomasEduardo/FAQ";
@@ -52,24 +53,27 @@ const Home = () => {
       {/* Seção Serviços */}
       <Services />
 
-       {/* Seção Abordagem Única */}
-       <SeçãoAbordagemÚnica />
-
        
       {/* Seção de Projetos */}
-      <ProjectSection />
+      <ProjetosFrontedn />
 
-      {/* Seção Habilidades */}
-      <SkillsCarousel />
+    
     
       {/* Call to Action (CTA) */}
       <CTA />
+       {/* Seção de Projetos */}
+       <ProjetosBacend />
 
-      {/* Seção Clientes */}
-      <Clientes />
+      
+
+       {/* Seção Abordagem Única */}
+       <SeçãoAbordagemÚnica />
 
       {/* Seção Depoimentos */}
       <Depoimentos />
+
+       {/* Seção Habilidades */}
+       <SkillsCarousel />
 
       {/* Seção FAQ */}
       <FAQ />
