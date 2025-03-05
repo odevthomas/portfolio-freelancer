@@ -2,6 +2,13 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaCode, FaRocket, FaLightbulb } from "react-icons/fa";
+import Depoimentos from "../components/ThomasEduardo/Depoimentos";
+import About from "../components/ThomasEduardo/About";
+import FAQ from "../components/ThomasEduardo/FAQ";
+import Projetos from "../components/ThomasEduardo/Projetos";
+import Footer from "../components/HeaderFooter/Footer";
+
+
 
 const LandingPage = () => {
   const controls = useAnimation();
@@ -98,7 +105,7 @@ const LandingPage = () => {
               </Link>
               
               <Link
-                to="/thomas-eduardo"
+                to="/odevthomas"
                 className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
               >
                 Ver Portfólio
@@ -144,6 +151,11 @@ const LandingPage = () => {
           </div>
         </div>
       </motion.section>
+      <About />
+      <Projetos />
+      <Depoimentos />
+      <FAQ />
+      <Footer />
     </div>
   );
 };

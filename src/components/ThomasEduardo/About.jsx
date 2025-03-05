@@ -1,165 +1,86 @@
-import React, { useState } from 'react';
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub, FaCode, FaRocket, FaLaptopCode, FaMedal } from 'react-icons/fa';
-import { SiAngular } from 'react-icons/si';
-import { DiJava } from 'react-icons/di';
-import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import React from "react";
+import { motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const About = () => {
-  const [buttonText, setButtonText] = useState('Vamos Conversar');
-
-  const handleMouseEnter = () => {
-    setButtonText('Opa, é só clicar que já te respondo!');
-  };
-
-  const handleMouseLeave = () => {
-    setButtonText('Vamos Conversar');
-  };
-
-  const stats = [
-    { icon: FaCode, value: "2+", label: "Anos de Experiência" },
-    { icon: FaRocket, value: "9+", label: "Projetos Entregues" },
-    { icon: FaLaptopCode, value: "100%", label: "Satisfação" },
-    { icon: FaMedal, value: "24/7", label: "Suporte" }
-  ];
 
   return (
-    <>
-      <Helmet>
-        <title>Thomas Eduardo - Desenvolvedor Full Stack | React, Next.js, Node.js</title>
-        <meta name="description" content="Desenvolvedor Full Stack com 2 anos de experiência. Especializado em React, Next.js e Node.js. Conheça meu trabalho e vamos criar algo incrível juntos!" />
-        <meta name="keywords" content="desenvolvedor full stack, react, next.js, node.js, desenvolvimento web, são paulo" />
-        <meta property="og:title" content="Thomas Eduardo - Desenvolvedor Full Stack" />
-        <meta property="og:description" content="Desenvolvedor Full Stack especializado em React, Next.js e Node.js. Mais de 50 projetos entregues com sucesso." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://thomaseduardo.dev.br/sobre" />
-      </Helmet>
+    <section
+      id="sobrenos"
+      className="relative w-full min-h-[calc(100vh-80px)] bg-gradient-to-b from-black via-[#000000] to-black flex items-center justify-center px-4 md:px-6 lg:px-8 py-12 md:py-16"
+    >
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left space-y-8">
+            <motion.h3
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Resumo Profissional
+            </motion.h3>
 
-      <section 
-        id="sobrenos" 
-        className="py-10 sm:py-16 md:py-20 bg-black min-h-screen relative overflow-hidden"
-        aria-label="Sobre Thomas Eduardo"
-        role="region"
-      >
-        {/* Efeito de gradiente de fundo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50"></div>
-        
-        
+            <motion.p
+              className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              Sou um Desenvolvedor Web especializado em Frontend e Design de Experiência do Usuário (UX), com 2 anos e meio de experiência. Estou em busca da minha primeira oportunidade como desenvolvedor em uma equipe, onde possa aprender continuamente e expandir minhas habilidades.
+            </motion.p>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Cabeçalho */}
-          <motion.div 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#contato"
+                className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+              >
+                Saiba Mais
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="relative"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-16 md:mb-20"
+            transition={{ duration: 1 }}
           >
-              <motion.div 
-              className="flex justify-center items-center gap-3 sm:gap-6 mb-6 sm:mb-8 flex-wrap"
-              whileHover={{ scale: 1.02 }}
-              >
-              <span className="inline-block text-[#dc0000] text-sm sm:text-base md:text-lg font-bold tracking-wider px-4 sm:px-8 py-2 sm:py-3 border-2 border-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-all duration-300">
-                Desenvolvedor Full Stack
-                </span>
-                <motion.div
-                className="flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-3 border-2 border-white/20 rounded-full bg-white/5 text-white"
-                  whileHover={{ scale: 1.05 }}
-                >
-                <DiJava className="text-xl sm:text-2xl" />
-                <SiAngular className="text-xl sm:text-2xl" />
-                <span className="font-bold text-sm sm:text-base">Bootcamp DIO</span>
-                </motion.div>
-              </motion.div>
-              
-          
-          </motion.div>
-
-          {/* Grid Principal */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
-            {/* Bio Principal */}
-            <motion.article
-              whileHover={{ scale: 1.01 }}
-              className="lg:col-span-8 bg-gradient-to-br from-gray-900 to-black p-6 sm:p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-lg shadow-xl"
-            >
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#dc0000] mb-6 sm:mb-8">Sobre Mim</h3>
-              <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-300">
-                <p>
-                  Desenvolvedor Full Stack apaixonado por tecnologia, com raízes em São Paulo. Minha jornada começou na área de TI e evoluiu para o desenvolvimento web, onde encontrei minha verdadeira vocação.
-                </p>
-                <p>
-                  <span className="text-[#dc0000] font-semibold">Especializado em React, Next.js, Node.js</span> e tecnologias modernas que impulsionam a web atual.
-                </p>
-                <p>
-                  Com mais de 2 anos de experiência e mais de 50 projetos entregues, meu foco está em criar soluções que <span className="text-white font-semibold">transformam visões em realidade digital</span>.
-                </p>
-              </div>
-            </motion.article>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-4 space-y-4 sm:space-y-6 lg:space-y-8">
-            {/* Card CTA */}
-            <motion.aside
-              whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-gray-900 to-black p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-lg"
-              >
-                <h3 className="text-xl sm:text-2xl font-bold text-[#dc0000] mb-3 sm:mb-4">Vamos Trabalhar Juntos?</h3>
-                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">Disponível para novos projetos e desafios inovadores.</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                onClick={() => window.open('https://api.whatsapp.com/send?phone=551999042072&text=Oi, estou interessado!')}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                  className="w-full bg-[#dc0000] hover:bg-[#ff0000] px-4 sm:px-6 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-medium shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                  <FaWhatsapp className="text-lg sm:text-xl" />
-                <span>{buttonText}</span>
-              </motion.button>
-            </motion.aside>
-
-            {/* Social Links */}
-            <motion.nav
-              whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-gray-900 to-black p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-lg"
-            >
-                <div className="flex justify-around items-center">
-                {[
-                  { icon: FaGithub, url: "https://github.com/odevthomas", color: "#ffffff" },
-                    { icon: FaInstagram, url: "https://www.instagram.com/odevthomas/", color: "#dc0000" },
-                    { icon: FaLinkedin, url: "https://www.linkedin.com/odevthomas/?filter=all", color: "#ffffff" }
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
-                      className="text-2xl sm:text-3xl text-gray-400 hover:text-[#dc0000] transition-colors duration-300"
-                  >
-                      <social.icon />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.nav>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {stats.map((stat, index) => (
             <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-gradient-to-br from-gray-900 to-black p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-lg text-center"
-                >
-                  <stat.icon className="text-[#dc0000] text-3xl sm:text-4xl mb-3 sm:mb-4 mx-auto" />
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2">{stat.value}</h4>
-                  <p className="text-gray-400 text-sm sm:text-base">{stat.label}</p>
+              animate={{
+                y: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
+              <video
+                className="h-[550px] sm:h-[550px] md:h-[600px] mx-auto object-cover"
+                src="/codigo.mp4" // Substitua pelo caminho correto do seu vídeo
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
             </motion.div>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

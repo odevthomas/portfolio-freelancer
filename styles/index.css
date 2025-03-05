@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@import url('./satoshi.css');
+@import url('./clashdisplay.css');
 
 /* slick-carousel */
 @tailwind base;
@@ -11,14 +11,14 @@
   /* Cores principais do tema */
   --primary-red: #FF0000;
   --primary-black: #000000;
-  --primary-white: #040404;
-  
+  --primary-white: #000000;
+
   /* Variações de cores */
   --red-light: #FF3333;
   --red-dark: #CC0000;
-  --black-light: #333333;
-  --black-dark: #1A1A1A;
-  
+  --black-light: #000000;
+  --black-dark: #000000;
+
   /* Cores funcionais */
   --text-primary: var(--black-dark);
   --text-secondary: var(--black-light);
@@ -26,13 +26,12 @@
   --background-secondary: #F5F5F5;
   --accent-color: var(--primary-red);
   --border-color: #E5E5E5;
-  --primary-color: #030303;
+  --primary-color: #000000;
   --secondary-color: #f4f4f4;
-  --highlight-color: #030303;
-  --background-color: #0a0a0a;
+  --highlight-color: #000000;
+  --background-color: #000000;
   --text-color: #ffffff;
-  --font-primary: 'Satoshi', sans-serif;
-  --font-secondary: 'Playfair Display', serif;
+  --font-primary: 'clashdisplay', sans-serif;
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -226,6 +225,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -233,14 +233,27 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes shine {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
 }
 
 /* Justificação de texto */
@@ -279,9 +292,11 @@ body {
   .hero-section h1 {
     font-size: 2.25rem;
   }
+
   .hero-section p {
     font-size: 1rem;
   }
+
   .hero-section a {
     font-size: 0.875rem;
     padding: 10px 18px;
@@ -292,6 +307,7 @@ body {
   .hero-section {
     padding: 20px 40px;
   }
+
   .hero-section h1 {
     font-size: 4rem;
   }
@@ -505,23 +521,28 @@ body {
   pointer-events: none;
   user-select: none;
 }
+
 /* Impedir seleção de texto */
 * {
-  user-select: none; /* Desativa seleção de texto */
+  user-select: none;
+  /* Desativa seleção de texto */
 }
 
 /* Impedir download de imagens */
 img {
-  pointer-events: none; /* Desativa qualquer interação com imagens */
+  pointer-events: none;
+  /* Desativa qualquer interação com imagens */
 }
 
 /* Impedir clique com o botão direito do mouse sobre imagens */
 img {
-  -webkit-user-drag: none; /* Impede que a imagem seja arrastada em navegadores WebKit */
+  -webkit-user-drag: none;
+  /* Impede que a imagem seja arrastada em navegadores WebKit */
 }
 
 img {
-  user-select: none; /* Impede seleção de imagem */
+  user-select: none;
+  /* Impede seleção de imagem */
 }
 
 /* Animação de entrada para elementos */
@@ -575,6 +596,7 @@ img {
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -585,6 +607,7 @@ img {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -604,24 +627,35 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Altura total da viewport */
-  width: 100vw; /* Largura total da viewport */
-  padding: 20px; /* Opcional: padding para espaçamento */
-  box-sizing: border-box; /* Inclui padding na largura total */
+  height: 100vh;
+  /* Altura total da viewport */
+  width: 100vw;
+  /* Largura total da viewport */
+  padding: 20px;
+  /* Opcional: padding para espaçamento */
+  box-sizing: border-box;
+  /* Inclui padding na largura total */
 }
 
 .spinner {
   width: 50px;
   height: 50px;
-  border: 6px solid #f3f3f3; /* Cor de fundo da borda */
-  border-top: 6px solid #ff0000; /* Cor vermelha para o efeito de rotação */
+  border: 6px solid #f3f3f3;
+  /* Cor de fundo da borda */
+  border-top: 6px solid #ff0000;
+  /* Cor vermelha para o efeito de rotação */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -630,7 +664,8 @@ img {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000; /* Fundo preto */
+  background-color: #000;
+  /* Fundo preto */
   animation: backgroundFade 10s infinite alternate;
 }
 
@@ -714,7 +749,15 @@ img {
 }
 
 @keyframes backgroundFade {
-  0% { background-color: #000; }
-  50% { background-color: #141414; }
-  100% { background-color: #000; }
+  0% {
+    background-color: #000;
+  }
+
+  50% {
+    background-color: #141414;
+  }
+
+  100% {
+    background-color: #000;
+  }
 }

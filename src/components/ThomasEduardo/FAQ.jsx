@@ -43,17 +43,17 @@ const FaqSection = () => {
 
   return (
     <section 
-      className="relative w-full py-12 md:py-16 lg:py-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-black"
+      className="relative w-full py-6 md:py-8 lg:py-12 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-black"
       id="faq"
     >
-      <div className="absolute inset-0 bg-[rgba(255,0,0,0.05)]"></div>
+      <div className="absolute inset-0 bg-[rgb(0,0,0)]"></div>
 
       <div className="container mx-auto relative">
-        <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-8 md:mb-12 lg:mb-16 tracking-tight text-white">
-          Perguntas <span className="text-red-600">Frequentes</span>
-        </h3>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight text-center">
+          Perguntas Frequentes
+        </h2>
 
-        <div className="grid grid-cols-1 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-3 md:gap-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -64,14 +64,14 @@ const FaqSection = () => {
               }`}
             >
               <button
-                className="flex items-center justify-between w-full p-4 md:p-6 text-left"
+                className="flex items-center justify-between w-full p-2 md:p-3 text-left"
                 onClick={() => toggleExpanded(index)}
               >
-                <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-2 md:gap-3">
                   <div className="flex-shrink-0">
                     {faq.icon}
                   </div>
-                  <h2 className="font-bold text-base md:text-lg text-white">
+                  <h2 className="font-bold text-sm md:text-base text-white">
                     {faq.question}
                   </h2>
                 </div>
@@ -89,8 +89,8 @@ const FaqSection = () => {
               </button>
 
               {expanded === index && (
-                <div className="px-4 md:px-6 pb-4 md:pb-6 pt-2">
-                  <div className="text-sm md:text-base text-gray-300 leading-relaxed">
+                <div className="px-2 md:px-3 pb-2 md:pb-3 pt-1 md:pt-2">
+                  <div className="text-xs md:text-sm text-gray-300 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>

@@ -1,120 +1,130 @@
-import React from "react";
-import { MessageCircle, Star, Calendar } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Depoimentos = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const depoimentos = [
     {
-      cliente: "João Silva",
-      texto: "Cara, você é muito bom, assim que puder vamos expandir nossa parceria.",
-      avaliacao: 5,
-      data: "Mar 2024",
-      cargo: "CEO TechStart"
+      cliente: "Excelente Profissional",
+      texto: "Excelente no que faz, o Thomas superou nossas expectativas com um site incrível para nosso salão de beleza."
     },
     {
-      cliente: "Maria Oliveira",
-      texto: "Oii, ficou perfeito! Minha mãe adorou a cor e os detalhes do site da loja.",
-      avaliacao: 5,
-      data: "Fev 2024",
-      cargo: "Proprietária Boutique Elegance"
+      cliente: "Recomendação Certa",
+      texto: "Recomendo o Thomas para qualquer projeto web, ele é um verdadeiro especialista em desenvolvimento."
     },
     {
-      cliente: "Thomas",
-      texto: "Gostei muito do seu trabalho e adorei o layout do nosso site. Superou minhas expectativas!",
-      avaliacao: 5,
-      data: "Jan 2024",
-      cargo: "Diretor Criativo"
+      cliente: "Habilidades Destacadas",
+      texto: "Profissional competente, o Thomas criou um site institucional que nos ajudou a alcançar novos clientes."
     },
     {
-      cliente: "Carlos Almeida",
-      texto: "Eu curti muito essa API que você colocou no site. O sistema ficou muito mais rápido!",
-      avaliacao: 5,
-      data: "Jan 2024",
-      cargo: "CTO Inovação Tech"
+      cliente: "Expert em Desenvolvimento",
+      texto: "Sem dúvida, Thomas é o desenvolvedor que você precisa para levar sua presença online ao próximo nível."
     },
   ];
 
-  const renderEstrelas = (quantidade) => {
-    return [...Array(quantidade)].map((_, index) => (
-      <Star
-        key={index}
-        size={16}
-        className="text-yellow-400 fill-yellow-400"
-      />
-    ));
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % depoimentos.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + depoimentos.length) % depoimentos.length);
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-20 px-4 sm:px-6 overflow-hidden">
-      {/* Elementos decorativos de fundo */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#dc0000] opacity-10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#dc0000] opacity-10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Cabeçalho da Seção */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Feedback dos
-            <span className="text-[#dc0000] relative inline-block ml-3">
-              Clientes
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#dc0000] to-transparent"></span>
-            </span>
-          </h2>
-          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            Descubra o que nossos clientes dizem sobre nossas soluções e como estamos transformando suas ideias em realidade.
-          </p>
-        </div>
-
-        {/* Grid de Depoimentos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          {depoimentos.map((depoimento, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 transform transition-all duration-500 hover:scale-[1.02] hover:border-[#dc0000] backdrop-blur-lg shadow-lg hover:shadow-[#dc0000]/20"
-            >
-              {/* Cabeçalho do Card */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-[#dc0000] to-[#ff4d1c] rounded-full p-3 shadow-lg">
-                    <MessageCircle size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white text-xl">
-                      {depoimento.cliente}
-                    </h3>
-                    <p className="text-gray-400 text-sm font-medium">{depoimento.cargo}</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2 bg-gray-800/50 px-3 py-1 rounded-full">
-                  <Calendar size={16} className="text-[#dc0000]" />
-                  <span className="text-gray-300 text-sm font-medium">{depoimento.data}</span>
-                </div>
-              </div>
-
-              {/* Conteúdo do Depoimento */}
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
-                "{depoimento.texto}"
-              </p>
-
-              {/* Avaliação */}
-              <div className="flex items-center space-x-1 bg-gray-800/30 w-fit px-3 py-1 rounded-full">
-                {renderEstrelas(depoimento.avaliacao)}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-20">
-          <a
-            href="https://api.whatsapp.com/send?phone=551999042072&text=Oi, estou interessado!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-[#dc0000] to-[#ff4d1c] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#dc0000]/50 transition-all duration-300 transform hover:scale-105 text-lg"
+    <section className="relative w-full bg-black py-16 px-4 sm:px-6 overflow-hidden flex items-center justify-center">
+      <div className="max-w-7xl mx-auto relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Coluna de Texto (Título e Descrição) */}
+        <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Quero um Projeto Assim
-          </a>
+            Depoimentos
+          </motion.h2>
+          <motion.p
+            className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Descubra o que nossos clientes dizem sobre nossas soluções e como estamos transformando suas ideias em realidade.
+          </motion.p>
+
+          {/* Saiba Mais button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex justify-center mt-6"
+          >
+            <a
+              href="#contato"
+              className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+            >
+              Deixe o seu Depoimento
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Coluna de Depoimentos (Slider de Testemunhos) */}
+        <div className="relative w-full max-w-3xl mx-auto">
+          {/* Botão Anterior */}
+          <button
+            onClick={handlePrevious}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all"
+          >
+            <ChevronLeft className="text-white" />
+          </button>
+
+          {/* Botão Próximo */}
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all"
+          >
+            <ChevronRight className="text-white" />
+          </button>
+
+          {/* Depoimento Atual */}
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            className="relative backdrop-blur-lg rounded-2xl p-6 md:p-8 text-center"
+          >
+            <Quote className="absolute top-4 left-4 text-[#dc0000] opacity-20 w-12 h-12" />
+            <div className="relative z-10">
+              <p className="text-gray-300 text-xl md:text-2xl italic mb-4 leading-relaxed">
+                "{depoimentos[currentIndex].texto}"
+              </p>
+              <h3 className="text-white font-bold text-xl md:text-2xl">
+                {depoimentos[currentIndex].cliente}
+              </h3>
+            </div>
+          </motion.div>
+
+          {/* Indicadores */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {depoimentos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  currentIndex === index
+                    ? 'bg-[#dc0000] w-6'
+                    : 'bg-white/20 hover:bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

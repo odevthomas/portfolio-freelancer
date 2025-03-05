@@ -1,14 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLightbulb, FaCode, FaRocket, FaHandsHelping } from 'react-icons/fa';
+import { FaAward, FaLaptopCode, FaUniversity, FaHandsHelping, FaChevronRight } from 'react-icons/fa';
 
 const ProjectSection = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const achievements = [
+    {
+      id: 1,
+      icon: <FaAward size={32} />,
+      title: "Certificado",
+      desc: "Certificado de conclusão de curso de desenvolvimento web | Ada Tech",
+      date: "Dezembro 2023",
+      color: "#dc0000",
+      details: [
+        "Desenvolvimento Front-end com React.js",
+        "Construção de interfaces responsivas",
+        "Integração com APIs RESTful"
+      ]
+    },
+    {
+      id: 2,
+      icon: <FaLaptopCode size={32} />,
+      title: "Distintivo",
+      desc: "Experiência em Computação em Nuvem com a AWS | Base Social.",
+      date: "Agosto 2023",
+      color: "#dc0000",
+      details: [
+        "Implementação de serviços AWS",
+        "Configuração de infraestrutura na nuvem",
+        "Otimização de recursos e custos"
+      ]
+    },
+    {
+      id: 3,
+      icon: <FaUniversity size={32} />,
+      title: "BootCamp",
+      desc: "Java e Angular pelo BootCamp Santander | Dio.",
+      date: "Outubro 2023",
+      color: "#dc0000",
+      details: [
+        "Desenvolvimento Full-stack",
+        "Criação de aplicações com Angular",
+        "Java para desenvolvimento back-end"
+      ]
+    },
+    {
+      id: 4,
+      icon: <FaHandsHelping size={32} />,
+      title: "AWS Summit",
+      desc: "AWS Summit 2023 | Base Social.",
+      date: "Julho 2023",
+      color: "#dc0000",
+      details: [
+        "Participação em workshops práticos",
+        "Networking com profissionais da área",
+        "Contato com novas tecnologias cloud"
+      ]
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="Projetos" className="relative w-full py-16 md:py-24 bg-[#111]">
-      {/* Background decorativo */}
+    <section id="Projetos" className="relative w-full py-20 md:py-32 bg-[#000000] overflow-hidden">
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-[#fb1603] rounded-full blur-[120px] opacity-10 -top-10 -left-10" />
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-[#fb1603] rounded-full blur-[120px] opacity-10 -bottom-10 -right-10" />
+        <div className="absolute w-96 h-96 bg-[#dc0000] rounded-full blur-[150px] opacity-10 -top-20 -left-20" />
+        <div className="absolute w-96 h-96 bg-[#dc0000] rounded-full blur-[150px] opacity-10 bottom-0 right-0" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -16,73 +86,88 @@ const ProjectSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Cada Projeto é uma
-            <span className="text-[#fb1603] block md:inline"> Oportunidade </span>
-            de Reinventar a Tecnologia!
+          <motion.div 
+            initial={{ width: 0 }}
+            animate={{ width: "60px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            Principais Conquistas            
           </h2>
-          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
-            Convertendo ideias abstratas em experiências reais que marcam e conquistam os usuários.
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Reconhecimentos e certificações obtidos ao longo da minha trajetória profissional
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[
-            {
-              icon: <FaLightbulb size={32} />,
-              title: "Inovação",
-              desc: "Explorando novas formas de pensar e criar soluções criativas"
-            },
-            {
-              icon: <FaCode size={32} />,
-              title: "Qualidade",
-              desc: "Código limpo e eficiente para experiências sem falhas"
-            },
-            {
-              icon: <FaRocket size={32} />,
-              title: "Escalabilidade",
-              desc: "Projetos que crescem e se adaptam ao longo do tempo"
-            },
-            {
-              icon: <FaHandsHelping size={32} />,
-              title: "Colaboração",
-              desc: "Transformando ideias em realidade com trabalho em equipe"
-            }
-          ].map((item, index) => (
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {achievements.map((item) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-[#1a1a1a] border-2 border-gray-800 rounded-lg p-6 hover:border-[#fb1603] transition-all duration-300"
+              key={item.id}
+              variants={itemVariants}
+              onMouseEnter={() => setHoveredCard(item.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className="relative group"
             >
-              <div className="text-[#fb1603] mb-4 flex justify-center items-center h-16">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-              <p className="text-gray-400 text-sm md:text-base">{item.desc}</p>
+              <motion.div 
+                className="relative rounded-xl overflow-hidden bg-black/50 border border-gray-800/30 shadow-lg transition-all duration-300 h-full"
+                whileHover={{ y: -5 }}
+              >
+                {/* Top Color Line */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{ backgroundColor: item.color }}
+                />
+                
+                <div className="p-6">
+                  {/* Icon container */}
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
+                    style={{ backgroundColor: `${item.color}20` }}
+                  >
+                    <div className="text-[#dc0000]">
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Date badge */}
+                  <div 
+                    className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" 
+                    style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                  >
+                    {item.date}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 mb-6">{item.desc}</p>
+                  
+                  {/* Details */}
+                  {hoveredCard === item.id && (
+                    <div className="space-y-2 pt-4 border-t border-gray-700/30">
+                      {item.details.map((detail, i) => (
+                        <div key={i} className="flex items-center text-gray-300">
+                          <FaChevronRight size={10} className="mr-2 text-[#dc0000]" />
+                          <span className="text-sm">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center"
-        >
-          <a
-            href="https://wa.me/5519999042072?text=Oi,%20Thomas!%20Vim%20pelo%20site%20e%20gostaria%20de%20bater%20um%20papo."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#fb1603] text-white text-base md:text-lg font-semibold px-8 py-4 rounded-lg hover:bg-[#e61503] transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-[#fb1603]/20"
-          >
-            Vamos Criar Algo Incrível Juntos! →
-          </a>
         </motion.div>
+        
+       
       </div>
     </section>
   );

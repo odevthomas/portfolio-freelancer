@@ -1,134 +1,85 @@
-import React, { useState, memo } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaGithub, FaLinkedin } from "react-icons/fa";
-import { Helmet } from "react-helmet";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-const Hero = memo(() => {
-  const [buttonText, setButtonText] = useState("Entre em Contato pelo WhatsApp");
-  const whatsappLink = "https://api.whatsapp.com/send?phone=551999042072&text=Oi%20Thomas!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto.%20Vamos%20conversar%3F";
+const Hero = () => {
+   return (
+    <section
+      id="sobrenos"
+      className="relative w-full min-h-[calc(100vh-80px)] bg-gradient-to-b from-black via-[#000000] to-black flex items-center justify-center px-4 md:px-6 lg:px-8 py-12 md:py-16"
+    >
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left space-y-8">
+            <motion.h3
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+Experiência Profissional
+</motion.h3>
 
-  const handleMouseEnter = () => setButtonText("Vamos conversar sobre seu projeto?");
-  const handleMouseLeave = () => setButtonText("Entre em Contato pelo WhatsApp");
+            <motion.p
+              className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+        Desenvolvedor Frontend e Freelancer com passagens pela LSG Digital - Acessoria e Marketing, Lellit Salão de Beleza e Gil Barbosa Salão de Beleza. Foco em desenvolvimento de landing pages, sites institucionais e integração com marketing digital.
+            </motion.p>
 
-  return (
-    <>
-      <Helmet>
-        <title>Thomas Eduardo - Desenvolvedor Web Full Stack | Soluções Digitais Personalizadas</title>
-        <meta name="description" content="Desenvolvedor Web especializado em criar soluções digitais personalizadas. Transforme sua presença online com websites modernos e otimizados." />
-        <meta name="keywords" content="desenvolvedor web, full stack, websites, desenvolvimento web, SEO, React, JavaScript" />
-      </Helmet>
-
-      <section
-        className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden py-16 sm:py-20"
-        style={{
-          backgroundImage: 'url("/banner-devthm2.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-        role="banner"
-        aria-label="Seção principal"
-      >
-        {/* Overlay com gradiente mais suave */}
-
-        {/* Efeito de partículas ou linhas (opcional) */}
-
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Conteúdo principal - ocupa 7 colunas em telas grandes */}
-            <div className="lg:col-span-7 space-y-6 sm:space-y-8 lg:space-y-10">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-4 sm:space-y-6"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#contato"
+                className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
               >
-                <div className="flex items-center space-x-4">
-                  <span className="inline-block text-[#dc0000] text-sm sm:text-base md:text-lg font-bold tracking-wider px-4 sm:px-8 py-2 sm:py-3 border-2 border-[#dc0000] rounded-full hover:bg-[#dc0000]/10 transition-all duration-300">
-                 Full Stack
-                </span>
-                                </div>
-                
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none tracking-tight">
-                  Thomas 
-                  <span className="block mt-2">
-                    <span className="text-[#dc0000]">Eduardo</span> 
-                  </span>
-                </h1>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl border-l-4 border-[#dc0000] pl-4 sm:pl-6"
-              >
-                Especializado em criar experiências digitais únicas e memoráveis. 
-                Do design à implementação, cada projeto é desenvolvido com foco em 
-                performance, usabilidade e resultados.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center"
-              >
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  className="group w-full sm:w-auto flex items-center justify-center bg-[#dc0000] hover:bg-[#b23012] text-white py-3 sm:py-4 lg:py-5 px-6 sm:px-8 lg:px-10 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(220,0,0,0.3)] hover:shadow-[0_0_30px_rgba(220,0,0,0.5)]"
-                >
-                  <FaWhatsapp className="text-xl sm:text-2xl mr-2 sm:mr-3 group-hover:animate-bounce" />
-                  <span className="whitespace-nowrap">{buttonText}</span>
-                </a>
-
-                <div className="flex gap-4 sm:gap-6">
-                  <a
-                    href="https://github.com/odevthomas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 border border-white/10 hover:border-white/20 backdrop-blur-sm"
-                  >
-                    <FaGithub className="text-xl sm:text-2xl text-white" />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/odevthomas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 border border-white/10 hover:border-white/20 backdrop-blur-sm"
-                  >
-                    <FaLinkedin className="text-xl sm:text-2xl text-white" />
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Espaço reservado para possível conteúdo adicional - ocupa 5 colunas */}
-            <div className="hidden lg:block lg:col-span-5">
-              {/* Aqui você pode adicionar uma ilustração, stats, ou outro elemento visual */}
-            </div>
+               Saiba Mais
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
           </div>
+
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <motion.div
+              animate={{
+                y: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
+              <img
+                src="/computer.png"
+                alt="Desenvolvimento Web Frontend"
+                className="w-full h-auto max-w-[600px] mx-auto drop-shadow-[0_0_30px_rgba(220,0,0,0.15)]"
+              />
+            </motion.div>
+            
+            <div className="absolute inset-0 bg-gradient-radial from-[#dc0000]/10 to-transparent blur-3xl -z-10" />
+          </motion.div>
         </div>
-
-        {/* Indicador de rolagem redesenhado */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 sm:w-8 h-10 sm:h-14 border-2 border-white/30 rounded-full p-2 backdrop-blur-sm">
-            <div className="w-1.5 sm:w-2 h-2 sm:h-3 bg-[#dc0000] rounded-full mx-auto animate-bounce shadow-[0_0_10px_rgba(220,0,0,0.5)]"></div>
-          </div>
-        </motion.div>
-      </section>
-    </>
+      </div>
+    </section>
   );
-});
+};
 
-Hero.displayName = 'Hero';
 export default Hero;
