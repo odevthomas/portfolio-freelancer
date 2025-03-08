@@ -83,15 +83,11 @@ const TecnologiasUtilizadas = () => {
 
   return (
     <section id="tecnologias" className="relative w-full min-h-screen bg-[#000000] flex items-center justify-center px-6 py-24 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#dc0000] blur-[150px] opacity-10"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-[#dc0000] blur-[150px] opacity-10"></div>
-        <div className="absolute top-1/4 right-1/3 w-32 h-32 rounded-full bg-[#dc0000] blur-[80px] opacity-5"></div>
-        
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiMxODE4MTgiIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTI5IDAgYTI5IDI5IDAgMSAwIDU4IDAgYTI5IDI5IDAgMSAwIC01OCAwIiBzdHJva2U9IiMyMDIwMjAiIHN0cm9rZS13aWR0aD0iLjUiLz48L2c+PC9zdmc+')] opacity-20"></div>
-      </div>
+
+<div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl"></div>
+      </div>   
       
       <div className="container mx-auto max-w-7xl z-10">
         <motion.div 
@@ -104,14 +100,13 @@ const TecnologiasUtilizadas = () => {
             initial={{ width: 0 }}
             animate={{ width: "80px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-1 bg-[#dc0000] mx-auto mb-6"
+            className="h-1  mx-auto mb-6"
           />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Tecnologias Utilizadas
           </h2>
-          <p className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto">
-            Soluções modernas e eficientes construídas com as tecnologias mais avançadas do mercado
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
+
         </motion.div>
 
         <motion.div

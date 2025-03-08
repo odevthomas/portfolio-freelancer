@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/HeaderFooter/Navbar"; 
 import Footer from "../components/HeaderFooter/Footer";
-import Hero from "../components/ThomasEduardo/Hero";
+import Hero from "../components/ThomasEduardo/Experiencias";
 import TecnologiasUtilizadas from "../components/ThomasEduardo/TecnologiasUtilizadas";
 import TodosProjetos from "../components/ThomasEduardo/TodosProjetos"; 
-import CTA from "../components/ThomasEduardo/CTA";
+import Conquistas from "../components/ThomasEduardo/Conquistas";
 import WhatsAppButton from "../components/Buttons/WhatsAppButton";
 import CookieConsent from "../components/Ferramentas/CookieConsent";
 
@@ -36,7 +36,7 @@ const Home = () => {
     <>
       <Navbar />
       <Hero />
-      <CTA />
+      <Conquistas />
       <TodosProjetos />
       <TecnologiasUtilizadas />
       <Footer />

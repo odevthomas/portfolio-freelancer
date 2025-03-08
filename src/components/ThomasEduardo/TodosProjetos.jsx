@@ -178,16 +178,22 @@ const Projetos = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4 overflow-hidden">
+    <section id="projetos" className="min-h-screen bg-black py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Cabeçalho da seção de todos os projetos */}
+
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
         <div className="text-center mb-10">
           <h3 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Todos os Projetos
           </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Explore meu portfólio completo de trabalhos e projetos pessoais.
-          </p>
+
+
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
+
         </div>
 
         {/* Filtros */}
@@ -232,6 +238,7 @@ const Projetos = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                 
+             
                 {/* Badge da categoria */}
                 <span className="absolute top-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
                   {project.category}
@@ -239,9 +246,7 @@ const Projetos = () => {
               </div>
 
               <div className="p-6 relative">
-                {/* Linha de decoração */}
-                <div className="w-12 h-1 bg-[#dc0000] mb-4 group-hover:w-20 transition-all duration-300"></div>
-                
+                           
                 <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#dc0000] transition-colors">
                   {project.title}
                 </h3>

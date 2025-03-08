@@ -1,41 +1,62 @@
 import React from "react";
-import { FaWhatsapp, FaGithub, FaLinkedinIn, FaInstagram, FaMapMarkerAlt, FaChevronUp } from 'react-icons/fa';
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
-const Footer = () => {
+const Footer = ({ className }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-[#000000] text-white py-8">
-      {/* Social Media & Contact Icons */}
-      <div className="flex justify-center gap-8 mb-8">
-        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-green-500 transition-colors duration-300">
-          <FaWhatsapp />
-        </a>
-        <a href="https://github.com/odevthoas" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-gray-300 transition-colors duration-300">
-          <FaGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/odevthoas" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors duration-300">
-          <FaLinkedinIn />
-        </a>
-        <a href="https://www.instagram.com/odevthoas" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-pink-500 transition-colors duration-300">
-          <FaInstagram />
-        </a>
+    <footer
+      className={`w-full bg-background py-8  ${className}`}
+    >
+      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl"></div>
       </div>
 
-      {/* Location and Scroll Up */}
-      <div className="flex justify-center items-center gap-4 mb-8">
-        <div className="flex items-center gap-1">
-          <FaMapMarkerAlt />
-          <span>Localização: Brasil</span>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-muted-foreground">
+            © {currentYear} Portfolio. Todos os direitos reservados.
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {/* Links sociais */}
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter size={20} />
+            </a>
+            <a
+              href="mailto:contact@example.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Email"
+            >
+              <Mail size={20} />
+            </a>
+          </div>
         </div>
-        <a href="#top" className="text-lg hover:text-gray-300 transition-colors duration-300">
-          <FaChevronUp />
-        </a>
-      </div>
-
-      {/* Copyright */}
-      <div className="text-center mt-8 border-t pt-4 text-sm">
-        <p>
-          © {new Date().getFullYear()} Thomas Eduardo. Todos os direitos reservados.
-        </p>
       </div>
     </footer>
   );

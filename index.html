@@ -20,9 +20,9 @@
     <link id="favicon"
           rel="icon"
           type="image/svg+xml"
-          href="/logo.pn" />
+          href="/logo.svg" />
     <link rel="apple-touch-icon"
-          href="/logo.pn" />
+          href="/logo.svg" />
 
     <!-- Estilos internos -->
     <link rel="stylesheet"
@@ -92,7 +92,7 @@
       function updateFavicon() {
         const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const favicon = document.getElementById('favicon');
-        favicon.href = darkModeMediaQuery.matches ? '/favicon-branco.svg' : '/logo.pn';
+        favicon.href = darkModeMediaQuery.matches ? '/favicon-branco.svg' : '/logo.svg';
       }
       updateFavicon();
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);

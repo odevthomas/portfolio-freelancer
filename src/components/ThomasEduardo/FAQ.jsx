@@ -52,8 +52,9 @@ const FaqSection = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight text-center">
           Perguntas Frequentes
         </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
 
-        <div className="grid grid-cols-1 gap-3 md:gap-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 gap-3 md:gap-4 mt-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}

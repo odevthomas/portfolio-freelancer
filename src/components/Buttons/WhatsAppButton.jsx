@@ -27,15 +27,14 @@ const WhatsAppButton = () => {
     <div>
       <div
         onClick={handleClick}
-        className="whatsapp-button" // Classe para aplicar o estilo
+        className="whatsapp-button" 
       >
         <img
-          src="/icons/whatsapp.svg" // Substitua pelo caminho do ícone do WhatsApp
+          src="/whatsapp-icon.svg"
           alt="WhatsApp"
           style={{ width: '30px', height: '30px' }}
         />
       </div>
-      {/* Mensagem Flutuante */}
       <div 
         style={{
           position: "fixed",

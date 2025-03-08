@@ -4,15 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "/logo.png";
+import logo from "/logo.svg";
 import { Menu, X } from "lucide-react";
 
 const navigation = [
-  { title: "Me conheça", path: "#sobrenos" },
-  { title: "Serviços", path: "#servicos" },
-  { title: "Últimos Projetos", path: "#projetos" },
-  { title: "Dúvidas", path: "#faq" },
-  { title: "Login de Cliente", path: "/login" },
+  { title: "Conquistas", path: "#conquistas" },
+  { title: "Mais Projetos", path: "#projetos" },
+  { title: "Tecnologias", path: "#tecnologias" },
 ];
 
 const Header = () => {
