@@ -25,26 +25,22 @@ const Projetos = () => {
         title: "LSG Marketing Digital",
         description:
           "Plataforma web moderna para marketing digital com dashboard interativo e análise de métricas em tempo real. Desenvolvido com React e Node.js, este projeto visa fornecer soluções de análise de dados para empresas.",
-        image: "/Projetos/lsg-digital.png",
+        image: "/Projetos/TodosProjetos(1).png",
         liveUrl: "https://lsgdigital.com.br",
         githubUrl: "https://github.com/yourusername/lsg-marketing-digital",
-        tags: ["React", "Node.js", "Analytics", "Dashboard"],
+        tags: ["React", "Node.js",],
         category: "Freelancer",
-        highlights: [
-          "Dashboard Interativo",
-          "Análise de Dados",
-          "Design Responsivo",
-        ],
+        
       },
       {
         id: 2,
-        title: "Casa L'Ellit",
+        title: "Petshop Cambuci",
         description:
-          "Site para salão de beleza com sistema de agendamento e galeria de trabalhos realizados. Desenvolvido com React e Firebase, a integração com WhatsApp permite agendamentos rápidos diretamente pelo site.",
-        image: "/Projetos/lellit.png",
-        liveUrl: "https://www.lellit.com.br",
-        githubUrl: "https://github.com/yourusername/casa-lellit",
-        tags: ["React", "Firebase", "Agendamento", "Gallery"],
+          "Bem-vindo ao Petshop Cambuci , um projeto fictício desenvolvido com React, TypeScript e Vite . Nosso objetivo é oferecer uma experiência moderna e eficiente para pet shops, permitindo agendamentos, gerenciamento de clientes e serviços personalizados.",
+          image: "/Projetos/TodosProjetos(2).png",
+          liveUrl: "https://petcambuci.vercel.app/",
+        githubUrl: "https://github.com/odevthomas/PetCambuci/",
+        tags: ["React", "Calculo de Frete", "Agendamento", "Mapa"],
         category: "Freelancer",
         highlights: [
           "Sistema de Agendamento",
@@ -54,12 +50,12 @@ const Projetos = () => {
       },
       {
         id: 3,
-        title: "Biblioteca Digital",
+        title: "Bella Cucina",
         description:
-          "Sistema completo de gerenciamento de biblioteca com catálogo digital e sistema de empréstimos. Utiliza React para o front-end e MongoDB no back-end para gerenciamento de dados de livros e usuários.",
-        image: "/Projetos/biblioteca.png",
-        liveUrl: "https://biblioteca-digital.vercel.app",
-        githubUrl: "https://github.com/yourusername/biblioteca-digital",
+          "Um sistema de gestão de restaurantes versátil e responsivo, adaptável a diferentes tipos de restaurantes, que melhora tanto a experiência do cliente quanto a eficiência operacional.",
+          image: "/Projetos/TodosProjetos(3).png",
+        liveUrl: "https://bellacucina.vercel.app/",
+        githubUrl: "https://github.com/odevthomas/BellaCucina",
         tags: ["React", "MongoDB", "API REST", "Authentication"],
         category: "Full Stack",
         highlights: [
@@ -70,10 +66,10 @@ const Projetos = () => {
       },
       {
         id: 4,
-        title: "NodeCrude API",
+        title: "Gerenciamento de Tarefas",
         description:
-          "API REST completa para gerenciamento de usuários, implementando operações CRUD (Create, Read, Update, Delete). Desenvolvido com Node.js e MySQL, focando em simplicidade e boas práticas.",
-        image: "/Projetos/nodecrude.png",
+          "Um aplicativo moderno de gerenciamento de tarefas desenvolvido com React, TypeScript e Tailwind CSS. Esta aplicação permite aos usuários organizar suas atividades diárias de forma eficiente, com uma interface intuitiva e responsiva.",
+        image: "/Projetos/TodosProjetos(4).png",
         liveUrl: null,
         githubUrl: "https://github.com/odevthomas/NodeCrude-Api-Mysql-React",
         tags: ["Node.js", "Express", "MySQL", "API REST"],
@@ -121,14 +117,13 @@ const Projetos = () => {
       },
       {
         id: 8,
-        title: "The Coffe",
+        title: "Dieta.IA",
         description:
-          "Bot para Telegram que automatiza processos de comunicação, como agendamentos e interações com usuários. Desenvolvido em Node.js com integração à API do Telegram.",
-        image: "/Projetos/TheeCofee",
-        githubUrl: "https://github.com/odevthomas/Assistente-de-Telegrama-Bot",
+          "Eu criei o Dieta.IA como parte do evento Aplicativo gerador de dietas + IA completo, oferecido por Sujeito Programador. Este aplicativo tem como objetivo ajudar os usuários a criar dietas personalizadas de forma eficiente e intuitiva.",
+        image: "/Projetos/TodosProjetos(8).png",
+        githubUrl: "https://github.com/odevthomas/Dieta_IA",
         tags: ["Node.js", "Telegram API"],
-        category: "Bot",
-        highlights: ["Interações Automatizadas", "Notificações em Tempo Real"],
+        category: "Mobile",
       },
     ],
   };

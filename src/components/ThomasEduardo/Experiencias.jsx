@@ -25,7 +25,7 @@ const Experiencia = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto mb-4"></div>
 
             {[
-              "Minha paixão por desenvolvimento web começou durante minha graduação em Ciência da Computação. Desde então, tenho trabalhado com diversas tecnologias e frameworks, sempre buscando aprender e me adaptar às novas tendências do mercado.",
+              "Minha paixão por desenvolvimento web começou durante minha trasição de carreira, onde obtive certificado tecnico em computaçao em nuvem. Desde então, tenho trabalhado com diversas tecnologias e frameworks, sempre buscando aprender e me adaptar às novas tendências do mercado.",
               "Ao longo da minha carreira, tive a oportunidade de trabalhar em projetos desafiadores que me permitiram desenvolver habilidades técnicas e interpessoais. Acredito que a comunicação clara e a colaboração são tão importantes quanto o código bem escrito.",
               "Atualmente, estou focado em criar experiências web imersivas e acessíveis, utilizando as melhores práticas de desenvolvimento e design.",
             ].map((text, index) => (
@@ -70,9 +70,9 @@ const Experiencia = () => {
               className="relative z-10"
             >
               <img
-                src="/computer.png"
+                src="/experiencia.jpg"
                 alt="Desenvolvimento Web Frontend"
-                className="w-full h-auto max-w-[600px] mx-auto drop-shadow-[0_0_30px_rgba(220,0,0,0.15)]"
+                className="w-550 h-auto max-w-[800px] drop-shadow-[0_0_30px_rgba(220,0,0,0.15)]"
               />
             </motion.div>
             <div className="absolute inset-0 bg-gradient-radial from-[#dc0000]/10 to-transparent blur-3xl -z-10" />

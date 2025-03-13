@@ -175,13 +175,17 @@ const Depoimentos = () => {
                     </div>
                     
                     <div className="flex items-center space-x-4 relative z-10">
+                       
+                      {/* removi images 
                       <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-red-500/50">
-                        <img 
-                          src={depoimentos[currentIndex].imagem} 
-                          alt="Cliente" 
+                        <img
+                          src={depoimentos[currentIndex].imagem}
+                          alt="Cliente"
                           className="w-full h-full object-cover"
                         />
                       </div>
+                      */}
+
                       <div>
                         <h3 className="text-white font-bold text-lg">
                           {depoimentos[currentIndex].cliente}

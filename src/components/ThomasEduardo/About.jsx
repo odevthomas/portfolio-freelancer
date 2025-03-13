@@ -8,16 +8,16 @@ const About = () => {
   return (
     <section
       id="sobrenos"
-      className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#000000] to-black flex items-center justify-center px-0 py-12 md:py-16"
+      className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#000000] to-black flex items-center px-4 py-20 md:py-24"
     >
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-left space-y-8">
+      <div className="w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="text-left space-y-8 lg:pl-8">
             <motion.h3
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
               initial={{ opacity: 0, y: -20 }}
@@ -43,7 +43,7 @@ const About = () => {
           </div>
 
           <motion.div
-            className="relative"
+            className="relative lg:pr-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -54,13 +54,13 @@ const About = () => {
               className="relative z-10"
             >
               <video
-                className="h-[700px] w-full object-cover shadow-lg rounded-lg"
+                className="h-[700px] w-full object-cover shadow-2xl rounded-lg"
                 src="/public/Video/code-video.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                style={{ border: 'none' }} // Remover borda
+                style={{ border: 'none' }}
               />
             </motion.div>
           </motion.div>

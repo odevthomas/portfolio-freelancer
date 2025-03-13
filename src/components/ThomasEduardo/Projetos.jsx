@@ -79,7 +79,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 6,
-    image: "/public/Projetos/projeto(7).png",
+    image: "/public/Projetos/projeto(6.1).png",
     title: "Painel de Benefícios do Funcionário",
     description: "Este projeto é um painel moderno e intuitivo onde os funcionários podem visualizar e gerenciar seus benefícios corporativos. A interface apresenta um layout baseado em cartões com informações em tempo real sobre saldos e estatísticas de uso dos benefícios.",
     category: "Dashboard",
@@ -306,7 +306,7 @@ const Projetos = () => {
                 {currentProject.description}
               </motion.p>
               
-              {/* Highlights */}
+              {/*    */}
               {currentProject.highlights && (
                 <motion.div 
                   className="mb-8"
