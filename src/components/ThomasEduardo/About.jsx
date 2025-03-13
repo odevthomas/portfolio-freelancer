@@ -55,7 +55,7 @@ const About = () => {
             >
               <video
                 className="h-[700px] w-full object-cover shadow-2xl rounded-lg"
-                src="/public/Video/code-video.mp4"
+                src="/Video/code-video.mp4"
                 autoPlay
                 loop
                 muted
