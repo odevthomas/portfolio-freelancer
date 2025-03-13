@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { SiReact, SiNodedotjs, SiMongodb, SiMysql, SiFirebase, SiJavascript, 
   SiExpress, SiTypescript, SiVite, SiTailwindcss, SiHtml5, SiCss3 } from "react-icons/si";
-import { TbBrandTelegram } from "react-icons/tb";
+import { TbBrandTelegram, TbNumber6Small } from "react-icons/tb";
 
 const AUTOPLAY_INTERVAL = 5000;
 const AUTOPLAY_RESET_DELAY = 10000;
@@ -25,99 +25,89 @@ const TECH_ICONS = {
   "CSS": <SiCss3 className="text-blue-400" />
 };
 
-// Dados de projetos enriquecidos com propriedades faltantes
 const FEATURED_PROJECTS = [
   {
     id: 1,
     image: "/Projetos/projeto(1).png",
     title: "Arte na Pele Studios",
-    description: "Landing page profissional para o estúdio de tatuagem Arte na Pele Studios. O projeto foi desenvolvido utilizando React, TypeScript e Vite para proporcionar uma experiência rápida e moderna para os usuários.",
+    description: "Landing page profissional para o estúdio de tatuagem Arte na Pele Studios, desenvolvida com React, TypeScript e Vite para oferecer uma experiência rápida e moderna.",
     category: "Landing Page",
-    tags: ["React", "TypeScript", "Vite", "TailwindCSS"],
-    liveUrl: "https://exemplo.com/artenapele",
-    githubUrl: "https://github.com/exemplo/artenapele"
+    tags: ["React", "TypeScript", "Vite", "TailwindCSS", "UI/UX"],
+    liveUrl: "https://artenapele.vercel.app/",
+    githubUrl: null
   },
   {
     id: 2,
     image: "/Projetos/projeto(2).png",
     title: "Casa L'Ellit",
-    description: "O site da Casa L'Ellit é um aplicativo web moderno desenvolvido para um salão de beleza localizado em Campinas, São Paulo. O objetivo é fornecer informações sobre serviços, facilitar agendamentos e criar uma presença digital forte.",
+    description: "Website institucional para um salão de beleza em Campinas, SP. Permite agendamentos online e apresenta os serviços do salão.",
     category: "Website Institucional",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
+    tags: ["React", "Node.js", "MongoDB", "Express", "Agendamentos"],
     liveUrl: "https://exemplo.com/casalellit",
-    githubUrl: "https://github.com/exemplo/casalellit"
+    githubUrl: null
   },
   {
     id: 3,
     image: "/Projetos/projeto(3).png",
     title: "Gil Barbosa Beauty",
-    description: "O site da Gil Barbosa Beauty é um aplicativo web moderno desenvolvido para um salão de beleza localizado em Campinas, São Paulo. O objetivo é fornecer informações sobre serviços, facilitar agendamentos e criar uma presença digital forte.",
+    description: "E-commerce para o salão de beleza Gil Barbosa Beauty, focado na venda de produtos e serviços online.",
     category: "E-commerce",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
+    tags: ["React", "Node.js", "MongoDB", "Express", "E-commerce", "Stripe"],
     liveUrl: "https://exemplo.com/gilbarbosa",
-    githubUrl: "https://github.com/exemplo/gilbarbosa"
+    githubUrl: null
   },
   {
     id: 4,
     image: "/Projetos/projeto(5).png",
     title: "Projeto de Links de Perfil Personalizado",
-    description: "Este projeto tem como objetivo apresentar um componente de perfil personalizável, onde você pode adicionar informações como nome, título, bio, links sociais e habilidades técnicas. O design é responsivo e utiliza Tailwind CSS para estilização.",
+    description: "Componente de perfil personalizável com nome, título, bio, links sociais e habilidades técnicas. Responsivo e estilizado com Tailwind CSS.",
     category: "Componente Web",
-    tags: ["React", "TailwindCSS", "JavaScript"],
-    liveUrl: "https://exemplo.com/links-perfil",
-    githubUrl: "https://github.com/exemplo/links-perfil"
+    tags: ["React", "TailwindCSS", "JavaScript", "Perfil Personalizado"],
+    liveUrl: "https://bio-links-blue.vercel.app/",
+    githubUrl: null
   },
   {
     id: 5,
     image: "/Projetos/projeto(6).png",
     title: "Barbearia Lins",
-    description: "A Barbearia Lins é um projeto fictício que visa apresentar uma experiência de barbearia premium com foco na modernidade e na usabilidade. Inspirado nas barbearias do meu bairro, a ideia deste projeto é oferecer aos clientes um site moderno e funcional, com informações sobre serviços, agendamentos online e mais.",
+    description: "Website para uma barbearia premium, com informações sobre serviços, agendamentos online e design moderno.",
     category: "Website Institucional",
-    tags: ["React", "Firebase", "TailwindCSS"],
-    liveUrl: "https://exemplo.com/barbearialins",
-    githubUrl: "https://github.com/exemplo/barbearialins"
+    tags: ["React", "Firebase", "TailwindCSS", "Agendamentos"],
+    liveUrl: "https://barbearia-lins-digital.vercel.app/",
+    githubUrl: null
   },
   {
     id: 6,
     image: "/Projetos/projeto(6.1).png",
     title: "Painel de Benefícios do Funcionário",
-    description: "Este projeto é um painel moderno e intuitivo onde os funcionários podem visualizar e gerenciar seus benefícios corporativos. A interface apresenta um layout baseado em cartões com informações em tempo real sobre saldos e estatísticas de uso dos benefícios.",
+    description: "Dashboard interativo para funcionários acompanharem seus benefícios corporativos, com estatísticas em tempo real.",
     category: "Dashboard",
-    tags: ["React", "TypeScript", "Node.js", "MySQL"],
-    liveUrl: "https://exemplo.com/painel-beneficios",
-    githubUrl: "https://github.com/exemplo/painel-beneficios"
+    tags: ["React", "TypeScript", "Node.js", "MySQL", "Dashboard", "Gráficos"],
+    liveUrl: "https://beneficios-funcionarios.vercel.app/",
+    githubUrl: null
   },
   {
     id: 7,
     image: "/Projetos/projeto(7).png",
     title: "Direito Trabalhista",
-    description: "Este site foi desenvolvido para representar sua carreira e fornecer uma solução digital moderna para agendamentos e informações sobre os serviços oferecidos.",
+    description: "Website jurídico para advogados, oferecendo informações sobre serviços, agendamentos e presença digital.",
     category: "Website Jurídico",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    liveUrl: "https://exemplo.com/direito-trabalhista",
-    githubUrl: "https://github.com/exemplo/direito-trabalhista"
+    tags: ["React", "Node.js", "Express", "MongoDB", "Agendamentos"],
+    liveUrl: "https://odevthomas.github.io/LP-Advogada/",
+    githubUrl: null
   },
   {
     id: 8,
     image: "/Projetos/projeto(8).png",
     title: "Do Zero ao Primeiro Emprego em Programação",
-    description: "Transforme sua carreira na programação com 80% de desconto! Ofereça um material exclusivo para quem deseja aprender a programar e conquistar o primeiro emprego na área de tecnologia.",
+    description: "Plataforma educacional para iniciantes na programação, oferecendo materiais e suporte para conquistar o primeiro emprego.",
     category: "Plataforma Educacional",
-    tags: ["React", "Firebase", "JavaScript", "Node.js"],
-    liveUrl: "https://exemplo.com/curso-programacao",
-    githubUrl: "https://github.com/exemplo/curso-programacao"
-  },
-  {
-    id: 9,
-    image: "/Projetos/projeto(8).png",
-    title: "LSG Digital - Plataforma de Marketing Digital",
-    description: "Plataforma web moderna para a LSG Digital, oferecendo soluções completas de marketing digital com interface responsiva e interativa.",
-    category: "Marketing Digital",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    liveUrl: "https://exemplo.com/lsg-digital",
-    githubUrl: "https://github.com/exemplo/lsg-digital"
+    tags: ["React", "Firebase", "JavaScript", "Node.js", "Educação", "Cursos Online"],
+    liveUrl: "https://primeiroempregodev.vercel.app/",
+    githubUrl: null
   }
 ];
+
 
 // Variantes de animação movidas para fora do componente
 const SLIDE_VARIANTS = {
