@@ -10,7 +10,7 @@ const Experiencia = () => {
       id="sobrenos"
       className="relative w-full min-h-[calc(100vh-80px)] bg-gradient-to-b from-black to-black flex items-center justify-center px-4 md:px-6 lg:px-8 py-12 md:py-16"
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-left space-y-8">
             <motion.h3
@@ -25,7 +25,7 @@ const Experiencia = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto mb-4"></div>
 
             {[
-              "Minha paixão por desenvolvimento web começou durante minha trasição de carreira, onde obtive certificado tecnico em computaçao em nuvem. Desde então, tenho trabalhado com diversas tecnologias e frameworks, sempre buscando aprender e me adaptar às novas tendências do mercado.",
+              "Minha paixão por desenvolvimento web começou durante minha transição de carreira, onde obtive certificado técnico em computação em nuvem. Desde então, tenho trabalhado com diversas tecnologias e frameworks, sempre buscando aprender e me adaptar às novas tendências do mercado.",
               "Ao longo da minha carreira, tive a oportunidade de trabalhar em projetos desafiadores que me permitiram desenvolver habilidades técnicas e interpessoais. Acredito que a comunicação clara e a colaboração são tão importantes quanto o código bem escrito.",
               "Atualmente, estou focado em criar experiências web imersivas e acessíveis, utilizando as melhores práticas de desenvolvimento e design.",
             ].map((text, index) => (

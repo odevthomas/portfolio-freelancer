@@ -17,116 +17,105 @@ const Projetos = () => {
     "Telegram API": <TbBrandTelegram className="text-blue-400" />
   };
 
-  // Dados dos projetos organizados por categorias
-  const projetos = {
-    featured: [
-      {
-        id: 1,
-        title: "LSG Marketing Digital",
-        description:
-          "Plataforma web moderna para marketing digital com dashboard interativo e análise de métricas em tempo real. Desenvolvido com React e Node.js, este projeto visa fornecer soluções de análise de dados para empresas.",
-        image: "/Projetos/TodosProjetos(1).png",
-        liveUrl: "https://lsgdigital.com.br",
-        githubUrl: "https://github.com/yourusername/lsg-marketing-digital",
-        tags: ["React", "Node.js",],
-        category: "Freelancer",
-        
-      },
-      {
-        id: 2,
-        title: "Petshop Cambuci",
-        description:
-          "Bem-vindo ao Petshop Cambuci , um projeto fictício desenvolvido com React, TypeScript e Vite . Nosso objetivo é oferecer uma experiência moderna e eficiente para pet shops, permitindo agendamentos, gerenciamento de clientes e serviços personalizados.",
-          image: "/Projetos/TodosProjetos(2).png",
-          liveUrl: "https://petcambuci.vercel.app/",
-        githubUrl: "https://github.com/odevthomas/PetCambuci/",
-        tags: ["React", "Calculo de Frete", "Agendamento", "Mapa"],
-        category: "Freelancer",
-        highlights: [
-          "Sistema de Agendamento",
-          "Galeria Dinâmica",
-          "Integração WhatsApp",
-        ],
-      },
-      {
-        id: 3,
-        title: "Bella Cucina",
-        description:
-          "Um sistema de gestão de restaurantes versátil e responsivo, adaptável a diferentes tipos de restaurantes, que melhora tanto a experiência do cliente quanto a eficiência operacional.",
-          image: "/Projetos/TodosProjetos(3).png",
-        liveUrl: "https://bellacucina.vercel.app/",
-        githubUrl: "https://github.com/odevthomas/BellaCucina",
-        tags: ["React", "MongoDB", "API REST", "Authentication"],
-        category: "Full Stack",
-        highlights: [
-          "Cadastro de Livros",
-          "Sistema de Busca",
-          "Gestão de Usuários",
-        ],
-      },
-      {
-        id: 4,
-        title: "Gerenciamento de Tarefas",
-        description:
-          "Um aplicativo moderno de gerenciamento de tarefas desenvolvido com React, TypeScript e Tailwind CSS. Esta aplicação permite aos usuários organizar suas atividades diárias de forma eficiente, com uma interface intuitiva e responsiva.",
-        image: "/Projetos/TodosProjetos(4).png",
-        liveUrl: null,
-        githubUrl: "https://github.com/odevthomas/NodeCrude-Api-Mysql-React",
-        tags: ["Node.js", "Express", "MySQL", "API REST"],
-        category: "Backend",
-        highlights: [
-          "Operações CRUD",
-          "Autenticação de Usuários",
-          "Estrutura Modular",
-        ],
-      },
-      {
-        id: 5,
-        title: "Gerador de Nomes de Domínio",
-        description:
-          "Ferramenta para geração e verificação de disponibilidade de domínios. Utiliza integração com APIs para verificar a disponibilidade e fornecer sugestões inteligentes de nomes de domínios.",
-        image: "/Projetos/domain-generator.png",
-        githubUrl: "https://github.com/odevthomas/gerador-dominios",
-        tags: ["JavaScript", "API Integration", "UI/UX"],
-        category: "Ferramentas",
-        highlights: ["Verificação em Tempo Real", "Sugestões Inteligentes"],
-      },
-    ],
-    personal: [
-      {
-        id: 6,
-        title: "Gerenciador de Fatura",
-        description:
-          "Aplicativo web interativo para pesquisa de vagas de emprego, desenvolvido com Vite e React, comunicando-se com APIs externas para informações sobre vagas.",
-        image: "/Projetos/Gerador-de-Fatura.png",
-        githubUrl: "https://github.com/odevthomas/trabalho-frontend",
-        tags: ["React", "API", "UI/UX"],
-        category: "Pessoal",
-        highlights: ["Interface Interativa", "Busca Dinâmica"],
-      },
-      {
-        id: 7,
-        title: "Assistente de Telegrama Bot",
-        description:
-          "Bot para Telegram que automatiza processos de comunicação, como agendamentos e interações com usuários. Desenvolvido em Node.js com integração à API do Telegram.",
-        image: "/Projetos/telegram-bot.png",
-        githubUrl: "https://github.com/odevthomas/Assistente-de-Telegrama-Bot",
-        tags: ["Node.js", "Telegram API"],
-        category: "Bot",
-        highlights: ["Interações Automatizadas", "Notificações em Tempo Real"],
-      },
-      {
-        id: 8,
-        title: "Dieta.IA",
-        description:
-          "Eu criei o Dieta.IA como parte do evento Aplicativo gerador de dietas + IA completo, oferecido por Sujeito Programador. Este aplicativo tem como objetivo ajudar os usuários a criar dietas personalizadas de forma eficiente e intuitiva.",
-        image: "/Projetos/TodosProjetos(8).png",
-        githubUrl: "https://github.com/odevthomas/Dieta_IA",
-        tags: ["Node.js", "Telegram API"],
-        category: "Mobile",
-      },
-    ],
-  };
+// Dados dos projetos organizados por categorias
+const projetos = {
+  featured: [
+    {
+      id: 1,
+      title: "LSG Marketing Digital",
+      description:
+        "Plataforma web moderna para marketing digital com landing page otimizada para conversão no WhatsApp. Conta com monitoramento de cliques, design responsivo e integração eficiente para captação de leads.",
+      image: "/Projetos/TodosProjetos(1).png",
+      liveUrl: "https://lsgdigital.com.br",
+      githubUrl: "https://github.com/yourusername/lsg-marketing-digital",
+      tags: ["React", "Node.js", "Landing Page", "Analytics"],
+      category: "Web App",
+    },
+    {
+      id: 2,
+      title: "Petshop Cambuci",
+      description:
+        "Projeto fictício desenvolvido com React, TypeScript e Vite. Nosso objetivo é oferecer uma experiência moderna e eficiente para pet shops, permitindo agendamentos, gerenciamento de clientes e serviços personalizados.",
+      image: "/Projetos/TodosProjetos(2).png",
+      liveUrl: "https://petcambuci.vercel.app/",
+      githubUrl: "https://github.com/odevthomas/PetCambuci/",
+      tags: ["React", "TypeScript", "Vite", "Agendamento", "API"],
+      category: "Web App",
+      highlights: [
+        "Sistema de Agendamento",
+        "Galeria Dinâmica",
+        "Integração WhatsApp",
+      ],
+    },
+    {
+      id: 3,
+      title: "Bella Cucina",
+      description:
+        "Sistema de gestão de restaurantes versátil e responsivo, melhorando a experiência do cliente e a eficiência operacional.",
+      image: "/Projetos/TodosProjetos(3).png",
+      liveUrl: "https://bellacucina.vercel.app/",
+      githubUrl: "https://github.com/odevthomas/BellaCucina",
+      tags: ["React", "MongoDB", "API REST", "Autenticação"],
+      category: "Full Stack",
+      highlights: [
+        "Gestão de Pedidos",
+        "Sistema de Busca",
+        "Cadastro de Usuários",
+      ],
+    },
+    {
+      id: 4,
+      title: "Gerenciamento de Tarefas",
+      description:
+        "Aplicativo de gerenciamento de tarefas desenvolvido com React, TypeScript e Tailwind CSS, permitindo organizar atividades de forma eficiente.",
+      image: "/Projetos/TodosProjetos(4).png",
+      liveUrl: null,
+      githubUrl: "https://github.com/odevthomas/NodeCrude-Api-Mysql-React",
+      tags: ["React", "TypeScript", "Tailwind", "CRUD", "API REST"],
+      category: "Frontend",
+      highlights: [
+        "Operações CRUD",
+        "Autenticação de Usuários",
+        "Interface Responsiva",
+      ],
+    },
+    {
+      id: 5,
+      title: "Social Pet",
+      description:
+        "Plataforma interativa para amantes de animais de estimação, proporcionando uma experiência envolvente e funcional aos usuários.",
+      image: "/Projetos/TodosProjetos(5).png",
+      liveUrl: "https://rede-pets.vercel.app/",
+      githubUrl: "https://github.com/odevthomas/SocialPet",
+      tags: ["JavaScript", "API Integration", "UX/UI", "Comunidade"],
+      category: "Plataforma Social",
+      highlights: ["Verificação em Tempo Real", "Sugestões Inteligentes"],
+    },
+  ],
+  personal: [
+    {
+      id: 6,
+      title: "Gerenciador de Fatura",
+      description:
+        "Aplicativo web para pesquisa de vagas de emprego, desenvolvido com Vite e React, integrando-se a APIs externas.",
+      image: "/Projetos/TodosProjetos(6).png",
+      githubUrl: "https://github.com/odevthomas/trabalho-frontend",
+      tags: ["React", "Vite", "API", "UI/UX"],
+      category: "Pessoal",
+      highlights: ["Interface Interativa", "Busca Dinâmica"],
+    },
+    {
+      id: 7,
+      title: "Dieta.IA",
+      description:
+        "Aplicativo gerador de dietas personalizadas utilizando IA, desenvolvido durante um evento de aprendizado.",
+      image: "/Projetos/TodosProjetos(8).png",
+      githubUrl: "https://github.com/odevthomas/Dieta_IA",
+      tags: ["Node.js", "AI", "Telegram API"],
+      category: "Inteligência Artificial",
+    },
+  ],
+};
 
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
