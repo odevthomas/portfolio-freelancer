@@ -29,7 +29,7 @@ const TECH_ICONS = {
 const FEATURED_PROJECTS = [
   {
     id: 1,
-    image: "/public/Projetos/projeto(1).png",
+    image: "/Projetos/projeto(1).png",
     title: "Arte na Pele Studios",
     description: "Landing page profissional para o estúdio de tatuagem Arte na Pele Studios. O projeto foi desenvolvido utilizando React, TypeScript e Vite para proporcionar uma experiência rápida e moderna para os usuários.",
     category: "Landing Page",
@@ -39,7 +39,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 2,
-    image: "/public/Projetos/projeto(2).png",
+    image: "/Projetos/projeto(2).png",
     title: "Casa L'Ellit",
     description: "O site da Casa L'Ellit é um aplicativo web moderno desenvolvido para um salão de beleza localizado em Campinas, São Paulo. O objetivo é fornecer informações sobre serviços, facilitar agendamentos e criar uma presença digital forte.",
     category: "Website Institucional",
@@ -49,7 +49,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 3,
-    image: "/public/Projetos/projeto(3).png",
+    image: "/Projetos/projeto(3).png",
     title: "Gil Barbosa Beauty",
     description: "O site da Gil Barbosa Beauty é um aplicativo web moderno desenvolvido para um salão de beleza localizado em Campinas, São Paulo. O objetivo é fornecer informações sobre serviços, facilitar agendamentos e criar uma presença digital forte.",
     category: "E-commerce",
@@ -59,7 +59,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 4,
-    image: "/public/Projetos/projeto(5).png",
+    image: "/Projetos/projeto(5).png",
     title: "Projeto de Links de Perfil Personalizado",
     description: "Este projeto tem como objetivo apresentar um componente de perfil personalizável, onde você pode adicionar informações como nome, título, bio, links sociais e habilidades técnicas. O design é responsivo e utiliza Tailwind CSS para estilização.",
     category: "Componente Web",
@@ -69,7 +69,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 5,
-    image: "/public/Projetos/projeto(6).png",
+    image: "/Projetos/projeto(6).png",
     title: "Barbearia Lins",
     description: "A Barbearia Lins é um projeto fictício que visa apresentar uma experiência de barbearia premium com foco na modernidade e na usabilidade. Inspirado nas barbearias do meu bairro, a ideia deste projeto é oferecer aos clientes um site moderno e funcional, com informações sobre serviços, agendamentos online e mais.",
     category: "Website Institucional",
@@ -79,7 +79,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 6,
-    image: "/public/Projetos/projeto(6.1).png",
+    image: "/Projetos/projeto(6.1).png",
     title: "Painel de Benefícios do Funcionário",
     description: "Este projeto é um painel moderno e intuitivo onde os funcionários podem visualizar e gerenciar seus benefícios corporativos. A interface apresenta um layout baseado em cartões com informações em tempo real sobre saldos e estatísticas de uso dos benefícios.",
     category: "Dashboard",
@@ -89,7 +89,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 7,
-    image: "/public/Projetos/projeto(7).png",
+    image: "/Projetos/projeto(7).png",
     title: "Direito Trabalhista",
     description: "Este site foi desenvolvido para representar sua carreira e fornecer uma solução digital moderna para agendamentos e informações sobre os serviços oferecidos.",
     category: "Website Jurídico",
@@ -99,7 +99,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 8,
-    image: "/public/Projetos/projeto(8).png",
+    image: "/Projetos/projeto(8).png",
     title: "Do Zero ao Primeiro Emprego em Programação",
     description: "Transforme sua carreira na programação com 80% de desconto! Ofereça um material exclusivo para quem deseja aprender a programar e conquistar o primeiro emprego na área de tecnologia.",
     category: "Plataforma Educacional",
@@ -109,7 +109,7 @@ const FEATURED_PROJECTS = [
   },
   {
     id: 9,
-    image: "/public/Projetos/projeto(8).png",
+    image: "/Projetos/projeto(8).png",
     title: "LSG Digital - Plataforma de Marketing Digital",
     description: "Plataforma web moderna para a LSG Digital, oferecendo soluções completas de marketing digital com interface responsiva e interativa.",
     category: "Marketing Digital",
