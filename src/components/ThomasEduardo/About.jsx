@@ -27,7 +27,7 @@ const About = () => {
               Resumo Profissional
             </motion.h3>
 
-            {[
+            {[ 
               "Sou um desenvolvedor apaixonado por criar experiências digitais impactantes e funcionais. Minha jornada na tecnologia começou há mais de 2 anos, e desde então venho aprimorando minhas habilidades para entregar soluções que combinem estética e desempenho."
             ].map((text, index) => (
               <motion.p
@@ -50,11 +50,16 @@ const About = () => {
           >
             <motion.div
               animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
               className="relative z-10"
             >
               <video
-                className="h-[700px] w-full object-cover shadow-2xl rounded-lg"
+                className="h-auto max-h-[80vh] w-full object-cover shadow-2xl rounded-lg"
                 src="/Video/code-video.mp4"
                 autoPlay
                 loop
