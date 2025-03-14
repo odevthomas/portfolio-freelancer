@@ -204,7 +204,6 @@ const Projetos = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-2">
             Projetos em Destaque
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-red-500 to-blue-500 mx-auto mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto mt-6 text-lg">
             Uma seleção dos meus melhores projetos de desenvolvimento web.
           </p>

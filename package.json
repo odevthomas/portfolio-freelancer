@@ -29,11 +29,14 @@
     "@tailwindcss/typography": "^0.5.16",
     "acessoria": "file:",
     "animate.css": "^4.1.1",
+    "body-parser": "^1.20.3",
     "boring-avatars": "^1.11.2",
     "chart.js": "^4.4.4",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
+    "express": "^4.21.2",
     "firebase": "^11.1.0",
     "flowbite-react": "^0.10.2",
     "font-awesome": "^4.7.0",
@@ -43,6 +46,8 @@
     "keen-slider": "^6.8.6",
     "lightgallery": "^2.7.2",
     "lucide-react": "^0.462.0",
+    "mongoose": "^8.12.1",
+    "nodemailer": "^6.10.0",
     "preline": "^2.5.1",
     "react": "^18.3.1",
     "react-alice-carousel": "^2.9.1",
@@ -77,5 +82,18 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "vite": "^5.4.11"
-  }
+  },
+  "description": "Portfolio profissional desenvolvido com React, apresentando habilidades, projetos e serviços de desenvolvimento web.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odevthomas/Meu-portfolio-freelancer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odevthomas/Meu-portfolio-freelancer/issues"
+  },
+  "homepage": "https://github.com/odevthomas/Meu-portfolio-freelancer#readme"
 }

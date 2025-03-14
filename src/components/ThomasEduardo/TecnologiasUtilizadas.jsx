@@ -105,7 +105,6 @@ const TecnologiasUtilizadas = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Tecnologias Utilizadas
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
 
         </motion.div>
 

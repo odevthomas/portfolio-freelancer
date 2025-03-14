@@ -3,10 +3,11 @@ import Navbar from "../components/HeaderFooter/Navbar";
 import Footer from "../components/HeaderFooter/Footer";
 import Hero from "../components/ThomasEduardo/Experiencias";
 import TecnologiasUtilizadas from "../components/ThomasEduardo/TecnologiasUtilizadas";
-import TodosProjetos from "../components/ThomasEduardo/TodosProjetos"; 
 import Conquistas from "../components/ThomasEduardo/Conquistas";
+import Contato from "../components/ThomasEduardo/Contato"; 
 import WhatsAppButton from "../components/Buttons/WhatsAppButton";
 import CookieConsent from "../components/Ferramentas/CookieConsent";
+import TodosProjetos from "../components/ThomasEduardo/TodosProjetos"; // Correção da importação
 
 // Componente Loading simples
 const Loading = () => {
@@ -36,12 +37,13 @@ const Home = () => {
     <>
       <Navbar />
       <Hero />
-      <Conquistas />
-      <TodosProjetos />
-      <TecnologiasUtilizadas />
-      <Footer />
       <CookieConsent />
       <WhatsAppButton />
+      <Conquistas />
+      <TodosProjetos /> {/* Substituí TodosTodosProjetos por TodosProjetos */}
+      <TecnologiasUtilizadas />
+      <Contato />
+      <Footer />
     </>
   );
 };

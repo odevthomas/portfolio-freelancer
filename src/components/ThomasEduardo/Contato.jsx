@@ -1,41 +1,57 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Header from '../HeaderFooter/NavbarContato';
-import Footer from '../HeaderFooter/Footer';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Header from "../HeaderFooter/NavbarContato";
 
 const Contato = () => {
   const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    mensagem: '',
+    nome: "",
+    email: "",
+    mensagem: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Função para lidar com alterações nos campos
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  // Função para enviar a mensagem
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar lógica para enviar os dados para seu servidor ou serviço de e-mail
-    alert('Mensagem enviada com sucesso!');
-    setFormData({
-      nome: '',
-      email: '',
-      mensagem: '',
-    });
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/enviar-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage("Mensagem enviada com sucesso!");
+        setFormData({ nome: "", email: "", mensagem: "" });
+      } else {
+        throw new Error(data.message || "Erro ao enviar mensagem.");
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
       <Header />
-      <section
-        id="contato"
-        className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#000000] to-black flex items-center justify-center px-6 py-12 md:py-16"
-      >
+      <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#000000] to-black flex items-center justify-center px-6 py-12 md:py-16">
         <div className="w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -45,7 +61,7 @@ const Contato = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h3
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
+                className="text-4xl sm:text-5xl font-bold text-white"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -53,7 +69,7 @@ const Contato = () => {
                 Entre em Contato
               </motion.h3>
               <motion.p
-                className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed"
+                className="text-white/80 text-lg leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
@@ -113,22 +129,19 @@ const Contato = () => {
 
               <motion.button
                 type="submit"
-                className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
+                className="group flex items-center justify-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
                 whileHover={{ scale: 1.1 }}
+                disabled={loading}
               >
-                Enviar Mensagem
+                {loading ? "Enviando..." : "Enviar Mensagem"}
               </motion.button>
+
+              {successMessage && <p className="text-green-400 mt-4">{successMessage}</p>}
+              {errorMessage && <p className="text-red-400 mt-4">{errorMessage}</p>}
             </motion.form>
           </div>
         </div>
-
-        {/* Animação dos círculos */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
-        </div>
       </section>
-      <Footer />
     </>
   );
 };

@@ -12,9 +12,9 @@ const Experiencia = () => {
     >
       <div className="w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Mudando a ordem dos elementos para inverter os lados */}
+          {/* Imagem animada */}
           <motion.div
-            className="relative flex justify-center" // Flexbox para centralizar horizontalmente
+            className="relative flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -35,10 +35,11 @@ const Experiencia = () => {
                 className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-radial from-[#dc0000]/10 to-transparent blur-3xl -z-10" />
+            <div className="absolute inset-0 bg-gradient-radial from-[#dc0000]/10 to-transparent blur-3xl -z-10 pointer-events-none" />
           </motion.div>
 
-          <div className="text-left space-y-8">
+          {/* Texto e botões */}
+          <div className="text-left space-y-8 relative z-20">
             <motion.h3
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
               initial={{ opacity: 0, y: -20 }}
@@ -48,7 +49,7 @@ const Experiencia = () => {
               Experiência Profissional
             </motion.h3>
 
-            {[ 
+            {[
               "Minha paixão por desenvolvimento web começou durante minha transição de carreira, onde obtive certificado técnico em computação em nuvem. Desde então, tenho trabalhado com diversas tecnologias e frameworks, sempre buscando aprender e me adaptar às novas tendências do mercado.",
               "Ao longo da minha carreira, tive a oportunidade de trabalhar em projetos desafiadores que me permitiram desenvolver habilidades técnicas e interpessoais. Acredito que a comunicação clara e a colaboração são tão importantes quanto o código bem escrito.",
               "Atualmente, estou focado em criar experiências web imersivas e acessíveis, utilizando as melhores práticas de desenvolvimento e design.",
@@ -64,6 +65,7 @@ const Experiencia = () => {
               </motion.p>
             ))}
 
+            {/* Botões */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,8 +73,8 @@ const Experiencia = () => {
               className="flex flex-wrap gap-4"
             >
               <a
-                href="#contato"
-                className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                href="https://api.whatsapp.com/send?phone=551999042072&text=Oi%20Thomas!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto.%20Vamos%20conversar%3F"
+                className="relative z-50 group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
               >
                 Entre em Contato
                 <svg
@@ -90,13 +92,12 @@ const Experiencia = () => {
                 </svg>
               </a>
 
-              {/* Botão para download do currículo */}
               <motion.a
-                href="/curriculo.pdf"  // Substitua com o caminho correto do seu arquivo PDF
+                href="https://docs.google.com/document/d/1iObqSJQNbJAn3EBY0m7iGZqSO4p9Yrp6IG2MPxVH0Q0/edit?usp=sharing"
                 download
-                className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                whileHover={{ scale: 1.05 }} // Animação de zoom ao passar o mouse
-                whileTap={{ scale: 0.95 }}   // Animação de diminuição ao clicar
+                className="relative z-50 group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Baixar Currículo
                 <svg
@@ -118,8 +119,8 @@ const Experiencia = () => {
         </div>
       </div>
 
-      {/* Animação dos círculos */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Círculos animados de fundo */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
       </div>

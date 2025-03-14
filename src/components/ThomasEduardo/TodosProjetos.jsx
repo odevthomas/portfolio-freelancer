@@ -17,30 +17,29 @@ const Projetos = () => {
     "Telegram API": <TbBrandTelegram className="text-blue-400" />
   };
 
-// Dados dos projetos organizados por categorias
 const projetos = {
   featured: [
     {
       id: 1,
       title: "LSG Marketing Digital",
       description:
-        "Plataforma web moderna para marketing digital com landing page otimizada para conversão no WhatsApp. Conta com monitoramento de cliques, design responsivo e integração eficiente para captação de leads.",
+        "Landing page otimizada para conversão no WhatsApp, com monitoramento de cliques, design responsivo e integração eficiente para captação de leads.",
       image: "/Projetos/TodosProjetos(1).png",
       liveUrl: "https://lsgdigital.com.br",
       githubUrl: "https://github.com/yourusername/lsg-marketing-digital",
       tags: ["React", "Node.js", "Landing Page", "Analytics"],
-      category: "Web App",
+      category: "Freelancer",
     },
     {
       id: 2,
       title: "Petshop Cambuci",
       description:
-        "Projeto fictício desenvolvido com React, TypeScript e Vite. Nosso objetivo é oferecer uma experiência moderna e eficiente para pet shops, permitindo agendamentos, gerenciamento de clientes e serviços personalizados.",
+        "Plataforma moderna para pet shops com agendamento de serviços, gestão de clientes e integração com WhatsApp.",
       image: "/Projetos/TodosProjetos(2).png",
       liveUrl: "https://petcambuci.vercel.app/",
       githubUrl: "https://github.com/odevthomas/PetCambuci/",
       tags: ["React", "TypeScript", "Vite", "Agendamento", "API"],
-      category: "Web App",
+      category: "Freelancer",
       highlights: [
         "Sistema de Agendamento",
         "Galeria Dinâmica",
@@ -51,71 +50,152 @@ const projetos = {
       id: 3,
       title: "Bella Cucina",
       description:
-        "Sistema de gestão de restaurantes versátil e responsivo, melhorando a experiência do cliente e a eficiência operacional.",
+        "Sistema de gestão para restaurantes, com pedidos online, cadastro de clientes e busca otimizada no cardápio.",
       image: "/Projetos/TodosProjetos(3).png",
       liveUrl: "https://bellacucina.vercel.app/",
       githubUrl: "https://github.com/odevthomas/BellaCucina",
       tags: ["React", "MongoDB", "API REST", "Autenticação"],
-      category: "Full Stack",
-      highlights: [
-        "Gestão de Pedidos",
-        "Sistema de Busca",
-        "Cadastro de Usuários",
-      ],
+      category: "Freelancer",
+      highlights: ["Gestão de Pedidos", "Sistema de Busca", "Cadastro de Usuários"],
     },
     {
       id: 4,
-      title: "Gerenciamento de Tarefas",
+      title: "Task Manager",
       description:
-        "Aplicativo de gerenciamento de tarefas desenvolvido com React, TypeScript e Tailwind CSS, permitindo organizar atividades de forma eficiente.",
+        "Aplicativo de gerenciamento de tarefas, permitindo a organização de atividades com interface moderna e intuitiva.",
       image: "/Projetos/TodosProjetos(4).png",
       liveUrl: null,
       githubUrl: "https://github.com/odevthomas/NodeCrude-Api-Mysql-React",
       tags: ["React", "TypeScript", "Tailwind", "CRUD", "API REST"],
-      category: "Frontend",
-      highlights: [
-        "Operações CRUD",
-        "Autenticação de Usuários",
-        "Interface Responsiva",
-      ],
+      category: "Ferramentas",
+      highlights: ["Operações CRUD", "Autenticação de Usuários", "Interface Responsiva"],
     },
     {
       id: 5,
       title: "Social Pet",
       description:
-        "Plataforma interativa para amantes de animais de estimação, proporcionando uma experiência envolvente e funcional aos usuários.",
+        "Rede social para amantes de animais, permitindo compartilhamento de histórias, dicas e adoção de pets.",
       image: "/Projetos/TodosProjetos(5).png",
       liveUrl: "https://rede-pets.vercel.app/",
       githubUrl: "https://github.com/odevthomas/SocialPet",
       tags: ["JavaScript", "API Integration", "UX/UI", "Comunidade"],
-      category: "Plataforma Social",
+      category: "Pessoal",
       highlights: ["Verificação em Tempo Real", "Sugestões Inteligentes"],
     },
   ],
   personal: [
     {
       id: 6,
-      title: "Gerenciador de Fatura",
+      title: "Gerenciador de Faturas",
       description:
-        "Aplicativo web para pesquisa de vagas de emprego, desenvolvido com Vite e React, integrando-se a APIs externas.",
+        "Sistema para controle e organização de faturas, facilitando a visualização de despesas e pagamentos.",
       image: "/Projetos/TodosProjetos(6).png",
-      githubUrl: "https://github.com/odevthomas/trabalho-frontend",
-      tags: ["React", "Vite", "API", "UI/UX"],
-      category: "Pessoal",
+      githubUrl: "https://invoice-generator--omega.vercel.app/",
+      tags: ["React", "Vite", "API",],
+      category: "Ferramentas",
       highlights: ["Interface Interativa", "Busca Dinâmica"],
     },
     {
       id: 7,
       title: "Dieta.IA",
       description:
-        "Aplicativo gerador de dietas personalizadas utilizando IA, desenvolvido durante um evento de aprendizado.",
+        "Aplicação de inteligência artificial para geração de dietas personalizadas conforme objetivos do usuário.",
       image: "/Projetos/TodosProjetos(8).png",
       githubUrl: "https://github.com/odevthomas/Dieta_IA",
-      tags: ["Node.js", "AI", "Telegram API"],
-      category: "Inteligência Artificial",
+      tags: ["Node.js", "AI", "YouTube","Express",],
+      category: "Pessoal",
+    },
+    {
+      id: 8,
+      image: "/Projetos/projeto(1).png",
+      title: "Arte na Pele Studios",
+      description:
+        "Landing page profissional para um estúdio de tatuagem, destacando portfólio, agendamentos e serviços oferecidos.",
+      category: "Freelancer",
+      tags: ["React", "TypeScript", "Vite", "TailwindCSS", "UI/UX"],
+      liveUrl: "https://artenapele.vercel.app/",
+      githubUrl: null,
+    },
+    {
+      id: 9,
+      image: "/Projetos/projeto(2).png",
+      title: "Casa L'Ellit",
+      description:
+        "Website institucional para salão de beleza, com agendamento online e apresentação detalhada dos serviços.",
+      category: "Freelancer",
+      tags: ["React", "Node.js", "Tag", "whatsapp", "Agendamentos", "Api"],
+      liveUrl: "https://www.lellit.com.br/casaLellit",
+      githubUrl: null,
+    },
+    {
+      id: 10,
+      image: "/Projetos/projeto(3).png",
+      title: "Gil Barbosa Beauty",
+      description:
+        "Landing page para salão de beleza, com foco em serviços como cílios, design de sobrancelhas e maquiagem.",
+      category: "Freelancer",
+      tags: ["React", "Node.js", "whatsapp", "Agendamentos", "Api"],
+      liveUrl: "https://www.gilbarbosabeauty.com.br/",
+      githubUrl: null,
+    },
+    {
+      id: 11,
+      image: "/Projetos/projeto(5).png",
+      title: "Perfil Links Personalizados",
+      description:
+        "Gerador de perfis personalizáveis com nome, bio, links sociais e habilidades técnicas. Responsivo e estilizado com Tailwind CSS.",
+      category: "Pessoal",
+      tags: ["React", "TailwindCSS", "JavaScript", "Perfil Personalizado"],
+      liveUrl: "https://bio-links-blue.vercel.app/",
+      githubUrl: null,
+    },
+    {
+      id: 12,
+      image: "/Projetos/projeto(6).png",
+      title: "Barbearia Lins",
+      description:
+        "Website para barbearia premium, com sistema de agendamento online e apresentação de serviços.",
+      category: "Freelancer",
+      tags: ["React", "Firebase", "TailwindCSS", "Agendamentos"],
+      liveUrl: "https://barbearia-lins-digital.vercel.app/",
+      githubUrl: null,
+    },
+    {
+      id: 13,
+      image: "/Projetos/projeto(6.1).png",
+      title: "Painel de Benefícios do Funcionário",
+      description:
+        "Dashboard interativo para acompanhamento de benefícios corporativos, com estatísticas e gráficos dinâmicos.",
+      category: "Ferramentas",
+      tags: ["React", "TypeScript", "Node.js", "MySQL", "Dashboard", "Gráficos"],
+      liveUrl: "https://beneficios-funcionarios.vercel.app/",
+      githubUrl: null,
+    },
+    {
+      id: 14,
+      image: "/Projetos/projeto(7).png",
+      title: "Direito Trabalhista",
+      description:
+        "Website jurídico para advogados, oferecendo agendamentos e informações sobre serviços advocatícios.",
+      category: "Freelancer",
+      tags: ["React", "Node.js", "Express", "MongoDB", "Agendamentos"],
+      liveUrl: "https://odevthomas.github.io/LP-Advogada/",
+      githubUrl: null,
+    },
+    {
+      id: 15,
+      image: "/Projetos/projeto(8).png",
+      title: "Do Zero ao Primeiro Emprego em Programação",
+      description:
+        "Plataforma educacional para iniciantes em programação, com materiais didáticos e suporte para o primeiro emprego.",
+      category: "Pessoal",
+      tags: ["React", "Firebase", "JavaScript", "Node.js", "Educação", "Cursos Online"],
+      liveUrl: "https://primeiroempregodev.vercel.app/",
+      githubUrl: null,
     },
   ],
 };
+
 
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
@@ -217,6 +297,7 @@ const projetos = {
                   alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                 
              
