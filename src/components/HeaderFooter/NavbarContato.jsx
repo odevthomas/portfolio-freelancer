@@ -8,9 +8,8 @@ import logo from "/logo.svg";
 import { Menu, X } from "lucide-react";
 
 const navigation = [
-  { title: "Conquistas", path: "#conquistas" },
-  { title: "Mais Projetos", path: "#projetos" },
-  { title: "Tecnologias", path: "#tecnologias" },
+  { title: "Inicio", path: "/Home" },
+
 ];
 
 const Header = () => {

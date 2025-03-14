@@ -93,7 +93,7 @@ const Home = () => {
               transition={{ delay: 0.5 }}
             >
               <Link
-                to="/dashboard"
+                to="/contato"
                 className="group flex items-center gap-2 bg-gradient-to-r from-[#dc0000] to-[#dc0000] text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
               Entra em contato

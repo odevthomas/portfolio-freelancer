@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Home from './pages/Home';
+import Contato from './components/ThomasEduardo/Contato';
 import Odevthomas from './pages/odevthomas';
 import Error404 from './pages/Error404';
 import Notification from './components/UI/Notification';
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home showNotification={showNotification} />} />
           <Route path="/odevthomas" element={<Odevthomas showNotification={showNotification} />} />
+          <Route path="/contato" element={<Contato showNotification={showNotification} />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

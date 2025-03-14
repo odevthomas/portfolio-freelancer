@@ -96,7 +96,6 @@ const ProjectSection = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             Principais Conquistas            
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
         </motion.div>
 
         <motion.div 

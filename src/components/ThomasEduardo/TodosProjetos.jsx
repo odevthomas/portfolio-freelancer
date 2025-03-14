@@ -175,9 +175,6 @@ const projetos = {
             Todos os Projetos
           </h3>
 
-
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-indigo-500 mx-auto"></div>
-
         </div>
 
         {/* Filtros */}

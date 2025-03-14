@@ -4,72 +4,125 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+// Importe os ícones
+import { SiReact, SiNodedotjs, SiMongodb, SiMysql, SiFirebase, SiJavascript, SiExpress, SiTypescript, SiVite, SiTailwindcss, SiHtml5, SiCss3 } from 'react-icons/si'; 
+import { TbBrandTelegram } from 'react-icons/tb';
+
+// Objeto de ícones
+const TECH_ICONS = {
+  "React": <SiReact className="text-blue-400 text-4xl" />,
+  "Node.js": <SiNodedotjs className="text-green-500 text-4xl" />,
+  "MongoDB": <SiMongodb className="text-green-400 text-4xl" />,
+  "MySQL": <SiMysql className="text-blue-500 text-4xl" />,
+  "Firebase": <SiFirebase className="text-yellow-500 text-4xl" />,
+  "JavaScript": <SiJavascript className="text-yellow-400 text-4xl" />,
+  "Express": <SiExpress className="text-gray-200 text-4xl" />,
+  "Telegram API": <TbBrandTelegram className="text-blue-400 text-4xl" />,
+  "TypeScript": <SiTypescript className="text-blue-600 text-4xl" />,
+  "Vite": <SiVite className="text-purple-500 text-4xl" />,
+  "TailwindCSS": <SiTailwindcss className="text-cyan-400 text-4xl" />,
+  "HTML": <SiHtml5 className="text-orange-500 text-4xl" />,
+  "CSS": <SiCss3 className="text-blue-400 text-4xl" />
+};
+
 const About = () => {
   return (
     <section
       id="sobrenos"
-      className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#000000] to-black flex items-center px-4 py-20 md:py-24"
+      className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-[#000000] to-black px-6"
     >
+      {/* Círculos de fundo */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-red-500 rounded-full filter blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500  rounded-full filter blur-3xl animate-bounce"></div>
       </div>
 
-      <div className="w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="text-left space-y-8 lg:pl-8">
-            <motion.h3
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Resumo Profissional
-            </motion.h3>
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
+        {/* Texto centralizado verticalmente */}
+        <div className="text-left space-y-6">
+          <motion.h3
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Resumo Profissional
+          </motion.h3>
 
-            {[ 
-              "Sou um desenvolvedor apaixonado por criar experiências digitais impactantes e funcionais. Minha jornada na tecnologia começou há mais de 2 anos, e desde então venho aprimorando minhas habilidades para entregar soluções que combinem estética e desempenho."
-            ].map((text, index) => (
-              <motion.p
-                key={index}
-                className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 + index * 0.2 }}
-              >
-                {text}
-              </motion.p>
-            ))}
-          </div>
+          <motion.p
+            className="text-white/80 text-lg sm:text-xl md:text-2xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            Sou um desenvolvedor apaixonado por criar experiências digitais impactantes e funcionais. Minha jornada na tecnologia começou há mais de 2 anos, e desde então venho aprimorando minhas habilidades para entregar soluções que combinem estética e desempenho.
+          </motion.p>
 
+          {/* Adicionando os ícones das tecnologias abaixo do parágrafo */}
           <motion.div
-            className="relative lg:pr-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap gap-4"
           >
-            <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              className="relative z-10"
+            {Object.keys(TECH_ICONS).map((tech, index) => (
+              <div key={index} className="flex items-center justify-center">
+                {TECH_ICONS[tech]}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-4"
+          >
+            <a
+              href="#contato"
+              className="group flex items-center gap-2 bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
             >
-              <video
-                className="h-auto max-h-[80vh] w-full object-cover shadow-2xl rounded-lg"
-                src="/Video/code-video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ border: 'none' }}
-              />
-            </motion.div>
+              Entre em Contato
+              <svg
+                className="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
           </motion.div>
         </div>
+
+        {/* Imagem Hero */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.div
+            animate={{ y: [-5, 5, -5] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          >
+            <img
+              src="/Perfil/avatar(5).png"
+              alt="Desenvolvimento Web Frontend"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
